@@ -8,7 +8,7 @@ using TownOfUs.Roles.Modifiers;
 namespace TownOfUs.Modifiers.ShyMod
 {
     [HarmonyPatch(typeof(HudManager), nameof(HudManager.Update))]
-    public class HudManagerUpdate
+    public class ShyHudManagerUpdate
     {
         public static void Postfix(HudManager __instance)
         {

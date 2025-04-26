@@ -35,7 +35,7 @@ namespace TownOfUs
                     string info =
                         $"ALERT\nTown of Us {TownOfUs.VersionString} requires {RequiredVersions.Values.Last()}\nyou have {Application.version}\nPlease {action} your among us version"
                         + "\nvisit Github or Discord for any help";
-                    TwitchManager man = DestroyableSingleton<TwitchManager>.Instance;
+                    TwitchManager man = TwitchManager.Instance;
                     ModUpdater.InfoPopup = UnityEngine.Object.Instantiate(man.TwitchPopup);
                     ModUpdater.InfoPopup.TextAreaTMP.fontSize *= 0.68f;
                     ModUpdater.InfoPopup.TextAreaTMP.enableAutoSizing = true;
@@ -97,7 +97,7 @@ namespace TownOfUs
                 })));
 
                 //Set popup stuff
-                TwitchManager man = DestroyableSingleton<TwitchManager>.Instance;
+                TwitchManager man = TwitchManager.Instance;
                 ModUpdater.InfoPopup = UnityEngine.Object.Instantiate(man.TwitchPopup);
                 ModUpdater.InfoPopup.TextAreaTMP.fontSize *= 0.7f;
                 ModUpdater.InfoPopup.TextAreaTMP.enableAutoSizing = false;

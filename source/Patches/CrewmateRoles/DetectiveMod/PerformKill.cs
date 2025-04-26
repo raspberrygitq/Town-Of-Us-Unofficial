@@ -18,7 +18,7 @@ namespace TownOfUs.CrewmateRoles.DetectiveMod
             if (PlayerControl.LocalPlayer.Data.IsDead) return false;
             if (!PlayerControl.LocalPlayer.CanMove) return false;
             if (!__instance.enabled) return false;
-            var maxDistance = GameOptionsData.KillDistances[GameOptionsManager.Instance.currentNormalGameOptions.KillDistance];
+            var maxDistance = LegacyGameOptions.KillDistances[GameOptionsManager.Instance.currentNormalGameOptions.KillDistance];
 
             if (__instance == role.ExamineButton)
             {
@@ -35,8 +35,8 @@ namespace TownOfUs.CrewmateRoles.DetectiveMod
                     {
                         Coroutines.Start(Utils.FlashCoroutine(Color.red));
                         var deadPlayer = role.InvestigatingScene.DeadPlayer;
-                        if (DestroyableSingleton<HudManager>.Instance)
-                            DestroyableSingleton<HudManager>.Instance.Chat.AddChat(PlayerControl.LocalPlayer, $"{role.ClosestPlayer.GetDefaultOutfit().PlayerName} was at the scene of {deadPlayer.GetDefaultOutfit().PlayerName}'s death!");
+                        if (HudManager.Instance)
+                            HudManager.Instance.Chat.AddChat(PlayerControl.LocalPlayer, $"{role.ClosestPlayer.GetDefaultOutfit().PlayerName} was at the scene of {deadPlayer.GetDefaultOutfit().PlayerName}'s death!");
                     }
                     else Coroutines.Start(Utils.FlashCoroutine(Color.green));
                 }
@@ -48,7 +48,7 @@ namespace TownOfUs.CrewmateRoles.DetectiveMod
                 else if (interact[1] == true)
                 {
                     role.LastExamined = DateTime.UtcNow;
-                    role.LastExamined = role.LastExamined.AddSeconds(CustomGameOptions.ProtectKCReset - CustomGameOptions.ExamineCd);
+                    role.LastExamined = role.LastExamined.AddSeconds(CustomGameOptions.TempSaveCdReset - CustomGameOptions.ExamineCd);
                     return false;
                 }
                 else if (interact[3] == true) return false;
@@ -56,6 +56,7 @@ namespace TownOfUs.CrewmateRoles.DetectiveMod
             }
             else
             {
+                if (__instance != HudManager.Instance.KillButton) return true;
                 if (role.CurrentTarget == null)
                     return false;
                 if (Vector2.Distance(role.CurrentTarget.gameObject.transform.position,

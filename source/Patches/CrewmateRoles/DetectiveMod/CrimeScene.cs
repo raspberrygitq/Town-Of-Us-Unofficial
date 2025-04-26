@@ -19,7 +19,7 @@ namespace TownOfUs.CrewmateRoles.DetectiveMod
                 if (player.PlayerId == PlayerControl.LocalPlayer.PlayerId) continue;
                 Debug.Log(GetComponent<BoxCollider2D>().IsTouching(player.Collider));
                 if (Vector2.Distance(player.GetTruePosition(), gameObject.transform.position) >
-                      GameOptionsData.KillDistances[GameOptionsManager.Instance.currentNormalGameOptions.KillDistance]) continue;
+                      LegacyGameOptions.KillDistances[GameOptionsManager.Instance.currentNormalGameOptions.KillDistance]) continue;
                 //if (!GetComponent<BoxCollider2D>().IsTouching(player.Collider)) continue;
                 if (!ScenePlayers.Contains(player.PlayerId) && player.PlayerId != PlayerControl.LocalPlayer.PlayerId)
                 {

@@ -16,6 +16,9 @@ namespace TownOfUs.Patches
         public static Sprite Sprite => TownOfUs.Arrow;
         public static void Postfix(IntroCutscene._CoBegin_d__35 __instance)
         {
+            HudUpdate.Zooming = false;
+            HudUpdate.ZoomStart();
+
             foreach (var player in PlayerControl.AllPlayerControls)
             {
                 if (player.Is(ModifierEnum.Mini) && player.transform.localPosition.y > 4 && GameOptionsManager.Instance.currentNormalGameOptions.MapId == 1)
@@ -50,6 +53,8 @@ namespace TownOfUs.Patches
                 var oracle = Role.GetRole<Oracle>(PlayerControl.LocalPlayer);
                 oracle.LastConfessed = DateTime.UtcNow;
                 oracle.LastConfessed = oracle.LastConfessed.AddSeconds(CustomGameOptions.InitialCooldowns - CustomGameOptions.ConfessCd);
+                oracle.LastBlessed = DateTime.UtcNow;
+                oracle.LastBlessed = oracle.LastBlessed.AddSeconds(CustomGameOptions.InitialCooldowns - CustomGameOptions.BlessCd);
             }
 
             if (PlayerControl.LocalPlayer.Is(RoleEnum.Sheriff))
@@ -80,6 +85,13 @@ namespace TownOfUs.Patches
                 hunter.LastStalked = hunter.LastStalked.AddSeconds(CustomGameOptions.InitialCooldowns - CustomGameOptions.HunterStalkCd);
                 hunter.LastKilled = DateTime.UtcNow;
                 hunter.LastKilled = hunter.LastKilled.AddSeconds(CustomGameOptions.InitialCooldowns - CustomGameOptions.HunterKillCd);
+            }
+
+            if (PlayerControl.LocalPlayer.Is(RoleEnum.Cleric))
+            {
+                var cleric = Role.GetRole<Cleric> (PlayerControl.LocalPlayer);
+                cleric.LastBarriered = DateTime.UtcNow;
+                cleric.LastBarriered = cleric.LastBarriered.AddSeconds(CustomGameOptions.InitialCooldowns - CustomGameOptions.BarrierCd);
             }
 
             if (PlayerControl.LocalPlayer.Is(RoleEnum.Transporter))
@@ -117,6 +129,13 @@ namespace TownOfUs.Patches
                 jailor.LastJailed = jailor.LastJailed.AddSeconds(CustomGameOptions.InitialCooldowns - CustomGameOptions.JailCd);
             }
 
+            if (PlayerControl.LocalPlayer.Is(RoleEnum.Plumber))
+            {
+                var plumber = Role.GetRole<Plumber>(PlayerControl.LocalPlayer);
+                plumber.LastFlushed = DateTime.UtcNow;
+                plumber.LastFlushed = plumber.LastFlushed.AddSeconds(CustomGameOptions.InitialCooldowns - CustomGameOptions.FlushCd);
+            }
+
             if (PlayerControl.LocalPlayer.Is(RoleEnum.Blackmailer))
             {
                 var blackmailer = Role.GetRole<Blackmailer>(PlayerControl.LocalPlayer);
@@ -136,6 +155,13 @@ namespace TownOfUs.Patches
                 var escapist = Role.GetRole<Escapist>(PlayerControl.LocalPlayer);
                 escapist.LastEscape = DateTime.UtcNow;
                 escapist.LastEscape = escapist.LastEscape.AddSeconds(CustomGameOptions.InitialCooldowns - CustomGameOptions.EscapeCd);
+            }
+
+            if (PlayerControl.LocalPlayer.Is(RoleEnum.Eclipsal))
+            {
+                var eclipsal = Role.GetRole<Eclipsal>(PlayerControl.LocalPlayer);
+                eclipsal.LastBlind = DateTime.UtcNow;
+                eclipsal.LastBlind = eclipsal.LastBlind.AddSeconds(CustomGameOptions.InitialCooldowns - CustomGameOptions.BlindCd);
             }
 
             if (PlayerControl.LocalPlayer.Is(RoleEnum.Grenadier))
@@ -257,6 +283,20 @@ namespace TownOfUs.Patches
                 var surv = Role.GetRole<Survivor>(PlayerControl.LocalPlayer);
                 surv.LastVested = DateTime.UtcNow;
                 surv.LastVested = surv.LastVested.AddSeconds(CustomGameOptions.InitialCooldowns - CustomGameOptions.VestCd);
+                surv.LastMoved = DateTime.UtcNow;
+            }
+
+            if (PlayerControl.LocalPlayer.Is(RoleEnum.Mercenary))
+            {
+                var merc = Role.GetRole<Mercenary>(PlayerControl.LocalPlayer);
+                merc.LastGuarded = DateTime.UtcNow;
+                merc.LastGuarded = merc.LastGuarded.AddSeconds(CustomGameOptions.InitialCooldowns - CustomGameOptions.GuardCd);
+            }
+
+            if (PlayerControl.LocalPlayer.Is(RoleEnum.Jester))
+            {
+                var jest = Role.GetRole<Jester>(PlayerControl.LocalPlayer);
+                jest.LastMoved = DateTime.UtcNow;
             }
 
             if (PlayerControl.LocalPlayer.Is(RoleEnum.Werewolf))

@@ -46,6 +46,9 @@ namespace TownOfUs
         SoulCollector,
         Lookout,
         Deputy,
+        Plumber,
+        Mercenary,
+        Cleric,
 
         Miner,
         Swooper,
@@ -61,6 +64,7 @@ namespace TownOfUs
         Venerer,
         Hypnotist,
         Scavenger,
+        Eclipsal,
 
         Crewmate,
         Impostor,
@@ -89,7 +93,11 @@ namespace TownOfUs
         SixthSense,
         Shy,
         Mini,
-        Saboteur
+        Saboteur,
+        Celebrity,
+        Taskmaster,
+        Immovable,
+        Satellite
     }
 
     public enum AbilityEnum

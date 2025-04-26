@@ -18,18 +18,19 @@ namespace TownOfUs.NeutralRoles.DoomsayerMod
                 var playerResults = PlayerReportFeedback(doomsayerRole.LastObservedPlayer);
                 var roleResults = RoleReportFeedback(doomsayerRole.LastObservedPlayer);
 
-                if (!string.IsNullOrWhiteSpace(playerResults)) DestroyableSingleton<HudManager>.Instance.Chat.AddChat(PlayerControl.LocalPlayer, playerResults);
-                if (!string.IsNullOrWhiteSpace(roleResults)) DestroyableSingleton<HudManager>.Instance.Chat.AddChat(PlayerControl.LocalPlayer, roleResults);
+                if (!string.IsNullOrWhiteSpace(playerResults)) HudManager.Instance.Chat.AddChat(PlayerControl.LocalPlayer, playerResults);
+                if (!string.IsNullOrWhiteSpace(roleResults)) HudManager.Instance.Chat.AddChat(PlayerControl.LocalPlayer, roleResults);
             }
         }
 
         public static string PlayerReportFeedback(PlayerControl player)
         {
-            if (player.Is(RoleEnum.Aurial) || player.Is(RoleEnum.Imitator) || StartImitate.ImitatingPlayer == player
-                || player.Is(RoleEnum.Morphling) || player.Is(RoleEnum.Mystic)
-                 || player.Is(RoleEnum.Spy) || player.Is(RoleEnum.Glitch))
+            if (player.Is(Faction.Impostors) && Role.GetRole(player).formerRole != RoleEnum.None)
+                return $"You observe that {player.GetDefaultOutfit().PlayerName} has a trick up their sleeve";
+            else if (player.Is(RoleEnum.Aurial) || player.Is(RoleEnum.Eclipsal) || player.Is(RoleEnum.Glitch) || player.Is(RoleEnum.Imitator)
+                 || StartImitate.ImitatingPlayers.Contains(player.PlayerId) || player.Is(RoleEnum.Morphling) || player.Is(RoleEnum.Mystic) || player.Is(RoleEnum.Spy))
                 return $"You observe that {player.GetDefaultOutfit().PlayerName} has an altered perception of reality";
-            else if (player.Is(RoleEnum.Blackmailer) || player.Is(RoleEnum.Detective) || player.Is(RoleEnum.Doomsayer)
+            else if (player.Is(RoleEnum.Blackmailer) || player.Is(RoleEnum.Detective) || player.Is(RoleEnum.Doomsayer) || player.Is(RoleEnum.Mercenary)
                  || player.Is(RoleEnum.Oracle) || player.Is(RoleEnum.Snitch) || player.Is(RoleEnum.Trapper))
                 return $"You observe that {player.GetDefaultOutfit().PlayerName} has an insight for private information";
             else if (player.Is(RoleEnum.Altruist) || player.Is(RoleEnum.Amnesiac) || player.Is(RoleEnum.Janitor)
@@ -41,10 +42,10 @@ namespace TownOfUs.NeutralRoles.DoomsayerMod
             else if (player.Is(RoleEnum.Arsonist) || player.Is(RoleEnum.Hypnotist) || player.Is(RoleEnum.Miner) || player.Is(RoleEnum.Pestilence)
                  || player.Is(RoleEnum.Plaguebearer) || player.Is(RoleEnum.Prosecutor) || player.Is(RoleEnum.Seer) || player.Is(RoleEnum.Transporter))
                 return $"You observe that {player.GetDefaultOutfit().PlayerName} spreads fear amonst the group";
-            else if (player.Is(RoleEnum.Engineer) || player.Is(RoleEnum.Escapist) || player.Is(RoleEnum.Grenadier) || player.Is(RoleEnum.GuardianAngel)
-                 || player.Is(RoleEnum.Medic) || player.Is(RoleEnum.Survivor) || player.Is(RoleEnum.Warden))
-                return $"You observe that {player.GetDefaultOutfit().PlayerName} hides to guard themself or others";
-            else if (player.Is(RoleEnum.Executioner) || player.Is(RoleEnum.Jester) || player.Is(RoleEnum.Mayor) || player.Is(RoleEnum.Politician)
+            else if (player.Is(RoleEnum.Cleric) || player.Is(RoleEnum.Engineer) || player.Is(RoleEnum.Escapist) || player.Is(RoleEnum.Grenadier)
+                 || player.Is(RoleEnum.GuardianAngel) || player.Is(RoleEnum.Medic) || player.Is(RoleEnum.Survivor) || player.Is(RoleEnum.Warden))
+                return $"You observe that {player.GetDefaultOutfit().PlayerName} hides to protect themself or others";
+            else if (player.Is(RoleEnum.Executioner) || player.Is(RoleEnum.Jester) || player.Is(RoleEnum.Mayor) || player.Is(RoleEnum.Plumber) || player.Is(RoleEnum.Politician)
                  || player.Is(RoleEnum.Swapper) || player.Is(RoleEnum.Traitor) || player.Is(RoleEnum.Venerer) || player.Is(RoleEnum.Veteran))
                 return $"You observe that {player.GetDefaultOutfit().PlayerName} has a trick up their sleeve";
             else if (player.Is(RoleEnum.Bomber) || player.Is(RoleEnum.Deputy) || player.Is(RoleEnum.Jailor) || player.Is(RoleEnum.Juggernaut)
@@ -58,13 +59,14 @@ namespace TownOfUs.NeutralRoles.DoomsayerMod
 
         public static string RoleReportFeedback(PlayerControl player)
         {
-            if (player.Is(RoleEnum.Aurial) || player.Is(RoleEnum.Imitator) || StartImitate.ImitatingPlayer == player
-                || player.Is(RoleEnum.Morphling) || player.Is(RoleEnum.Mystic)
-                 || player.Is(RoleEnum.Spy) || player.Is(RoleEnum.Glitch))
-                return "(Aurial, Imitator, Morphling, Mystic, Spy or The Glitch)";
-            else if (player.Is(RoleEnum.Blackmailer) || player.Is(RoleEnum.Detective) || player.Is(RoleEnum.Doomsayer)
+            if (player.Is(Faction.Impostors) && Role.GetRole(player).formerRole != RoleEnum.None)
+                return "(Executioner, Jester, Plumber, Politician, Swapper, Traitor, Venerer or Veteran)";
+            else if (player.Is(RoleEnum.Aurial) || player.Is(RoleEnum.Eclipsal) || player.Is(RoleEnum.Glitch) || player.Is(RoleEnum.Imitator)
+                 || StartImitate.ImitatingPlayers.Contains(player.PlayerId) || player.Is(RoleEnum.Morphling) || player.Is(RoleEnum.Mystic) || player.Is(RoleEnum.Spy))
+                return "(Aurial, Eclipsal, Glitch, Imitator, Morphling, Mystic or Spy)";
+            else if (player.Is(RoleEnum.Blackmailer) || player.Is(RoleEnum.Detective) || player.Is(RoleEnum.Doomsayer) || player.Is(RoleEnum.Mercenary)
                  || player.Is(RoleEnum.Oracle) || player.Is(RoleEnum.Snitch) || player.Is(RoleEnum.Trapper))
-                return "(Blackmailer, Detective, Doomsayer, Oracle, Snitch or Trapper)";
+                return "(Blackmailer, Detective, Doomsayer, Mercenary, Oracle, Snitch or Trapper)";
             else if (player.Is(RoleEnum.Altruist) || player.Is(RoleEnum.Amnesiac) || player.Is(RoleEnum.Janitor)
                  || player.Is(RoleEnum.Medium) || player.Is(RoleEnum.SoulCollector) || player.Is(RoleEnum.Undertaker) || player.Is(RoleEnum.Vampire))
                 return "(Altruist, Amnesiac, Janitor, Medium, Soul Collector, Undertaker or Vampire)";
@@ -74,12 +76,12 @@ namespace TownOfUs.NeutralRoles.DoomsayerMod
             else if (player.Is(RoleEnum.Arsonist) || player.Is(RoleEnum.Hypnotist) || player.Is(RoleEnum.Miner) || player.Is(RoleEnum.Pestilence)
                  || player.Is(RoleEnum.Plaguebearer) || player.Is(RoleEnum.Prosecutor) || player.Is(RoleEnum.Seer) || player.Is(RoleEnum.Transporter))
                 return "(Arsonist, Hypnotist, Miner, Plaguebearer, Prosecutor, Seer or Transporter)";
-            else if (player.Is(RoleEnum.Engineer) || player.Is(RoleEnum.Escapist) || player.Is(RoleEnum.Grenadier) || player.Is(RoleEnum.GuardianAngel)
-                 || player.Is(RoleEnum.Medic) || player.Is(RoleEnum.Survivor) || player.Is(RoleEnum.Warden))
-                return "(Engineer, Escapist, Grenadier, Guardian Angel, Medic, Survivor or Warden)";
-            else if (player.Is(RoleEnum.Executioner) || player.Is(RoleEnum.Jester) || player.Is(RoleEnum.Mayor) || player.Is(RoleEnum.Politician)
+            else if (player.Is(RoleEnum.Cleric) || player.Is(RoleEnum.Engineer) || player.Is(RoleEnum.Escapist) || player.Is(RoleEnum.Grenadier)
+                 || player.Is(RoleEnum.GuardianAngel) || player.Is(RoleEnum.Medic) || player.Is(RoleEnum.Survivor) || player.Is(RoleEnum.Warden))
+                return "(Cleric, Engineer, Escapist, Grenadier, Guardian Angel, Medic, Survivor or Warden)";
+            else if (player.Is(RoleEnum.Executioner) || player.Is(RoleEnum.Jester) || player.Is(RoleEnum.Mayor) || player.Is(RoleEnum.Plumber) || player.Is(RoleEnum.Politician)
                  || player.Is(RoleEnum.Swapper) || player.Is(RoleEnum.Traitor) || player.Is(RoleEnum.Venerer) || player.Is(RoleEnum.Veteran))
-                return "(Executioner, Jester, Politician, Swapper, Traitor, Venerer or Veteran)";
+                return "(Executioner, Jester, Plumber, Politician, Swapper, Traitor, Venerer or Veteran)";
             else if (player.Is(RoleEnum.Bomber) || player.Is(RoleEnum.Deputy) || player.Is(RoleEnum.Jailor) || player.Is(RoleEnum.Juggernaut)
                  || player.Is(RoleEnum.Sheriff) || player.Is(RoleEnum.Vigilante) || player.Is(RoleEnum.Warlock))
                 return "(Bomber, Deputy, Jailor, Juggernaut, Sheriff, Vigilante or Warlock)";

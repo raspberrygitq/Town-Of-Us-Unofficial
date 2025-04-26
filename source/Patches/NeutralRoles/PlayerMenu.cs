@@ -70,7 +70,7 @@ namespace TownOfUs.Patches.NeutralRoles
             {
                 var menu = PlayerMenu.singleton;
 
-                if (menu == null)
+                if (menu == null || PlayerControl.LocalPlayer.Is(RoleEnum.Traitor))
                     return true;
 
                 __instance.potentialVictims = new();

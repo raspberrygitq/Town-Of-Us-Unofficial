@@ -154,20 +154,30 @@ namespace TownOfUs.NeutralRoles.DoomsayerMod
                 role.RoleGuess[targetId] = nameText;
 
                 var playerRole = Role.GetRole(voteArea);
-                if (currentGuess != playerRole.Name) role.IncorrectGuesses++;
+                if (currentGuess != playerRole.Name)
+                {
+                    role.IncorrectGuesses++;
+                    if (!CustomGameOptions.DoomsayerGuessAllAtOnce)
+                    {
+                        ShowHideButtonsDoom.HideButtonsDoom(role);
+                        Coroutines.Start(Utils.FlashCoroutine(Color.red));
+                        return;
+                    }
+                }
+                else if (!CustomGameOptions.DoomsayerGuessAllAtOnce) Coroutines.Start(Utils.FlashCoroutine(Color.green));
 
                 if ((role.NumberOfGuesses < 2 && playersAlive < 3) || (role.NumberOfGuesses < 3 && playersAlive > 2)) return;
 
                 ShowHideButtonsDoom.HideButtonsDoom(role);
-                if (role.IncorrectGuesses > 0) Coroutines.Start(Utils.FlashCoroutine(Color.red));
+                if (role.IncorrectGuesses > 0 && CustomGameOptions.DoomsayerGuessAllAtOnce) Coroutines.Start(Utils.FlashCoroutine(Color.red));
                 else
                 {
                     ShowHideButtonsDoom.HideTextDoom(role);
-                    var playerModifier = Modifier.GetModifier(voteArea);
                     DoomsayerKill.RpcMurderPlayer(playerRole.Player, PlayerControl.LocalPlayer);
                     if (playerRole.Player.IsLover() && CustomGameOptions.BothLoversDie)
                     {
-                        var lover = ((Lover)playerModifier).OtherLover.Player;
+                        var playerModifier = Modifier.GetModifier<Lover>(voteArea);
+                        var lover = playerModifier.OtherLover.Player;
                         if (!lover.Is(RoleEnum.Pestilence)) ShowHideButtonsDoom.HideSingle(role, lover.PlayerId, false);
                     }
                 }

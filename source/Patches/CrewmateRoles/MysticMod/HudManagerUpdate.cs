@@ -21,10 +21,6 @@ namespace TownOfUs.CrewmateRoles.MysticMod
 
             var role = Role.GetRole<Mystic>(PlayerControl.LocalPlayer);
 
-            var data = PlayerControl.LocalPlayer.Data;
-            var isDead = data.IsDead;
-            var truePosition = PlayerControl.LocalPlayer.GetTruePosition();
-
             if (!PlayerControl.LocalPlayer.Data.IsDead)
             {
                 var validBodies = Object.FindObjectsOfType<DeadBody>().Where(x =>

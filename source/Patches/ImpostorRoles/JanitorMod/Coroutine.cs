@@ -20,7 +20,7 @@ namespace TownOfUs.ImpostorRoles.JanitorMod
                 }
             }
 
-            KillButtonTarget.SetTarget(DestroyableSingleton<HudManager>.Instance.KillButton, null, role);
+            KillButtonTarget.SetTarget(HudManager.Instance.KillButton, null, role);
             role.Player.SetKillTimer(GameOptionsManager.Instance.currentNormalGameOptions.KillCooldown);
             SpriteRenderer renderer = null;
             foreach (var body2 in body.bodyRenderers) renderer = body2;

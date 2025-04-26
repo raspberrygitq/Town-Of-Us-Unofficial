@@ -10,6 +10,7 @@ namespace TownOfUs.NeutralRoles.DoomsayerMod
     {
         public static bool Prefix(KillButton __instance)
         {
+            if (__instance != HudManager.Instance.KillButton) return true;
             var flag = PlayerControl.LocalPlayer.Is(RoleEnum.Doomsayer);
             if (!flag) return true;
             if (PlayerControl.LocalPlayer.Data.IsDead) return false;
@@ -21,7 +22,7 @@ namespace TownOfUs.NeutralRoles.DoomsayerMod
             if (role.ClosestPlayer == null) return false;
             var distBetweenPlayers = Utils.GetDistBetweenPlayers(PlayerControl.LocalPlayer, role.ClosestPlayer);
             var flag3 = distBetweenPlayers <
-                        GameOptionsData.KillDistances[GameOptionsManager.Instance.currentNormalGameOptions.KillDistance];
+                        LegacyGameOptions.KillDistances[GameOptionsManager.Instance.currentNormalGameOptions.KillDistance];
             if (!flag3) return false;
             var interact = Utils.Interact(PlayerControl.LocalPlayer, role.ClosestPlayer);
             if (interact[4] == true)
@@ -36,7 +37,7 @@ namespace TownOfUs.NeutralRoles.DoomsayerMod
             else if (interact[1] == true)
             {
                 role.LastObserved = DateTime.UtcNow;
-                role.LastObserved = role.LastObserved.AddSeconds(CustomGameOptions.ProtectKCReset - CustomGameOptions.ObserveCooldown);
+                role.LastObserved = role.LastObserved.AddSeconds(CustomGameOptions.TempSaveCdReset - CustomGameOptions.ObserveCooldown);
                 return false;
             }
             else if (interact[3] == true) return false;
