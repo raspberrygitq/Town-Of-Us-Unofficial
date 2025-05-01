@@ -33,10 +33,10 @@ namespace TownOfUs
                 var surv = (Survivor)role;
                 losers.Add(surv.Player.GetDefaultOutfit().ColorId);
             }
-            foreach (var role in Role.GetRoles(RoleEnum.Doomsayer))
+            foreach (var role in Role.GetRoles(RoleEnum.Foreteller))
             {
-                var doom = (Doomsayer)role;
-                losers.Add(doom.Player.GetDefaultOutfit().ColorId);
+                var fore = (Foreteller)role;
+                losers.Add(fore.Player.GetDefaultOutfit().ColorId);
             }
             foreach (var role in Role.GetRoles(RoleEnum.Executioner))
             {
@@ -132,15 +132,15 @@ namespace TownOfUs
                         return;
                     }
                 }
-                else if (type == RoleEnum.Doomsayer && CustomGameOptions.DoomsayerWinEndsGame)
+                else if (type == RoleEnum.Foreteller && CustomGameOptions.ForetellerWinEndsGame)
                 {
-                    var doom = (Doomsayer)role;
-                    if (doom.WonByGuessing)
+                    var fore = (Foreteller)role;
+                    if (fore.WonByGuessing)
                     {
                         EndGameResult.CachedWinners = new List<CachedPlayerData>();
-                        var doomData = new CachedPlayerData(doom.Player.Data);
-                        if (PlayerControl.LocalPlayer != doom.Player) doomData.IsYou = false;
-                        EndGameResult.CachedWinners.Add(doomData);
+                        var foreData = new CachedPlayerData(fore.Player.Data);
+                        if (PlayerControl.LocalPlayer != fore.Player) foreData.IsYou = false;
+                        EndGameResult.CachedWinners.Add(foreData);
                         return;
                     }
                 }

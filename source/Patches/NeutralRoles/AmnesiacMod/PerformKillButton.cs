@@ -140,7 +140,7 @@ namespace TownOfUs.NeutralRoles.AmnesiacMod
                 case RoleEnum.Plaguebearer:
                 case RoleEnum.Pestilence:
                 case RoleEnum.Werewolf:
-                case RoleEnum.Doomsayer:
+                case RoleEnum.Foreteller:
                 case RoleEnum.Vampire:
                 case RoleEnum.SoulCollector:
                 case RoleEnum.Mercenary:
@@ -217,7 +217,7 @@ namespace TownOfUs.NeutralRoles.AmnesiacMod
                         var survivor = new Survivor(other);
                         survivor.RegenTask();
                     }
-                    else if (role == RoleEnum.Doomsayer || role == RoleEnum.Executioner || role == RoleEnum.Jester || role == RoleEnum.SoulCollector)
+                    else if (role == RoleEnum.Foreteller || role == RoleEnum.Executioner || role == RoleEnum.Jester || role == RoleEnum.SoulCollector)
                     {
                         var jester = new Jester(other);
                         jester.RegenTask();
@@ -576,11 +576,11 @@ namespace TownOfUs.NeutralRoles.AmnesiacMod
                 wwRole.LastKilled = DateTime.UtcNow;
             }
 
-            else if (role == RoleEnum.Doomsayer)
+            else if (role == RoleEnum.Foreteller)
             {
-                var doomRole = Role.GetRole<Doomsayer>(amnesiac);
-                doomRole.LastObserved = DateTime.UtcNow;
-                doomRole.LastObservedPlayer = null;
+                var foreRole = Role.GetRole<Foreteller>(amnesiac);
+                foreRole.LastObserved = DateTime.UtcNow;
+                foreRole.LastObservedPlayer = null;
             }
 
             else if (role == RoleEnum.Plaguebearer)

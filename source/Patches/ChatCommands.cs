@@ -253,9 +253,9 @@ namespace TownOfUs.Patches
                         AddRoleMessage(RoleEnum.Bomber);
                         return false;
                     }
-                    else if (chatText.ToLower().StartsWith("/doom") || chatText.ToLower().StartsWith("/ doom"))
+                    else if (chatText.ToLower().StartsWith("/fore") || chatText.ToLower().StartsWith("/ fore"))
                     {
-                        AddRoleMessage(RoleEnum.Doomsayer);
+                        AddRoleMessage(RoleEnum.Foreteller);
                         return false;
                     }
                     else if (chatText.ToLower().StartsWith("/vamp") || chatText.ToLower().StartsWith("/ vamp"))
@@ -616,8 +616,8 @@ namespace TownOfUs.Patches
                     "The Imitator is a crewmate who can select dead crew roles to use during meetings. The following round they become this new role.");
                 if (role == RoleEnum.Bomber) HudManager.Instance.Chat.AddChat(
                     PlayerControl.LocalPlayer, "The Bomber is an impostor who can place bombs, these kill anyone in the area a short duration later.");
-                if (role == RoleEnum.Doomsayer) HudManager.Instance.Chat.AddChat(
-                    PlayerControl.LocalPlayer, "The Doomsayer is a neutral evil role with the goal to guess 3 other player's roles simultaneously.");
+                if (role == RoleEnum.Foreteller) HudManager.Instance.Chat.AddChat(
+                    PlayerControl.LocalPlayer, "The Foreteller is a neutral evil role with the goal to guess other player's roles.");
                 if (role == RoleEnum.Vampire) HudManager.Instance.Chat.AddChat(PlayerControl.LocalPlayer,
                     "The Vampire is a neutral killer with the goal to kill everyone. The first crewmate the original Vampire bites will turn into a Vampire, the rest will die.");
                 if (role == RoleEnum.Prosecutor) HudManager.Instance.Chat.AddChat(

@@ -22,14 +22,14 @@ using Reactor.Utilities;
 
 namespace TownOfUs
 {
-    [BepInPlugin(Id, "Town Of Us", VersionString)]
+    [BepInPlugin(Id, "Town Of Us Unofficial", VersionString)]
     [BepInDependency(ReactorPlugin.Id)]
     [BepInDependency(SubmergedCompatibility.SUBMERGED_GUID, BepInDependency.DependencyFlags.SoftDependency)]
     [ReactorModFlags(Reactor.Networking.ModFlags.RequireOnAllClients)]
     public class TownOfUs : BasePlugin
     {
         public const string Id = "com.slushiegoose.townofus";
-        public const string VersionString = "5.3.1";
+        public const string VersionString = "1.0.0";
         public static System.Version Version = System.Version.Parse(VersionString);
         public const string VersionTag = "<color=#ff33fc></color>";
 

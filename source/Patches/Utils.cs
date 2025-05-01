@@ -1704,9 +1704,9 @@ namespace TownOfUs
                 var pest = Role.GetRole<Pestilence>(PlayerControl.LocalPlayer);
                 pest.LastKill = DateTime.UtcNow;
             }
-            if (PlayerControl.LocalPlayer.Is(RoleEnum.Doomsayer))
+            if (PlayerControl.LocalPlayer.Is(RoleEnum.Foreteller))
             {
-                var doom = Role.GetRole<Doomsayer>(PlayerControl.LocalPlayer);
+                var doom = Role.GetRole<Foreteller>(PlayerControl.LocalPlayer);
                 doom.LastObserved = DateTime.UtcNow;
                 doom.LastObservedPlayer = null;
             }

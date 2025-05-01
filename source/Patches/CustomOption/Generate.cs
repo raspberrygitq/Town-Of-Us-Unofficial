@@ -51,7 +51,7 @@ namespace TownOfUs.CustomOption
         public static CustomNumberOption SurvivorOn;
 
         public static CustomHeaderOption NeutralEvilRoles;
-        public static CustomNumberOption DoomsayerOn;
+        public static CustomNumberOption ForetellerOn;
         public static CustomNumberOption ExecutionerOn;
         public static CustomNumberOption JesterOn;
         public static CustomNumberOption PhantomOn;
@@ -419,11 +419,16 @@ namespace TownOfUs.CustomOption
         public static CustomToggleOption BomberVent;
         public static CustomToggleOption AllImpsSeeBomb;
 
-        public static CustomHeaderOption Doomsayer;
-        public static CustomNumberOption ObserveCooldown;
-        public static CustomToggleOption DoomsayerGuessAllAtOnce;
-        public static CustomToggleOption DoomsayerCantObserve;
-        public static CustomToggleOption DoomsayerWinEndsGame;
+        public static CustomHeaderOption Foreteller;
+        public static CustomNumberOption ForetellerObserveCooldown;
+        public static CustomToggleOption ForetellerGuessNeutralBenign;
+        public static CustomToggleOption ForetellerGuessNeutralEvil;
+        public static CustomToggleOption ForetellerGuessNeutralKilling;
+        public static CustomToggleOption ForetellerGuessImpostors;
+        public static CustomToggleOption ForetellerAfterVoting;
+        public static CustomNumberOption ForetellerGuessesToWin;
+        public static CustomToggleOption ForetellerCantObserve;
+        public static CustomToggleOption ForetellerWinEndsGame;
 
         public static CustomHeaderOption Warden;
         public static CustomStringOption ShowFortified;
@@ -633,7 +638,7 @@ namespace TownOfUs.CustomOption
                 PercentFormat);
 
             NeutralEvilRoles = new CustomHeaderOption(num++, MultiMenu.neutral, "Neutral Evil Roles");
-            DoomsayerOn = new CustomNumberOption(num++, MultiMenu.neutral, "<color=#00FF80FF>Doomsayer</color>", 0f, 0f, 100f, 10f,
+            ForetellerOn = new CustomNumberOption(num++, MultiMenu.neutral, "<color=#00FF80FF>Foreteller</color>", 0f, 0f, 100f, 10f,
                 PercentFormat);
             ExecutionerOn = new CustomNumberOption(num++, MultiMenu.neutral, "<color=#8C4005FF>Executioner</color>", 0f, 0f, 100f, 10f,
                 PercentFormat);
@@ -1228,12 +1233,25 @@ namespace TownOfUs.CustomOption
             SurvScatterTimer =
                 new CustomNumberOption(num++, MultiMenu.neutral, "Survivor Scatter Timer", 25f, 10f, 60f, 2.5f, CooldownFormat);
 
-            Doomsayer = new CustomHeaderOption(num++, MultiMenu.neutral, "<color=#00FF80FF>Doomsayer</color>");
-            ObserveCooldown =
-                new CustomNumberOption(num++, MultiMenu.neutral, "Observe Cooldown", 10f, 1f, 15f, 1f, CooldownFormat);
-            DoomsayerGuessAllAtOnce = new CustomToggleOption(num++, MultiMenu.neutral, "Doomsayer Guesses All Roles At Once", true);
-            DoomsayerCantObserve = new CustomToggleOption(num++, MultiMenu.neutral, "Doomsayer Can't Observe", false);
-            DoomsayerWinEndsGame = new CustomToggleOption(num++, MultiMenu.neutral, "Doomsayer Win Ends Game", true);
+            Foreteller =
+                new CustomHeaderOption(num++, MultiMenu.neutral, "<color=#00FF80FF>Foreteller</color>");
+            ForetellerObserveCooldown =
+                new CustomNumberOption(num++, MultiMenu.neutral, "Observe Cooldown", 25f, 10f, 60f, 2.5f, CooldownFormat);
+            ForetellerGuessNeutralBenign =
+                new CustomToggleOption(num++, MultiMenu.neutral, "Foreteller Can Guess Neutral Benign Roles", false);
+            ForetellerGuessNeutralEvil =
+                new CustomToggleOption(num++, MultiMenu.neutral, "Foreteller Can Guess Neutral Evil Roles", false);
+            ForetellerGuessNeutralKilling =
+                new CustomToggleOption(num++, MultiMenu.neutral, "Foreteller Can Guess Neutral Killing Roles", false);
+            ForetellerGuessImpostors =
+                new CustomToggleOption(num++, MultiMenu.neutral, "Foreteller Can Guess Impostor Roles", false);
+            ForetellerAfterVoting =
+                new CustomToggleOption(num++, MultiMenu.neutral, "Foreteller Can Guess After Voting", false);
+            ForetellerGuessesToWin =
+                new CustomNumberOption(num++, MultiMenu.neutral, "Number Of Foreteller Kills To Win", 3, 1, 5, 1);
+            ForetellerCantObserve =
+                new CustomToggleOption(num++, MultiMenu.neutral, "Foreteller Can't Observe", false);
+            ForetellerWinEndsGame = new CustomToggleOption(num++, MultiMenu.neutral, "Foreteller Win Ends Game", true);
 
             Executioner =
                 new CustomHeaderOption(num++, MultiMenu.neutral, "<color=#8C4005FF>Executioner</color>");

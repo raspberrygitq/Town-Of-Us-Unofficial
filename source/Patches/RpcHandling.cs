@@ -10,7 +10,7 @@ using TownOfUs.CrewmateRoles.MedicMod;
 using TownOfUs.CrewmateRoles.SwapperMod;
 using TownOfUs.CrewmateRoles.VigilanteMod;
 using TownOfUs.CrewmateRoles.JailorMod;
-using TownOfUs.NeutralRoles.DoomsayerMod;
+using TownOfUs.NeutralRoles.ForetellerMod;
 using TownOfUs.CustomOption;
 using TownOfUs.Extensions;
 using TownOfUs.Modifiers.AssassinMod;
@@ -917,12 +917,11 @@ namespace TownOfUs
                         VigilanteKill.MurderPlayer(toDie2);
                         VigilanteKill.VigiKillCount(toDie2, vigi);
                         break;
-                    case CustomRPC.DoomsayerKill:
-                        var toDie3 = Utils.PlayerById(reader.ReadByte());
-                        var doom = Utils.PlayerById(reader.ReadByte());
-                        DoomsayerKill.DoomKillCount(toDie3, doom);
-                        if (!toDie3.IsBlessed()) DoomsayerKill.MurderPlayer(toDie3);
-                        else if (PlayerControl.LocalPlayer.Is(RoleEnum.Oracle) && toDie3.IsBlessed() && toDie3.GetOracle().Contains(Role.GetRole<Oracle>(PlayerControl.LocalPlayer))) Coroutines.Start(Utils.FlashCoroutine(Colors.Oracle));
+                    case CustomRPC.ForetellerKill:
+                        var toDie4 = Utils.PlayerById(reader.ReadByte());
+                        var fore = Utils.PlayerById(reader.ReadByte());
+                        ForetellerKill.DoomKillCount(toDie4, fore);
+                        ForetellerKill.MurderPlayer(toDie4);
                         break;
                     case CustomRPC.SetMimic:
                         var glitchPlayer = Utils.PlayerById(reader.ReadByte());
@@ -1786,8 +1785,8 @@ namespace TownOfUs
                 if (CustomGameOptions.ExecutionerOn > 0)
                     NeutralEvilRoles.Add((typeof(Executioner), CustomGameOptions.ExecutionerOn, false || CustomGameOptions.UniqueRoles));
 
-                if (CustomGameOptions.DoomsayerOn > 0)
-                    NeutralEvilRoles.Add((typeof(Doomsayer), CustomGameOptions.DoomsayerOn, false || CustomGameOptions.UniqueRoles));
+                if (CustomGameOptions.ForetellerOn > 0)
+                    NeutralEvilRoles.Add((typeof(Foreteller), CustomGameOptions.ForetellerOn, false || CustomGameOptions.UniqueRoles));
 
                 if (CustomGameOptions.SoulCollectorOn > 0)
                     NeutralKillingRoles.Add((typeof(SoulCollector), CustomGameOptions.SoulCollectorOn, true));

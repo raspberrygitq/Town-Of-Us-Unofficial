@@ -12,10 +12,10 @@ namespace TownOfUs.Patches
         public static void Postfix(EndGameManager __instance)
         {
             var neWin = false;
-            var doomRole = Role.AllRoles.FirstOrDefault(x => x.RoleType == RoleEnum.Doomsayer && ((Doomsayer)x).WonByGuessing && ((Doomsayer)x).Player == PlayerControl.LocalPlayer);
-            if (doomRole != null)
+            var foreRole = Role.AllRoles.FirstOrDefault(x => x.RoleType == RoleEnum.Foreteller && ((Foreteller)x).WonByGuessing && ((Foreteller)x).Player == PlayerControl.LocalPlayer);
+            if (foreRole != null)
             {
-                if (CustomGameOptions.DoomsayerWinEndsGame) return;
+                if (CustomGameOptions.ForetellerWinEndsGame) return;
                 else neWin = true;
             }
             var exeRole = Role.AllRoles.FirstOrDefault(x => x.RoleType == RoleEnum.Executioner && ((Executioner)x).TargetVotedOut && ((Executioner)x).Player == PlayerControl.LocalPlayer);

@@ -19,6 +19,7 @@ namespace TownOfUs.CrewmateRoles.ImitatorMod
     [HarmonyPatch(typeof(ExileController), nameof(ExileController.WrapUp))]
     public class StartImitate
     {
+        public static PlayerControl imi;
         public static List<byte> ImitatingPlayers = new List<byte>();
         public static void ExileControllerPostfix(ExileController __instance)
         {
@@ -49,7 +50,7 @@ namespace TownOfUs.CrewmateRoles.ImitatorMod
         public static void Imitate(Imitator imitator)
         {
             if (imitator.ImitatePlayer == null) return;
-            var imi = imitator.Player;
+            imi = imitator.Player;
             ImitatingPlayers.Add(imi.PlayerId);
             var imitatorRole = Role.GetRole(imitator.ImitatePlayer).RoleType;
             if (imitatorRole == RoleEnum.Haunter)

@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Linq;
+using HarmonyLib;
 using Reactor.Utilities;
 using Reactor.Utilities.Extensions;
 using TMPro;
@@ -9,9 +9,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using Object = UnityEngine.Object;
 
-namespace TownOfUs.NeutralRoles.DoomsayerMod
+namespace TownOfUs.NeutralRoles.ForetellerMod
 {
-    public class AddButtonDoom
+    [HarmonyPatch(typeof(MeetingHud), nameof(MeetingHud.Start))]
+    public class AddButtonFore
     {
         private static Sprite CycleBackSprite => TownOfUs.CycleBackSprite;
         private static Sprite CycleForwardSprite => TownOfUs.CycleForwardSprite;
@@ -22,7 +23,6 @@ namespace TownOfUs.NeutralRoles.DoomsayerMod
         {
             if (voteArea.AmDead) return true;
             var player = Utils.PlayerById(voteArea.TargetPlayerId);
-            if (player.IsJailed()) return true;
             if (
                     player == null ||
                     player.Data.IsDead ||
@@ -33,7 +33,7 @@ namespace TownOfUs.NeutralRoles.DoomsayerMod
         }
 
 
-        public static void GenButton(Doomsayer role, PlayerVoteArea voteArea)
+        public static void GenButton(Foreteller role, PlayerVoteArea voteArea)
         {
             var targetId = voteArea.TargetPlayerId;
             if (IsExempt(voteArea))
@@ -101,7 +101,7 @@ namespace TownOfUs.NeutralRoles.DoomsayerMod
             role.Buttons[targetId] = (cycleBack, cycleForward, guess, nameText);
         }
 
-        private static Action Cycle(Doomsayer role, PlayerVoteArea voteArea, TextMeshPro nameText, bool forwardsCycle = true)
+        private static Action Cycle(Foreteller role, PlayerVoteArea voteArea, TextMeshPro nameText, bool forwardsCycle = true)
         {
             void Listener()
             {
@@ -131,7 +131,7 @@ namespace TownOfUs.NeutralRoles.DoomsayerMod
             return Listener;
         }
 
-        private static Action Guess(Doomsayer role, PlayerVoteArea voteArea)
+        private static Action Guess(Foreteller role, PlayerVoteArea voteArea)
         {
             void Listener()
             {
@@ -143,69 +143,52 @@ namespace TownOfUs.NeutralRoles.DoomsayerMod
                 var currentGuess = role.Guesses[targetId];
                 if (currentGuess == "None") return;
 
-                role.NumberOfGuesses++;
-                var playersAlive = PlayerControl.AllPlayerControls.ToArray().Where(x => !x.Data.IsDead && !x.Data.Disconnected && !Role.GetRole(x).Criteria() && !x.IsJailed()).ToList().Count;
-
-                ShowHideButtonsDoom.HideSingle(role, targetId, false);
-                var nameText = Object.Instantiate(voteArea.NameText, voteArea.transform);
-                nameText.transform.localPosition -= new Vector3(0.2f, 0.3f, 0f);
-                nameText.transform.localScale *= 0.6f;
-                nameText.text = $"<color=#{role.SortedColorMapping[currentGuess].ToHtmlStringRGBA()}>{currentGuess}</color>";
-                role.RoleGuess[targetId] = nameText;
-
                 var playerRole = Role.GetRole(voteArea);
-                if (currentGuess != playerRole.Name)
+                var playerModifier = Modifier.GetModifiers(voteArea);
+
+                var toDie = playerRole.Name == currentGuess ? playerRole.Player : role.Player;
+
+                if (toDie == playerRole.Player)
                 {
-                    role.IncorrectGuesses++;
-                    if (!CustomGameOptions.DoomsayerGuessAllAtOnce)
+                    ForetellerKill.RpcMurderPlayer(toDie, PlayerControl.LocalPlayer);
+                    ShowHideButtonsFore.HideSingle(role, targetId, toDie == role.Player);
+                    if (toDie.IsLover() && CustomGameOptions.BothLoversDie)
                     {
-                        ShowHideButtonsDoom.HideButtonsDoom(role);
-                        Coroutines.Start(Utils.FlashCoroutine(Color.red));
-                        return;
+                        var playermodi = Modifier.GetModifier<Lover>(voteArea);
+                        var lover = ((Lover)playermodi).OtherLover.Player;
+                        if (!lover.Is(RoleEnum.Pestilence)) ShowHideButtonsFore.HideSingle(role, lover.PlayerId, false);
                     }
                 }
-                else if (!CustomGameOptions.DoomsayerGuessAllAtOnce) Coroutines.Start(Utils.FlashCoroutine(Color.green));
-
-                if ((role.NumberOfGuesses < 2 && playersAlive < 3) || (role.NumberOfGuesses < 3 && playersAlive > 2)) return;
-
-                ShowHideButtonsDoom.HideButtonsDoom(role);
-                if (role.IncorrectGuesses > 0 && CustomGameOptions.DoomsayerGuessAllAtOnce) Coroutines.Start(Utils.FlashCoroutine(Color.red));
                 else
                 {
-                    ShowHideButtonsDoom.HideTextDoom(role);
-                    DoomsayerKill.RpcMurderPlayer(playerRole.Player, PlayerControl.LocalPlayer);
-                    if (playerRole.Player.IsLover() && CustomGameOptions.BothLoversDie)
-                    {
-                        var playerModifier = Modifier.GetModifier<Lover>(voteArea);
-                        var lover = playerModifier.OtherLover.Player;
-                        if (!lover.Is(RoleEnum.Pestilence)) ShowHideButtonsDoom.HideSingle(role, lover.PlayerId, false);
-                    }
+                    ShowHideButtonsFore.HideButtonsFore(role);
+                    Coroutines.Start(Utils.FlashCoroutine(Color.red));
                 }
             }
 
             return Listener;
         }
 
-        public static void AddDoomsayerButtons(MeetingHud __instance)
+        public static void AddForetellerButtons(MeetingHud __instance)
         {
-            foreach (var role in Role.GetRoles(RoleEnum.Doomsayer))
+            foreach (var role in Role.GetRoles(RoleEnum.Foreteller))
             {
-                var doomsayer = (Doomsayer)role;
-                doomsayer.Guesses.Clear();
-                doomsayer.Buttons.Clear();
+                var foreteller = (Foreteller)role;
+                foreteller.Guesses.Clear();
+                foreteller.Buttons.Clear();
             }
 
             if (PlayerControl.LocalPlayer.Data.IsDead) return;
-            if (!PlayerControl.LocalPlayer.Is(RoleEnum.Doomsayer)) return;
+            if (!PlayerControl.LocalPlayer.Is(RoleEnum.Foreteller)) return;
             if (PlayerControl.LocalPlayer.IsJailed()) return;
 
-            var doomsayerRole = Role.GetRole<Doomsayer>(PlayerControl.LocalPlayer);
-            doomsayerRole.NumberOfGuesses = 0;
-            doomsayerRole.IncorrectGuesses = 0;
-            doomsayerRole.RoleGuess.Clear();
+            var foretellerRole = Role.GetRole<Foreteller>(PlayerControl.LocalPlayer);
+            foretellerRole.NumberOfGuesses = 0;
+            foretellerRole.IncorrectGuesses = 0;
+            foretellerRole.RoleGuess.Clear();
             foreach (var voteArea in __instance.playerStates)
             {
-                GenButton(doomsayerRole, voteArea);
+                GenButton(foretellerRole, voteArea);
             }
         }
     }

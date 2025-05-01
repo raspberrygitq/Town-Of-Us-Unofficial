@@ -190,10 +190,10 @@ namespace TownOfUs.Roles
                 var exeRole = (Executioner)exe;
                 if (exeRole.TargetVotedOut && CustomGameOptions.ExecutionerWin == NeutralRoles.ExecutionerMod.WinEndsGame.EndsGame) return;
             }
-            foreach (var doom in GetRoles(RoleEnum.Doomsayer))
+            foreach (var fore in GetRoles(RoleEnum.Foreteller))
             {
-                var doomRole = (Doomsayer)doom;
-                if (doomRole.WonByGuessing && CustomGameOptions.DoomsayerWinEndsGame) return;
+                var foreRole = (Foreteller)fore;
+                if (foreRole.WonByGuessing && CustomGameOptions.ForetellerWinEndsGame) return;
             }
 
             VampireWins = true;

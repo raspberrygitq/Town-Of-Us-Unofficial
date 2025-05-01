@@ -46,7 +46,7 @@ namespace TownOfUs
         Drop,
         AssassinKill,
         VigilanteKill,
-        DoomsayerKill,
+        ForetellerKill,
         FlashGrenade,
         Alert,
         Remember,

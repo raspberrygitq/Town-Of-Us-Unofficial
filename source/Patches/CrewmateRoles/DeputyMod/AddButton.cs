@@ -11,12 +11,13 @@ using TownOfUs.CrewmateRoles.VigilanteMod;
 using TownOfUs.Extensions;
 using TownOfUs.ImpostorRoles.BlackmailerMod;
 using TownOfUs.Modifiers.AssassinMod;
-using TownOfUs.NeutralRoles.DoomsayerMod;
+using TownOfUs.NeutralRoles.ForetellerMod;
 using TownOfUs.Patches;
 using TownOfUs.Roles;
 using TownOfUs.Roles.Modifiers;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEngine.ParticleSystem.PlaybackState;
 using Object = UnityEngine.Object;
 
 namespace TownOfUs.CrewmateRoles.DeputyMod
@@ -192,11 +193,10 @@ namespace TownOfUs.CrewmateRoles.DeputyMod
                     ShowHideButtons.HideButtons(assassin);
                 }
 
-                if (player.Is(RoleEnum.Doomsayer))
+                if (player.Is(RoleEnum.Foreteller))
                 {
-                    var doomsayer = Role.GetRole<Doomsayer>(PlayerControl.LocalPlayer);
-                    ShowHideButtonsDoom.HideButtonsDoom(doomsayer);
-                    ShowHideButtonsDoom.HideTextDoom(doomsayer);
+                    var fore = Role.GetRole<Foreteller>(PlayerControl.LocalPlayer);
+                    ShowHideButtonsFore.HideTarget(fore, voteArea.TargetPlayerId);
                 }
 
                 if (player.Is(RoleEnum.Deputy))
@@ -312,10 +312,10 @@ namespace TownOfUs.CrewmateRoles.DeputyMod
                 ShowHideButtons.HideTarget(assassin, voteArea.TargetPlayerId);
             }
 
-            if (PlayerControl.LocalPlayer.Is(RoleEnum.Doomsayer) && !PlayerControl.LocalPlayer.Data.IsDead)
+            if (PlayerControl.LocalPlayer.Is(RoleEnum.Foreteller) && !PlayerControl.LocalPlayer.Data.IsDead)
             {
-                var doom = Role.GetRole<Doomsayer>(PlayerControl.LocalPlayer);
-                ShowHideButtonsDoom.HideTarget(doom, voteArea.TargetPlayerId);
+                var fore = Role.GetRole<Foreteller>(PlayerControl.LocalPlayer);
+                ShowHideButtonsFore.HideTarget(fore, voteArea.TargetPlayerId);
             }
 
             if (PlayerControl.LocalPlayer.Is(RoleEnum.Deputy) && !PlayerControl.LocalPlayer.Data.IsDead)
