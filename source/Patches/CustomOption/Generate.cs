@@ -27,6 +27,7 @@ namespace TownOfUs.CustomOption
         public static CustomHeaderOption CrewPowerRoles;
         public static CustomNumberOption JailorOn;
         public static CustomNumberOption PoliticianOn;
+        public static CustomNumberOption PresidentOn;
         public static CustomNumberOption ProsecutorOn;
         public static CustomNumberOption SwapperOn;
 
@@ -467,6 +468,11 @@ namespace TownOfUs.CustomOption
         public static CustomHeaderOption Politician;
         public static CustomNumberOption CampaignCooldown;
 
+        public static CustomHeaderOption President;
+        public static CustomNumberOption PresidentVoteBank;
+        public static CustomToggleOption PresidentAnonymous;
+        public static CustomNumberOption PresidentMaximumBank;
+
         public static CustomHeaderOption Hypnotist;
         public static CustomNumberOption HypnotiseCooldown;
 
@@ -590,7 +596,9 @@ namespace TownOfUs.CustomOption
             CrewPowerRoles = new CustomHeaderOption(num++, MultiMenu.crewmate, "Crewmate Power Roles");
             JailorOn = new CustomNumberOption(num++, MultiMenu.crewmate, "<color=#A6A6A6FF>Jailor</color>", 0f, 0f, 100f, 10f,
                 PercentFormat);
-            PoliticianOn = new CustomNumberOption(num++, MultiMenu.crewmate, "<color=#660099FF>Politician</color>", 0f, 0f, 100f, 10f,
+            //PoliticianOn = new CustomNumberOption(num++, MultiMenu.crewmate, "<color=#660099FF>Politician</color>", 0f, 0f, 100f, 10f,
+              //  PercentFormat);
+            PresidentOn = new CustomNumberOption(num++, MultiMenu.crewmate, "<color=#704fa8ff>President</color>", 0f, 0f, 100f, 10f,
                 PercentFormat);
             ProsecutorOn = new CustomNumberOption(num++, MultiMenu.crewmate, "<color=#B38000FF>Prosecutor</color>", 0f, 0f, 100f, 10f,
                 PercentFormat);
@@ -1082,10 +1090,15 @@ namespace TownOfUs.CustomOption
             MaxExecutes =
                 new CustomNumberOption(num++, MultiMenu.crewmate, "Maximum Number Of Executes", 3, 1, 5, 1);
 
-            Politician =
-                new CustomHeaderOption(num++, MultiMenu.crewmate, "<color=#660099FF>Politician</color>");
-            CampaignCooldown =
-                new CustomNumberOption(num++, MultiMenu.crewmate, "Campaign Cooldown", 25f, 10f, 60f, 2.5f, CooldownFormat);
+            //Politician =
+            //    new CustomHeaderOption(num++, MultiMenu.crewmate, "<color=#660099FF>Politician</color>");
+            //CampaignCooldown =
+            //    new CustomNumberOption(num++, MultiMenu.crewmate, "Campaign Cooldown", 25f, 10f, 60f, 2.5f, CooldownFormat);
+
+            President = new CustomHeaderOption(num++, MultiMenu.crewmate, "<color=#704FA8FF><b>President</b></color>");
+            PresidentVoteBank = new CustomNumberOption(num++, MultiMenu.crewmate, "Initial President Vote Bank", 1, 0, 15, 1);
+            PresidentAnonymous = new CustomToggleOption(num++, MultiMenu.crewmate, "President Votes Show Anonymous", false);
+            PresidentMaximumBank = new CustomNumberOption(num++, MultiMenu.crewmate, "The Maximum Amount Of Votes In The Vote Bank", 10, 2, 15, 1);
 
             Prosecutor =
                 new CustomHeaderOption(num++, MultiMenu.crewmate, "<color=#B38000FF>Prosecutor</color>");

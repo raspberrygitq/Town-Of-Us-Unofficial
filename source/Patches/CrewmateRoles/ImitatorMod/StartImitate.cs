@@ -119,6 +119,7 @@ namespace TownOfUs.CrewmateRoles.ImitatorMod
             else if (imitatorRole == RoleEnum.Veteran) new Veteran(imi);
             else if (imitatorRole == RoleEnum.Vigilante) new Vigilante(imi);
             else if (imitatorRole == RoleEnum.Altruist) new Altruist(imi);
+            else if (imitatorRole == RoleEnum.Mayor) new Mayor(imi);
             else if (imitatorRole == RoleEnum.Cleric) new Cleric(imi);
             else if (imitatorRole == RoleEnum.Medic)
             {

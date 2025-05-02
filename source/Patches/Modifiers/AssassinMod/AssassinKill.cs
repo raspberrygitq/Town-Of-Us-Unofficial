@@ -15,6 +15,7 @@ using TownOfUs.Patches;
 using Reactor.Utilities.Extensions;
 using TownOfUs.CrewmateRoles.DeputyMod;
 using System.Collections.Generic;
+using Hazel;
 
 namespace TownOfUs.Modifiers.AssassinMod
 {
@@ -329,7 +330,33 @@ namespace TownOfUs.Modifiers.AssassinMod
                 }
             }
 
-            if (AmongUsClient.Instance.AmHost) meetingHud.CheckForEndVoting();
+            if (AmongUsClient.Instance.AmHost)
+            {
+                foreach (var role in Role.GetRoles(RoleEnum.President))
+                {
+                    if (role is President president)
+                    {
+                        if (role.Player == player)
+                        {
+                            president.ExtraVotes.Clear();
+                        }
+                        else
+                        {
+                            var votesRegained = president.ExtraVotes.RemoveAll(x => x == player.PlayerId);
+
+                            if (president.Player == PlayerControl.LocalPlayer)
+                                president.VoteBank += votesRegained;
+
+                            var writer = AmongUsClient.Instance.StartRpcImmediately(PlayerControl.LocalPlayer.NetId,
+                                (byte)CustomRPC.AddPresidentVoteBank, SendOption.Reliable, -1);
+                            writer.Write(president.Player.PlayerId);
+                            writer.Write(votesRegained);
+                            AmongUsClient.Instance.FinishRpcImmediately(writer);
+                        }
+                    }
+                }
+                meetingHud.CheckForEndVoting();
+            }
 
             AddHauntPatch.AssassinatedPlayers.Add(player);
         }

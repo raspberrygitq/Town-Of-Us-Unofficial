@@ -31,6 +31,7 @@ namespace TownOfUs.Roles.Modifiers
 
             // Adds all the roles that have a non-zero chance of being in the game.
             if (CustomGameOptions.PoliticianOn > 0) ColorMapping.Add("Politician", Colors.Politician);
+            if (CustomGameOptions.PresidentOn > 0) ColorMapping.Add("President", Colors.Mayor);
             if (CustomGameOptions.SheriffOn > 0) ColorMapping.Add("Sheriff", Colors.Sheriff);
             if (CustomGameOptions.EngineerOn > 0) ColorMapping.Add("Engineer", Colors.Engineer);
             if (CustomGameOptions.SwapperOn > 0) ColorMapping.Add("Swapper", Colors.Swapper);

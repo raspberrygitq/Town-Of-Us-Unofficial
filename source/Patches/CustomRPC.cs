@@ -103,6 +103,9 @@ namespace TownOfUs
         RemoveAllBodies,
         CheckMurder,
 
+        SetExtraVotes,
+        AddPresidentVoteBank,
+
         SubmergedFixOxygen
     }
 }

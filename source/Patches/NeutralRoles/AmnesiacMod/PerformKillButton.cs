@@ -95,6 +95,7 @@ namespace TownOfUs.NeutralRoles.AmnesiacMod
                 case RoleEnum.Sheriff:
                 case RoleEnum.Engineer:
                 case RoleEnum.Mayor:
+                case RoleEnum.President:
                 case RoleEnum.Swapper:
                 case RoleEnum.Investigator:
                 case RoleEnum.Medic:
@@ -293,6 +294,13 @@ namespace TownOfUs.NeutralRoles.AmnesiacMod
                 var pnRole = Role.GetRole<Politician>(amnesiac);
                 pnRole.CampaignedPlayers.RemoveRange(0, pnRole.CampaignedPlayers.Count);
                 pnRole.LastCampaigned = DateTime.UtcNow;
+            }
+
+            else if (role == RoleEnum.President)
+            {
+                var presidentRole = Role.GetRole<President>(amnesiac);
+                presidentRole.VoteBank = CustomGameOptions.PresidentVoteBank;
+                DestroyableSingleton<HudManager>.Instance.KillButton.gameObject.SetActive(false);
             }
 
             else if (role == RoleEnum.Prosecutor)

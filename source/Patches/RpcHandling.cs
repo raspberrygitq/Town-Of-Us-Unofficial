@@ -660,7 +660,7 @@ namespace TownOfUs
                 else if (canHaveModifier.Count > 0) Role.GenModifier<Modifier>(type, canHaveModifier);
             }
 
-            var exeTargets = PlayerControl.AllPlayerControls.ToArray().Where(x => x.Is(Faction.Crewmates) && !x.Is(ModifierEnum.Lover) && !x.Is(RoleEnum.Politician) && !x.Is(RoleEnum.Prosecutor) && !x.Is(RoleEnum.Swapper) && !x.Is(RoleEnum.Vigilante) && !x.Is(RoleEnum.Jailor)).ToList();
+            var exeTargets = PlayerControl.AllPlayerControls.ToArray().Where(x => x.Is(Faction.Crewmates) && !x.Is(RoleEnum.President) && !x.Is(ModifierEnum.Lover) && !x.Is(RoleEnum.Politician) && !x.Is(RoleEnum.Prosecutor) && !x.Is(RoleEnum.Swapper) && !x.Is(RoleEnum.Vigilante) && !x.Is(RoleEnum.Jailor)).ToList();
             foreach (var role in Role.GetRoles(RoleEnum.Executioner))
             {
                 var exe = (Executioner)role;
@@ -1179,6 +1179,24 @@ namespace TownOfUs
                         veteranRole.TimeRemaining = CustomGameOptions.AlertDuration;
                         veteranRole.Alert();
                         break;
+
+
+
+                    case CustomRPC.SetExtraVotes:
+
+                        var president = Utils.PlayerById(reader.ReadByte());
+                        var presidentRole = Role.GetRole<President>(president);
+                        presidentRole.ExtraVotes = reader.ReadBytesAndSize().ToList();
+                        if (!president.Is(RoleEnum.President)) presidentRole.VoteBank -= presidentRole.ExtraVotes.Count;
+
+                        break;
+                    case CustomRPC.AddPresidentVoteBank:
+                        Role.GetRole<President>(Utils.PlayerById(reader.ReadByte())).VoteBank += reader.ReadInt32();
+                        break;
+
+
+
+
                     case CustomRPC.Vest:
                         var surv = Utils.PlayerById(reader.ReadByte());
                         var survRole = Role.GetRole<Survivor>(surv);
@@ -1690,6 +1708,9 @@ namespace TownOfUs
                 #region Crewmate Roles
                 if (CustomGameOptions.PoliticianOn > 0)
                     CrewmatePowerRoles.Add((typeof(Politician), CustomGameOptions.PoliticianOn, true));
+                
+                if (CustomGameOptions.PresidentOn > 0)
+                    CrewmateSupportRoles.Add((typeof(President), CustomGameOptions.PresidentOn, true));
 
                 if (CustomGameOptions.SheriffOn > 0)
                     CrewmateKillingRoles.Add((typeof(Sheriff), CustomGameOptions.SheriffOn, false || CustomGameOptions.UniqueRoles));

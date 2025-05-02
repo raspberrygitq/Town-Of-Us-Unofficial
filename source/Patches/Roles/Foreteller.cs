@@ -66,7 +66,7 @@ namespace TownOfUs.Roles
             if (CustomGameOptions.PlumberOn > 0) ColorMapping.Add("Plumber", Colors.Plumber);
             //if (CustomGameOptions.FalconOn > 0) ColorMapping.Add("Falcon", Colors.Falcon);
             //if (CustomGameOptions.TimeLordOn > 0) ColorMapping.Add("Time Lord", Colors.TimeLord);
-            //if (CustomGameOptions.PresidentOn > 0) ColorMapping.Add("President", Colors.Mayor);
+            if (CustomGameOptions.PresidentOn > 0) ColorMapping.Add("President", Colors.Mayor);
 
             ColorMapping.Add("Impostor", Colors.Impostor);
             if (CustomGameOptions.JanitorOn > 0) ColorMapping.Add("Janitor", Colors.Impostor);

@@ -41,9 +41,14 @@ namespace TownOfUs.Patches
                         AddRoleMessage(RoleEnum.Investigator);
                         return false;
                     }
-                    else if (chatText.ToLower().StartsWith("/mayor") || chatText.ToLower().StartsWith("/ mayor"))
+                    /*else if (chatText.ToLower().StartsWith("/mayor") || chatText.ToLower().StartsWith("/ mayor"))
                     {
                         AddRoleMessage(RoleEnum.Mayor);
+                        return false;
+                    }*/
+                    else if (chatText.ToLower().StartsWith("/presi") || chatText.ToLower().StartsWith("/ presi"))
+                    {
+                        AddRoleMessage(RoleEnum.President);
                         return false;
                     }
                     else if (chatText.ToLower().StartsWith("/medic") || chatText.ToLower().StartsWith("/ medic"))
@@ -143,7 +148,7 @@ namespace TownOfUs.Patches
                         AddRoleMessage(RoleEnum.Swooper);
                         return false;
                     }
-                    else if (chatText.ToLower().StartsWith("/utaker") || chatText.ToLower().StartsWith("/ utaker") || 
+                    else if (chatText.ToLower().StartsWith("/utaker") || chatText.ToLower().StartsWith("/ utaker") ||
                         chatText.ToLower().StartsWith("/undertaker") || chatText.ToLower().StartsWith("/ undertaker"))
                     {
                         AddRoleMessage(RoleEnum.Undertaker);
@@ -283,11 +288,11 @@ namespace TownOfUs.Patches
                         AddRoleMessage(RoleEnum.Aurial);
                         return false;
                     }
-                    else if (chatText.ToLower().StartsWith("/poli") || chatText.ToLower().StartsWith("/ poli"))
+                    /*else if (chatText.ToLower().StartsWith("/poli") || chatText.ToLower().StartsWith("/ poli"))
                     {
                         AddRoleMessage(RoleEnum.Politician);
                         return false;
-                    }
+                    }*/
                     else if (chatText.ToLower().StartsWith("/ward") || chatText.ToLower().StartsWith("/ ward"))
                     {
                         AddRoleMessage(RoleEnum.Warden);
@@ -549,6 +554,8 @@ namespace TownOfUs.Patches
                     PlayerControl.LocalPlayer, "The Sheriff is a crewmate who can kill other players. If the other player is good, they will self-kill instead.");
                 if (role == RoleEnum.Swapper) HudManager.Instance.Chat.AddChat(
                     PlayerControl.LocalPlayer, "The Swapper is a crewmate who can swap the votes of 2 players during meetings.");
+                if (role == RoleEnum.President) DestroyableSingleton<HudManager>.Instance.Chat.AddChat(
+                   PlayerControl.LocalPlayer, "The President is a crewmate who can abstain its vote for the next round.");
                 if (role == RoleEnum.Seer) HudManager.Instance.Chat.AddChat(
                     PlayerControl.LocalPlayer, "The Seer is a crewmate who can reveal the alliance of other players.");
                 if (role == RoleEnum.Snitch) HudManager.Instance.Chat.AddChat(
