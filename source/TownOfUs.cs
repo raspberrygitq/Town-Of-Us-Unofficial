@@ -28,6 +28,7 @@ namespace TownOfUs
     [ReactorModFlags(Reactor.Networking.ModFlags.RequireOnAllClients)]
     public class TownOfUs : BasePlugin
     {
+        
         public const string Id = "com.slushiegoose.townofus";
         public const string VersionString = "1.0.1";
         public static System.Version Version = System.Version.Parse(VersionString);
