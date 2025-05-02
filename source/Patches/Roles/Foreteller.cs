@@ -81,7 +81,7 @@ namespace TownOfUs.Roles
             if (CustomGameOptions.BomberOn > 0) ColorMapping.Add("Bomber", Colors.Impostor);
             //if (CustomGameOptions.KamikazeOn > 0) ColorMapping.Add("Kamikaze", Colors.Impostor);
             if (CustomGameOptions.WarlockOn > 0) ColorMapping.Add("Warlock", Colors.Impostor);
-            //if (CustomGameOptions.WraithOn > 0) ColorMapping.Add("Wraith", Colors.Impostor);
+            if (CustomGameOptions.WraithOn > 0) ColorMapping.Add("Wraith", Colors.Impostor);
             if (CustomGameOptions.VenererOn > 0) ColorMapping.Add("Venerer", Colors.Impostor);
             if (CustomGameOptions.HypnotistOn > 0) ColorMapping.Add("Hypnotist", Colors.Impostor);
             if (CustomGameOptions.ScavengerOn > 0) ColorMapping.Add("Scavenger", Colors.Impostor);

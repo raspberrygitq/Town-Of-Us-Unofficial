@@ -349,6 +349,11 @@ namespace TownOfUs.Patches
                         AddRoleMessage(RoleEnum.Cleric);
                         return false;
                     }
+                    else if (chatText.ToLower().StartsWith("/wrai") || chatText.ToLower().StartsWith("/ wrai"))
+                    {
+                        AddRoleMessage(RoleEnum.Wraith);
+                        return false;
+                    }
                     else if (chatText.ToLower().StartsWith("/lover") || chatText.ToLower().StartsWith("/ lover"))
                     {
                         AddModifierMessage(ModifierEnum.Lover);
@@ -666,6 +671,8 @@ namespace TownOfUs.Patches
                     PlayerControl.LocalPlayer, "The Mercenary is a neutral benign who can guard other players. Guarded players who are interacted with gain currency for the Mercenary to use to bribe players. The Mercenary wins if any bribed player lives and wins.");
                 if (role == RoleEnum.Cleric) HudManager.Instance.Chat.AddChat(
                     PlayerControl.LocalPlayer, "The Cleric is a crewmate who can barrier other players temporarily or cleanse players. Barriered players cannot be killed. Cleansing a player removes all negative effects (e.g. blackmail, douse).");
+                if (role == RoleEnum.Wraith) HudManager.Instance.Chat.AddChat(
+                    PlayerControl.LocalPlayer, "The Wraith is an impostor who can walk trought walls.");
             }
 
             public static void AddModifierMessage(ModifierEnum modifier)

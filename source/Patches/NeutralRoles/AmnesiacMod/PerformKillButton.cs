@@ -550,6 +550,12 @@ namespace TownOfUs.NeutralRoles.AmnesiacMod
                 venererRole.LastCamouflaged = DateTime.UtcNow;
             }
 
+            else if (role == RoleEnum.Wraith)
+            {
+                var wraithRole = Role.GetRole<Wraith>(amnesiac);
+                wraithRole.LastNoclip = DateTime.UtcNow;
+            }
+
             else if (role == RoleEnum.Blackmailer)
             {
                 var blackmailerRole = Role.GetRole<Blackmailer>(amnesiac);

@@ -66,6 +66,7 @@ namespace TownOfUs
         Hypnotist,
         Scavenger,
         Eclipsal,
+        Wraith,
 
         Crewmate,
         Impostor,

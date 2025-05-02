@@ -73,6 +73,7 @@ namespace TownOfUs.CustomOption
         public static CustomNumberOption MorphlingOn;
         public static CustomNumberOption SwooperOn;
         public static CustomNumberOption VenererOn;
+        public static CustomNumberOption WraithOn;
 
         public static CustomHeaderOption ImpostorKillingRoles;
         public static CustomNumberOption BomberOn;
@@ -514,6 +515,11 @@ namespace TownOfUs.CustomOption
         public static CustomStringOption ShowBarriered;
         public static CustomToggleOption ClericGetsAttackNotification;
 
+        public static CustomHeaderOption Wraith;
+        public static CustomNumberOption WraithCooldown;
+        public static CustomNumberOption WraithDuration;
+        public static CustomToggleOption WraithVent;
+
         public static CustomHeaderOption Giant;
         public static CustomNumberOption GiantSlow;
 
@@ -678,6 +684,8 @@ namespace TownOfUs.CustomOption
             SwooperOn = new CustomNumberOption(num++, MultiMenu.imposter, "<color=#FF0000FF>Swooper</color>", 0f, 0f, 100f, 10f,
                 PercentFormat);
             VenererOn = new CustomNumberOption(num++, MultiMenu.imposter, "<color=#FF0000FF>Venerer</color>", 0f, 0f, 100f, 10f,
+                PercentFormat);
+            WraithOn = new CustomNumberOption(num++, MultiMenu.imposter, "<color=#FF0000FF>Wraith</color>", 0f, 0f, 100f, 10f,
                 PercentFormat);
 
             ImpostorKillingRoles = new CustomHeaderOption(num++, MultiMenu.imposter, "Impostor Killing Roles");
@@ -1401,6 +1409,14 @@ namespace TownOfUs.CustomOption
             MinFreezeSpeed = new CustomNumberOption(num++, MultiMenu.imposter, "Minimum Freeze Speed", 0.25f, 0.05f, 0.75f, 0.05f, MultiplierFormat);
             FreezeRadius =
                 new CustomNumberOption(num++, MultiMenu.imposter, "Freeze Radius", 1f, 0.25f, 5f, 0.25f, MultiplierFormat);
+
+            Wraith = new CustomHeaderOption(num++, MultiMenu.imposter, "<color=#FF0000FF>Wraith</color>");
+            WraithCooldown =
+                new CustomNumberOption(num++, MultiMenu.imposter, "Wraith Cooldown", 25f, 10f, 60f, 2.5f, CooldownFormat);
+            WraithDuration =
+                new CustomNumberOption(num++, MultiMenu.imposter, "Wraith Duration", 10f, 5f, 20f, 1f, CooldownFormat);
+            WraithVent =
+                new CustomToggleOption(num++, MultiMenu.imposter, "Wraith Can Vent", false);
 
             Bomber =
                 new CustomHeaderOption(num++, MultiMenu.imposter, "<color=#FF0000FF>Bomber</color>");

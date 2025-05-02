@@ -1817,6 +1817,11 @@ namespace TownOfUs
                 var eclipsal = Role.GetRole<Eclipsal>(PlayerControl.LocalPlayer);
                 eclipsal.LastBlind = DateTime.UtcNow;
             }
+            if (PlayerControl.LocalPlayer.Is(RoleEnum.Wraith))
+            {
+                var wraith = Role.GetRole<Wraith>(PlayerControl.LocalPlayer);
+                wraith.LastNoclip = DateTime.UtcNow;
+            }
             #endregion
             #region Modifiers
             foreach (var immove in Modifier.GetModifiers(ModifierEnum.Immovable))

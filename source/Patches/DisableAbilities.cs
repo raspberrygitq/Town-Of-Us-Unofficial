@@ -101,6 +101,11 @@ namespace TownOfUs
                         var eclipsal = Role.GetRole<Eclipsal>(PlayerControl.LocalPlayer);
                         if (eclipsal.Blinded) disableExtra = false;
                     }
+                    else if (PlayerControl.LocalPlayer.Is(RoleEnum.Wraith))
+                    {
+                        var wraith = Role.GetRole<Wraith>(PlayerControl.LocalPlayer);
+                        if (wraith.Noclipped) disableExtra = false;
+                    }
 
                     if (HudManager.Instance.KillButton != null && disableKill)
                     {

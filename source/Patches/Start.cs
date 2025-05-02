@@ -320,6 +320,13 @@ namespace TownOfUs.Patches
                 sc.LastReaped = DateTime.UtcNow;
                 sc.LastReaped = sc.LastReaped.AddSeconds(CustomGameOptions.InitialCooldowns - CustomGameOptions.ReapCd);
             }
+
+            if (PlayerControl.LocalPlayer.Is(RoleEnum.Wraith))
+            {
+                var wraith = Role.GetRole<Wraith>(PlayerControl.LocalPlayer);
+                wraith.LastNoclip = DateTime.UtcNow;
+                wraith.LastNoclip = wraith.LastNoclip.AddSeconds(CustomGameOptions.InitialCooldowns - CustomGameOptions.WraithCd);
+            }
         }
     }
 }

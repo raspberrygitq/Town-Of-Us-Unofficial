@@ -9,8 +9,8 @@ namespace TownOfUs.Roles
         public President(PlayerControl player) : base(player)
         {
             Name = "President";
-            ImpostorText = () => "Save Your Votes To President Dump Someone";
-            TaskText = () => "Save your votes to vote multiple times";
+            ImpostorText = () => "Save your votes to vote multiple times";
+            TaskText = () => "Save your votes to President dump someone";
             Color = Patches.Colors.Mayor;
             RoleType = RoleEnum.President;
             AddToRoleHistory(RoleType);

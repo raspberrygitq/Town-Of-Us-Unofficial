@@ -37,7 +37,7 @@ namespace TownOfUs.NeutralRoles.ForetellerMod
                  || player.Is(RoleEnum.Medium) || player.Is(RoleEnum.SoulCollector) || player.Is(RoleEnum.Undertaker) || player.Is(RoleEnum.Vampire))
                 return $"You observe that {player.GetDefaultOutfit().PlayerName} has an unusual obsession with dead bodies";
             else if (player.Is(RoleEnum.Hunter) || player.Is(RoleEnum.Investigator) || player.Is(RoleEnum.Lookout) || player.Is(RoleEnum.Scavenger)
-                 || player.Is(RoleEnum.Swooper) || player.Is(RoleEnum.Tracker) || player.Is(RoleEnum.Werewolf))
+                 || player.Is(RoleEnum.Swooper) || player.Is(RoleEnum.Tracker) || player.Is(RoleEnum.Werewolf) || player.Is(RoleEnum.Wraith))
                 return $"You observe that {player.GetDefaultOutfit().PlayerName} is well trained in hunting down prey";
             else if (player.Is(RoleEnum.Arsonist) || player.Is(RoleEnum.Hypnotist) || player.Is(RoleEnum.Miner) || player.Is(RoleEnum.Pestilence)
                  || player.Is(RoleEnum.Plaguebearer) || player.Is(RoleEnum.Prosecutor) || player.Is(RoleEnum.Seer) || player.Is(RoleEnum.Transporter))
@@ -71,8 +71,8 @@ namespace TownOfUs.NeutralRoles.ForetellerMod
                  || player.Is(RoleEnum.Medium) || player.Is(RoleEnum.SoulCollector) || player.Is(RoleEnum.Undertaker) || player.Is(RoleEnum.Vampire))
                 return "(Altruist, Amnesiac, Janitor, Medium, Soul Collector, Undertaker or Vampire)";
             else if (player.Is(RoleEnum.Hunter) || player.Is(RoleEnum.Investigator) || player.Is(RoleEnum.Lookout) || player.Is(RoleEnum.Scavenger)
-                 || player.Is(RoleEnum.Swooper) || player.Is(RoleEnum.Tracker) || player.Is(RoleEnum.Werewolf))
-                return "(Hunter, Investigator, Lookout, Scavenger, Swooper, Tracker or Werewolf)";
+                 || player.Is(RoleEnum.Swooper) || player.Is(RoleEnum.Tracker) || player.Is(RoleEnum.Werewolf) || player.Is(RoleEnum.Wraith))
+                return "(Hunter, Investigator, Lookout, Scavenger, Swooper, Tracker, Werewolf or Wraith)";
             else if (player.Is(RoleEnum.Arsonist) || player.Is(RoleEnum.Hypnotist) || player.Is(RoleEnum.Miner) || player.Is(RoleEnum.Pestilence)
                  || player.Is(RoleEnum.Plaguebearer) || player.Is(RoleEnum.Prosecutor) || player.Is(RoleEnum.Seer) || player.Is(RoleEnum.Transporter))
                 return "(Arsonist, Hypnotist, Miner, Plaguebearer, Prosecutor, Seer or Transporter)";

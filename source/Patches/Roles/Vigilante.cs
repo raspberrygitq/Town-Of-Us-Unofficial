@@ -46,6 +46,7 @@ namespace TownOfUs.Roles
             if (CustomGameOptions.HypnotistOn > 0) ColorMapping.Add("Hypnotist", Colors.Impostor);
             if (CustomGameOptions.ScavengerOn > 0) ColorMapping.Add("Scavenger", Colors.Impostor);
             if (CustomGameOptions.EclipsalOn > 0) ColorMapping.Add("Eclipsal", Colors.Impostor);
+            if (CustomGameOptions.WraithOn > 0) ColorMapping.Add("Wraith", Colors.Impostor);
 
             if (CustomGameOptions.VigilanteGuessNeutralBenign)
             {

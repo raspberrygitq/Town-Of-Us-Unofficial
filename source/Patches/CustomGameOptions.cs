@@ -52,7 +52,7 @@ namespace TownOfUs
     }
     public static class CustomGameOptions
     {
-        public static int PoliticianOn => (int)Generate.PoliticianOn.Get();
+        public static int PoliticianOn => 0;
         public static int PresidentOn => (int)Generate.PresidentOn.Get();
         public static int JesterOn => (int)Generate.JesterOn.Get();
         public static int SheriffOn => (int)Generate.SheriffOn.Get();
@@ -113,6 +113,7 @@ namespace TownOfUs
         public static int EclipsalOn => (int)Generate.EclipsalOn.Get();
         public static int MercenaryOn => (int)Generate.MercenaryOn.Get();
         public static int ClericOn => (int)Generate.ClericOn.Get();
+        public static int WraithOn => (int)Generate.WraithOn.Get();
         public static int TorchOn => (int)Generate.TorchOn.Get();
         public static int DiseasedOn => (int)Generate.DiseasedOn.Get();
         public static int FlashOn => (int)Generate.FlashOn.Get();
@@ -420,5 +421,8 @@ namespace TownOfUs
         public static bool JesterScatter => Generate.JesterScatter.Get();
         public static float JestScatterTimer => Generate.JestScatterTimer.Get();
         public static float DetectDuration => Generate.DetectDuration.Get();
+        public static float WraithCd => (float)Generate.WraithCooldown.Get();
+        public static float WraithDuration => (float)Generate.WraithDuration.Get();
+        public static bool WraithVent => Generate.WraithVent.Get();
     }
 }
