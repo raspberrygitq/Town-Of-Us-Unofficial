@@ -1475,7 +1475,7 @@ However, if Lovers, or a Neutral Evil role wins the game, the survivor loses.
 ## Foreteller
 ### **Team: Neutral**
 The Foreteller is a Neutral role with its own win condition.\
-Their goal is to guesses players roles to win.\
+Their goal is to guesses players roles to win.
 ### Game Options
 | Name | Description | Type | Default |
 |----------|:-------------:|:------:|:------:|
