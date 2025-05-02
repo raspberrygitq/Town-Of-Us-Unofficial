@@ -11,7 +11,7 @@ Join our [Discord](https://discord.gg/ugyc4EVUYZ) if you have any problems or wa
 |:----------------------------:|:---------------------------------:|:--------------------------------:|:----------------------------:|
 | [Blackmailer](#blackmailer)  | [Altruist](#altruist)             | [Amnesiac](#amnesiac)            | [Aftermath](#aftermath)      |
 | [Bomber](#bomber)            | [Aurial](#aurial)                 | [Arsonist](#arsonist)            | [Bait](#bait)                |
-| [Eclipsal](#eclipsal)        | [Cleric](#cleric)                 | [Doomsayer](#doomsayer)          | [Button Barry](#button-barry)|
+| [Eclipsal](#eclipsal)        | [Cleric](#cleric)                 | [Foreteller](#foreteller)        | [Button Barry](#button-barry)|
 | [Escapist](#escapist)        | [Deputy](#deputy)                 | [Executioner](#executioner)      | [Celebrity](#celebrity)      |
 | [Grenadier](#grenadier)      | [Detective](#detective)           | [Glitch](#glitch)                | [Diseased](#diseased)        |
 | [Hypnotist](#hypnotist)      | [Engineer](#engineer)             | [Guardian Angel](#guardian-angel)| [Disperser](#disperser)      |
@@ -1472,20 +1472,18 @@ However, if Lovers, or a Neutral Evil role wins the game, the survivor loses.
 | Survivor Movement Timer | How frequently the Survivor needs to move | Time | 25s |
 
 -----------------------
-## Doomsayer
+## Foreteller
 ### **Team: Neutral**
-The Doomsayer is a Neutral role with its own win condition.\
-Their goal is to assassinate 3 players to win.\
-If there are only 2 other people alive, the Doomsayer only needs to assassinate the remainder of the players.\
-They have an additional observe ability that hints towards certain player's roles.
+The Foreteller is a Neutral role with its own win condition.\
+Their goal is to guesses players roles to win.\
 ### Game Options
 | Name | Description | Type | Default |
 |----------|:-------------:|:------:|:------:|
-| Doomsayer | The percentage probability of the Doomsayer appearing | Percentage | 0% |
-| Observe Cooldown | The Cooldown of the Doomsayer's Observe button | Time | 10s |
-| Doomsayer Guesses All At Once  | Whether the Doomsayer has to guess all 3 roles to win at once | Toggle | True |
-| (Experienced) Doomsayer Can't Observe | The Doomsayer doesn't have the observe feature | Toggle | False |
-| Doomsayer Win Ends Game  | Whether Doomsayer winning ends the game | Toggle | True |
+| Foreteller | The percentage probability of the Foreteller appearing | Percentage | 0% |
+| Foreteller Observe Cooldown | The Cooldown of the Foreteller's Observe button | Time | 25s |
+| Number Of Foreteller Kill To Win | The Foreteller must guesses people roles to win | Number | 3 |
+| Foreteller Can't Observe | The Foreteller doesn't have the observe feature | Toggle | False |
+| Foreteller Win Ends Game  | Whether Foreteller winning ends the game | Toggle | True |
 
 -----------------------
 ## Executioner
