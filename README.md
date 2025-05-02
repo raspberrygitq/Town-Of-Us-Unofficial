@@ -24,9 +24,9 @@ Join our [Discord](https://discord.gg/ugyc4EVUYZ) if you have any problems or wa
 | [Undertaker](#undertaker)    | [Medic](#medic)                   | [Survivor](#survivor)            | [Mini](#mini)                |
 | [Venerer](#venerer)          | [Medium](#medium)                 | [Vampire](#vampire)              | [Multitasker](#multitasker)  |
 | [Warlock](#warlock)          | [Mystic](#mystic)                 | [Werewolf](#werewolf)            | [Radar](#radar)              |
-|                              | [Oracle](#oracle)                 |                                  | [Saboteur](#saboteur)        |
+| [Wraith](#wraith)            | [Oracle](#oracle)                 |                                  | [Saboteur](#saboteur)        |
 |                              | [Plumber](#plumber)               |                                  | [Satellite](#satellite)      |
-|                              | [Politician](#politician)         |                                  | [Shy](#shy)                  |
+|                              | [President](#president)           |                                  | [Shy](#shy)                  |
 |                              | [Prosecutor](#prosecutor)         |                                  | [Sixth Sense](#sixth-sense)  |
 |                              | [Seer](#seer)                     |                                  | [Sleuth](#sleuth)            |
 |                              | [Sheriff](#sheriff)               |                                  | [Taskmaster](#taskmaster)    |
@@ -1179,17 +1179,17 @@ If the Jailor executes incorrectly, they lose the ability to jail.
 | Maximum Executes | Maximum number of times a Jailor can Execute | Number | 3 |
 
 -----------------------
-## Politician
+## President
 ### **Team: Crewmates**
-The Politician is a Crewmate that can campaign to other players.\
-Once half or more of the crewmates are campaigned to, the Politician can reveal themselves as the new Mayor.\
-If less then half of the crewmates have been campaigned to the reveal will fail and the Politician will be unable to campaign for 1 round.
+The President is Crewmate, who can vote multiple times or abstain.
 
 ### Game Options
 | Name | Description | Type | Default |
 |----------|:-------------:|:------:|:------:|
-| Politician | The percentage probability of the Politician appearing | Percentage | 0% |
-| Campaign Cooldown | The cooldown of the Politician's Campaign button | Time | 25s |
+| President | The percentage probability of the President appearing | Percentage | 0% |
+| Initial President Vote Bank | Number of votes rising every meeting | Number | 1 |
+| President Votes Show Anonymous | Is the President's vote anonymous | Toggle | False |
+| Maximum President Vote Bank | Maximum number of votes to be collected by the President | Number | 10 |
 
 -----------------------
 ## Prosecutor
@@ -1472,20 +1472,6 @@ However, if Lovers, or a Neutral Evil role wins the game, the survivor loses.
 | Survivor Movement Timer | How frequently the Survivor needs to move | Time | 25s |
 
 -----------------------
-## Foreteller
-### **Team: Neutral**
-The Foreteller is a Neutral role with its own win condition.\
-Their goal is to guesses players roles to win.
-### Game Options
-| Name | Description | Type | Default |
-|----------|:-------------:|:------:|:------:|
-| Foreteller | The percentage probability of the Foreteller appearing | Percentage | 0% |
-| Foreteller Observe Cooldown | The Cooldown of the Foreteller's Observe button | Time | 25s |
-| Number Of Foreteller Kill To Win | The Foreteller must guesses people roles to win | Number | 3 |
-| Foreteller Can't Observe | The Foreteller doesn't have the observe feature | Toggle | False |
-| Foreteller Win Ends Game  | Whether Foreteller winning ends the game | Toggle | True |
-
------------------------
 ## Executioner
 ### **Team: Neutral**
 
@@ -1499,6 +1485,20 @@ If that player gets voted out, they win the game.
 | Executioner becomes on Target Dead | Which role the Executioner becomes when their target dies | Crewmate / Amnesiac / Mercenary / Survivor / Jester | Jester |
 | Executioner Can Button | Whether the Executioner Can Press the Button | Toggle | True |
 | Executioner Win  | What happens when the Executioner wins | Ends Game / Nothing / Torments | Ends Game |
+
+-----------------------
+## Foreteller
+### **Team: Neutral**
+The Foreteller is a Neutral role with its own win condition.\
+Their goal is to guesses players roles to win.
+### Game Options
+| Name | Description | Type | Default |
+|----------|:-------------:|:------:|:------:|
+| Foreteller | The percentage probability of the Foreteller appearing | Percentage | 0% |
+| Foreteller Observe Cooldown | The Cooldown of the Foreteller's Observe button | Time | 25s |
+| Number Of Foreteller Kill To Win | The Foreteller must guesses people roles to win | Number | 3 |
+| Foreteller Can't Observe | The Foreteller doesn't have the observe feature | Toggle | False |
+| Foreteller Win Ends Game  | Whether Foreteller winning ends the game | Toggle | True |
 
 -----------------------
 ## Jester
@@ -1749,6 +1749,19 @@ All abilities are activated by the one button and have the same duration.
 | Sprint Speed | How fast the speed increase of the Venerer is when sprinting | Multiplier | 1.25x |
 | Min Freeze Speed | How slow the minimum speed is when the Venerer's ability is active | Multiplier | 0.25x |
 | Freeze Radius | How wide the freeze radius is | Multiplier | 1x |
+
+-----------------------
+## Wraith
+### **Team Impostors**
+Wraith is an impostor that can pass through walls.
+
+### Game Options
+| Name | Description | Type | Default |
+|----------|:-------------:|:------:|:------:|
+| Wraith | The percentage probability of the Wraith appearing | Percentage | 0% |
+| Wraith Cooldown | The cooldown of the Wraith Ability button | Time | 25s |
+| Wraith Duration | How long the Wraith can pass trought wall | Time | 10s |
+| Wraith Can Vent | Whether the Wraith can vent | Toggle | False |
 
 -----------------------
 ## Bomber
