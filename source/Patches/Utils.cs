@@ -363,6 +363,15 @@ namespace TownOfUs
             });
         }
 
+        public static bool IsAnyJailed(this PlayerControl player)
+        {
+            return Role.GetRoles(RoleEnum.Jailor).Any(role =>
+            {
+                var jailor = (Jailor)role;
+                return jailor.IsAnyJailed == player && !player.Data.IsDead && !player.Data.Disconnected;
+            });
+        }
+
         public static bool IsBlackmailed(this PlayerControl player)
         {
             return Role.GetRoles(RoleEnum.Blackmailer).Any(role =>

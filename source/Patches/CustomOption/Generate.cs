@@ -421,11 +421,6 @@ namespace TownOfUs.CustomOption
 
         public static CustomHeaderOption Foreteller;
         public static CustomNumberOption ForetellerObserveCooldown;
-        public static CustomToggleOption ForetellerGuessNeutralBenign;
-        public static CustomToggleOption ForetellerGuessNeutralEvil;
-        public static CustomToggleOption ForetellerGuessNeutralKilling;
-        public static CustomToggleOption ForetellerGuessImpostors;
-        public static CustomToggleOption ForetellerAfterVoting;
         public static CustomNumberOption ForetellerGuessesToWin;
         public static CustomToggleOption ForetellerCantObserve;
         public static CustomToggleOption ForetellerWinEndsGame;
@@ -1237,16 +1232,6 @@ namespace TownOfUs.CustomOption
                 new CustomHeaderOption(num++, MultiMenu.neutral, "<color=#00FF80FF>Foreteller</color>");
             ForetellerObserveCooldown =
                 new CustomNumberOption(num++, MultiMenu.neutral, "Observe Cooldown", 25f, 10f, 60f, 2.5f, CooldownFormat);
-            ForetellerGuessNeutralBenign =
-                new CustomToggleOption(num++, MultiMenu.neutral, "Foreteller Can Guess Neutral Benign Roles", false);
-            ForetellerGuessNeutralEvil =
-                new CustomToggleOption(num++, MultiMenu.neutral, "Foreteller Can Guess Neutral Evil Roles", false);
-            ForetellerGuessNeutralKilling =
-                new CustomToggleOption(num++, MultiMenu.neutral, "Foreteller Can Guess Neutral Killing Roles", false);
-            ForetellerGuessImpostors =
-                new CustomToggleOption(num++, MultiMenu.neutral, "Foreteller Can Guess Impostor Roles", false);
-            ForetellerAfterVoting =
-                new CustomToggleOption(num++, MultiMenu.neutral, "Foreteller Can Guess After Voting", false);
             ForetellerGuessesToWin =
                 new CustomNumberOption(num++, MultiMenu.neutral, "Number Of Foreteller Kills To Win", 3, 1, 5, 1);
             ForetellerCantObserve =

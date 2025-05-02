@@ -51,13 +51,5 @@ namespace TownOfUs.NeutralRoles.ForetellerMod
             role.Buttons[targetId] = (null, null, null, null);
             role.Guesses.Remove(targetId);
         }
-
-
-        public static void Prefix(MeetingHud __instance)
-        {
-            if (!PlayerControl.LocalPlayer.Is(RoleEnum.Foreteller)) return;
-            var foreteller = Role.GetRole<Foreteller>(PlayerControl.LocalPlayer);
-            if (!CustomGameOptions.ForetellerAfterVoting) HideButtonsFore(foreteller);
-        }
     }
 }

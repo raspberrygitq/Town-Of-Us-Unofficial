@@ -498,16 +498,21 @@ namespace TownOfUs.Patches
                         return false;
                     }
                 }
-                if ((chatText.ToLower().StartsWith("/jail") || chatText.ToLower().StartsWith("/ jail")) && sourcePlayer.Is(RoleEnum.Jailor) && MeetingHud.Instance)
+                // Jailor nie musi pisac /jail.
+                if (sourcePlayer.Is(RoleEnum.Jailor) && MeetingHud.Instance && sourcePlayer.IsAnyJailed())
                 {
-                    if (PlayerControl.LocalPlayer.Is(RoleEnum.Jailor) || PlayerControl.LocalPlayer.IsJailed())
+                    if (chatText.ToLower().StartsWith("/all"))
                     {
-                        if (chatText.ToLower().StartsWith("/jail")) chatText = chatText[5..];
-                        else if (chatText.ToLower().StartsWith("/jail ")) chatText = chatText[6..];
-                        else if (chatText.ToLower().StartsWith("/ jail")) chatText = chatText[6..];
-                        else if (chatText.ToLower().StartsWith("/ jail ")) chatText = chatText[7..];
+                        chatText = chatText.Substring(4).Trim();
+                        if (sourcePlayer != PlayerControl.LocalPlayer && PlayerControl.LocalPlayer.IsJailed() && !sourcePlayer.Data.IsDead)
+                            sourcePlayer = PlayerControl.LocalPlayer;
+                        return true;
+                    }
+                    else if (PlayerControl.LocalPlayer.Is(RoleEnum.Jailor) || PlayerControl.LocalPlayer.IsJailed())
+                    {
                         JailorMessage = true;
-                        if (sourcePlayer != PlayerControl.LocalPlayer && PlayerControl.LocalPlayer.IsJailed() && !sourcePlayer.Data.IsDead) sourcePlayer = PlayerControl.LocalPlayer;
+                        if (sourcePlayer != PlayerControl.LocalPlayer && PlayerControl.LocalPlayer.IsJailed() && !sourcePlayer.Data.IsDead)
+                            sourcePlayer = PlayerControl.LocalPlayer;
                         return true;
                     }
                     else return false;
@@ -617,7 +622,7 @@ namespace TownOfUs.Patches
                 if (role == RoleEnum.Bomber) HudManager.Instance.Chat.AddChat(
                     PlayerControl.LocalPlayer, "The Bomber is an impostor who can place bombs, these kill anyone in the area a short duration later.");
                 if (role == RoleEnum.Foreteller) HudManager.Instance.Chat.AddChat(
-                    PlayerControl.LocalPlayer, "The Foreteller is a neutral evil role with the goal to guess other player's roles.");
+                    PlayerControl.LocalPlayer, $"The Foreteller is a neutral evil role with the goal to guess {CustomGameOptions.ForetellerGuessesToWin} other player's roles.");
                 if (role == RoleEnum.Vampire) HudManager.Instance.Chat.AddChat(PlayerControl.LocalPlayer,
                     "The Vampire is a neutral killer with the goal to kill everyone. The first crewmate the original Vampire bites will turn into a Vampire, the rest will die.");
                 if (role == RoleEnum.Prosecutor) HudManager.Instance.Chat.AddChat(

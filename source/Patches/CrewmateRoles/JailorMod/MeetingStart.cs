@@ -3,6 +3,7 @@ using Reactor.Utilities;
 using TownOfUs.Roles;
 using UnityEngine;
 using System.Collections;
+using Reactor.Utilities.Extensions;
 
 namespace TownOfUs.CrewmateRoles.JailorMod
 {
@@ -30,7 +31,7 @@ namespace TownOfUs.CrewmateRoles.JailorMod
             {
                 var jailor = Role.GetRole<Jailor>(PlayerControl.LocalPlayer);
                 if (jailor.Jailed == null || jailor.Jailed.Data.IsDead || jailor.Jailed.Data.Disconnected) return;
-                HudManager.Instance.Chat.AddChat(PlayerControl.LocalPlayer, "Use /jail to communicate with your jailee");
+                HudManager.Instance.Chat.AddChat(PlayerControl.LocalPlayer, $"Examine <color=#{Patches.Colors.Impostor.ToHtmlStringRGBA()}>{jailor.Jailed.name.ToUpper()}.</color>\nUse /all to communicate with everyone.");
             }
         }
 

@@ -307,17 +307,10 @@ namespace TownOfUs
         public static float DetonateRadius => Generate.DetonateRadius.Get();
         public static bool BomberVent => Generate.BomberVent.Get();
         public static bool AllImpsSeeBomb => Generate.AllImpsSeeBomb.Get();
-
         public static float ForetellerObserveCooldown => Generate.ForetellerObserveCooldown.Get();
-        public static bool ForetellerGuessNeutralBenign => Generate.ForetellerGuessNeutralBenign.Get();
-        public static bool ForetellerGuessNeutralEvil => Generate.ForetellerGuessNeutralEvil.Get();
-        public static bool ForetellerGuessNeutralKilling => Generate.ForetellerGuessNeutralKilling.Get();
-        public static bool ForetellerGuessImpostors => Generate.ForetellerGuessImpostors.Get();
-        public static bool ForetellerAfterVoting => Generate.ForetellerAfterVoting.Get();
         public static int ForetellerGuessesToWin => (int)Generate.ForetellerGuessesToWin.Get();
         public static bool ForetellerWinEndsGame => Generate.ForetellerWinEndsGame.Get();
         public static bool ForetellerCantObserve => Generate.ForetellerCantObserve.Get();
-
         public static float BiteCd => Generate.BiteCooldown.Get();
         public static bool VampImpVision => Generate.VampImpVision.Get();
         public static bool VampVent => Generate.VampVent.Get();
