@@ -24,7 +24,7 @@ Join our [Discord](https://discord.gg/ugyc4EVUYZ) if you have any problems or wa
 | [Undertaker](#undertaker)    | [Medic](#medic)                   | [Survivor](#survivor)            | [Mini](#mini)                |
 | [Venerer](#venerer)          | [Medium](#medium)                 | [Vampire](#vampire)              | [Multitasker](#multitasker)  |
 | [Warlock](#warlock)          | [Mystic](#mystic)                 | [Werewolf](#werewolf)            | [Radar](#radar)              |
-| [Wraith](#wraith)            | [Oracle](#oracle)                 |                                  | [Saboteur](#saboteur)        |
+| [Wraith](#wraith)            | [Oracle](#oracle)                 | [Icenberg](#icenberg)            | [Saboteur](#saboteur)        |
 |                              | [Plumber](#plumber)               |                                  | [Satellite](#satellite)      |
 |                              | [President](#president)           |                                  | [Shy](#shy)                  |
 |                              | [Prosecutor](#prosecutor)         |                                  | [Sixth Sense](#sixth-sense)  |
