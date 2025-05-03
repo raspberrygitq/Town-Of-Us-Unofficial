@@ -86,6 +86,7 @@ namespace TownOfUs.CustomOption
         public static CustomNumberOption BlackmailerOn;
         public static CustomNumberOption HypnotistOn;
         public static CustomNumberOption JanitorOn;
+        public static CustomNumberOption KamikazeOn;
         public static CustomNumberOption MinerOn;
         public static CustomNumberOption UndertakerOn;
 
@@ -528,6 +529,13 @@ namespace TownOfUs.CustomOption
         public static CustomNumberOption WraithDuration;
         public static CustomToggleOption WraithVent;
 
+        public static CustomHeaderOption Kamikaze;
+        public static CustomNumberOption KamikazeMaxKillsInDetonation;
+        public static CustomNumberOption KamikazeDetonateDelay;
+        public static CustomNumberOption KamikazeDetonateRadius;
+        public static CustomToggleOption KamikazeVent;
+        public static CustomToggleOption KamikazeAllImpsSeeBomb;
+
         public static CustomHeaderOption Giant;
         public static CustomNumberOption GiantSlow;
 
@@ -714,6 +722,8 @@ namespace TownOfUs.CustomOption
             HypnotistOn = new CustomNumberOption(num++, MultiMenu.imposter, "<color=#FF0000FF>Hypnotist</color>", 0f, 0f, 100f, 10f,
                 PercentFormat);
             JanitorOn = new CustomNumberOption(num++, MultiMenu.imposter, "<color=#FF0000FF>Janitor</color>", 0f, 0f, 100f, 10f,
+                PercentFormat);
+            KamikazeOn = new CustomNumberOption(num++, MultiMenu.imposter, "<color=#FF0000FF>Kamikaze</color>", 0f, 0f, 100f, 10f,
                 PercentFormat);
             MinerOn = new CustomNumberOption(num++, MultiMenu.imposter, "<color=#FF0000FF>Miner</color>", 0f, 0f, 100f, 10f,
                 PercentFormat);

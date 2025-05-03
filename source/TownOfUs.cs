@@ -121,6 +121,7 @@ namespace TownOfUs
         public static Sprite NoclipSprite;
         public static Sprite FreezeSprite;
         public static Sprite BlizzardSprite;
+        public static Sprite SuicideSprite;
 
         public static Sprite ToUBanner;
         public static Sprite UpdateTOUButton;
@@ -240,6 +241,7 @@ namespace TownOfUs
             CleanseSprite = CreateSprite("TownOfUs.Resources.Cleanse.png");
             DetectSprite = CreateSprite("TownOfUs.Resources.Detect.png");
             NoclipSprite = CreateSprite("TownOfUs.Resources.Noclip.png");
+            SuicideSprite = CreateSprite("TownOfUs.Resources.Suicide.png");
 
             ToUBanner = CreateSprite("TownOfUs.Resources.TownOfUsBanner.png");
             UpdateTOUButton = CreateSprite("TownOfUs.Resources.UpdateToUButton.png");

@@ -49,7 +49,7 @@ namespace TownOfUs.NeutralRoles.ForetellerMod
                  || player.Is(RoleEnum.Swapper) || player.Is(RoleEnum.Traitor) || player.Is(RoleEnum.Venerer) || player.Is(RoleEnum.Veteran))
                 return $"You observe that {player.GetDefaultOutfit().PlayerName} has a trick up their sleeve";
             else if (player.Is(RoleEnum.Bomber) || player.Is(RoleEnum.Deputy) || player.Is(RoleEnum.Jailor) || player.Is(RoleEnum.Juggernaut)
-                 || player.Is(RoleEnum.Sheriff) || player.Is(RoleEnum.Vigilante) || player.Is(RoleEnum.Warlock))
+                 || player.Is(RoleEnum.Kamikaze) || player.Is(RoleEnum.Sheriff) || player.Is(RoleEnum.Vigilante) || player.Is(RoleEnum.Warlock))
                 return $"You observe that {player.GetDefaultOutfit().PlayerName} is capable of performing relentless attacks";
             else if (player.Is(RoleEnum.Crewmate) || player.Is(RoleEnum.Impostor))
                 return $"You observe that {player.GetDefaultOutfit().PlayerName} appears to be roleless";
@@ -83,8 +83,8 @@ namespace TownOfUs.NeutralRoles.ForetellerMod
                  || player.Is(RoleEnum.Swapper) || player.Is(RoleEnum.Traitor) || player.Is(RoleEnum.Venerer) || player.Is(RoleEnum.Veteran))
                 return "(Executioner, Jester, Plumber, Politician, President, Swapper, Traitor, Venerer or Veteran)";
             else if (player.Is(RoleEnum.Bomber) || player.Is(RoleEnum.Deputy) || player.Is(RoleEnum.Jailor) || player.Is(RoleEnum.Juggernaut)
-                 || player.Is(RoleEnum.Sheriff) || player.Is(RoleEnum.Vigilante) || player.Is(RoleEnum.Warlock))
-                return "(Bomber, Deputy, Jailor, Juggernaut, Sheriff, Vigilante or Warlock)";
+                 || player.Is(RoleEnum.Kamikaze) || player.Is(RoleEnum.Sheriff) || player.Is(RoleEnum.Vigilante) || player.Is(RoleEnum.Warlock))
+                return "(Bomber, Deputy, Jailor, Juggernaut, Kamikaze, Sheriff, Vigilante or Warlock)";
             else if (player.Is(RoleEnum.Crewmate) || player.Is(RoleEnum.Impostor))
                 return "(Crewmate or Impostor)";
             else return "Error";

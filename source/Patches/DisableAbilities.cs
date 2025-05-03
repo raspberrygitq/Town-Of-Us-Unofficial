@@ -66,6 +66,11 @@ namespace TownOfUs
                         var bomber = Role.GetRole<Bomber>(PlayerControl.LocalPlayer);
                         if (bomber.Detonating) disableExtra = false;
                     }
+                    else if (PlayerControl.LocalPlayer.Is(RoleEnum.Kamikaze))
+                    {
+                        var kami = Role.GetRole<Kamikaze>(PlayerControl.LocalPlayer);
+                        if (kami.Detonating) disableExtra = false;
+                    }
                     else if (PlayerControl.LocalPlayer.Is(RoleEnum.Grenadier))
                     {
                         var gren = Role.GetRole<Grenadier>(PlayerControl.LocalPlayer);
