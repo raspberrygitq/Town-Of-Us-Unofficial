@@ -5,4 +5,10 @@
     },
     "ModVersion": "1.0.5"
   }
+  {
+    "InternamVersions": {
+      "50595550": "2025.05.03"
+    },
+    "ModVersion": "1.0.6"
+  }
 ]
