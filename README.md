@@ -1569,6 +1569,24 @@ The Glitch can Mimic someone, which results in them looking exactly like the oth
 | Glitch can Vent | Whether the Glitch can Vent | Toggle | False |
 
 -----------------------
+## Icenberg
+### **Team: Neutral**
+
+The Icenberg is a neutral role with its own victory condition.\
+The Icenberg's goal is to kill everyone and become the last person standing.\
+The Icenberg can freeze players, preventing them from moving.
+
+### Game Options
+| Name | Description | Type | Default | 
+|----------|:-------------:|:------:|:------:|
+| Icenberg | The percentage probability of the Icenberg appearing | Percentage | 0% |
+| Freeze Cooldown | The cooldown of the Icenberg's Freeze button | Time | 25s |
+| Freeze Duration | How long the Icenberg can Freeze a player | Time | 3s |
+| Icenberg Kill Cooldown | The cooldown of the Icenberg's Kill button | Time | 25s |
+| Icenberg Has Impostor Vision | Whether the Icenberg has a impostor vision | Toggle | false |
+| Icenberg Can Vent | Whether the Icenberg can Vent | Toogle | true |
+
+-----------------------
 ## Juggernaut
 ### **Team: Neutral**
 
