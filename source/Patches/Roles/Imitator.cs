@@ -27,6 +27,7 @@ namespace TownOfUs.Roles
             Color = Patches.Colors.Imitator;
             RoleType = RoleEnum.Imitator;
             AddToRoleHistory(RoleType);
+            Alignment = Alignment.CrewmateSupport;
         }
 
         internal override bool GameEnd(LogicGameFlowNormal __instance)

@@ -18,6 +18,7 @@ namespace TownOfUs.Roles
             StartingCooldown = DateTime.UtcNow;
             RoleType = RoleEnum.Medic;
             AddToRoleHistory(RoleType);
+            Alignment = Alignment.CrewmateProtective;
             ShieldedPlayer = null;
 
             LightDarkColors.Add(0, "darker"); // Red

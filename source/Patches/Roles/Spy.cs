@@ -10,6 +10,7 @@ namespace TownOfUs.Roles
             Color = Patches.Colors.Spy;
             RoleType = RoleEnum.Spy;
             AddToRoleHistory(RoleType);
+            Alignment = Alignment.CrewmateInvestigative;
         }
     }
 }

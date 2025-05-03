@@ -17,6 +17,7 @@ namespace TownOfUs.Roles
             Prosecuted = false;
             HasProsecuted = false;
             ProsecuteThisMeeting = false;
+            Alignment = Alignment.CrewmatePower;
         }
         public bool ProsecuteThisMeeting { get; set; }
         public bool Prosecuted { get; set; }

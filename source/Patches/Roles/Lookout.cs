@@ -24,6 +24,7 @@ namespace TownOfUs.Roles
             LastWatched = DateTime.UtcNow;
             RoleType = RoleEnum.Lookout;
             AddToRoleHistory(RoleType);
+            Alignment = Alignment.CrewmateInvestigative;
 
             UsesLeft = CustomGameOptions.MaxWatches;
         }

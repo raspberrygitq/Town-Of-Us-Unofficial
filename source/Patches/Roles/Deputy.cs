@@ -24,6 +24,7 @@ namespace TownOfUs.Roles
             StartingCooldown = DateTime.UtcNow;
             RoleType = RoleEnum.Deputy;
             AddToRoleHistory(RoleType);
+            Alignment = Alignment.CrewmateKilling;
         }
 
         public float StartTimer()

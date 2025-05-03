@@ -27,6 +27,7 @@ namespace TownOfUs.Roles
             Color = Patches.Colors.Vigilante;
             RoleType = RoleEnum.Vigilante;
             AddToRoleHistory(RoleType);
+            Alignment = Alignment.CrewmateKilling;
 
             RemainingKills = CustomGameOptions.VigilanteKills;
 

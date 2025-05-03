@@ -69,6 +69,7 @@ namespace TownOfUs.Roles
         public bool Local => PlayerControl.LocalPlayer.PlayerId == Player.PlayerId;
 
         protected internal Faction Faction { get; set; } = Faction.Crewmates;
+        protected internal Alignment Alignment { get; set; } = Alignment.None;
 
         public static uint NetId => PlayerControl.LocalPlayer.NetId;
         public string PlayerName { get; set; }
@@ -495,12 +496,62 @@ namespace TownOfUs.Roles
                     // var alpha = __instance.__4__this.RoleText.color.a;
                     if (role != null)
                     {
-                        if (role.Faction == Faction.NeutralKilling || role.Faction == Faction.NeutralEvil || role.Faction == Faction.NeutralBenign)
+                        if (role.Faction == Faction.NeutralBenign)
                         {
                             __instance.__4__this.TeamTitle.text = "Neutral";
                             __instance.__4__this.TeamTitle.color = Color.white;
                             __instance.__4__this.BackgroundBar.material.color = Color.white;
                             PlayerControl.LocalPlayer.Data.Role.IntroSound = GetIntroSound(RoleTypes.Shapeshifter);
+                        }
+
+                        if (role.Faction == Faction.NeutralEvil)
+                        {
+                            __instance.__4__this.TeamTitle.text = "Neutral";
+                            __instance.__4__this.TeamTitle.color = Color.white;
+                            __instance.__4__this.BackgroundBar.material.color = Color.white;
+                            var sound = GameManagerCreator.Instance.HideAndSeekManagerPrefab.FinalHideAlertSFX;
+                            PlayerControl.LocalPlayer.Data.Role.IntroSound = Object.Instantiate(sound, HudManager.Instance.transform.parent);
+                        }
+
+                        if (role.Faction == Faction.NeutralKilling)
+                        {
+                            __instance.__4__this.TeamTitle.text = "Neutral";
+                            __instance.__4__this.TeamTitle.color = Color.white;
+                            __instance.__4__this.BackgroundBar.material.color = Color.white;
+                            PlayerControl.LocalPlayer.Data.Role.IntroSound = DestroyableSingleton<HnSImpostorScreamSfx>.Instance.HnSLocalImpostorTransformSfx;
+                        }
+
+                        if (role.Faction == Faction.NeutralApocalypse)
+                        {
+                            __instance.__4__this.TeamTitle.text = "Neutral";
+                            __instance.__4__this.TeamTitle.color = Color.white;
+                            __instance.__4__this.BackgroundBar.material.color = Color.white;
+                            PlayerControl.LocalPlayer.Data.Role.IntroSound = GetIntroSound(RoleTypes.Phantom);
+                        }
+
+                        if (role.Alignment == Alignment.CrewmateKilling)
+                        {
+                            PlayerControl.LocalPlayer.Data.Role.IntroSound = PlayerControl.LocalPlayer.KillSfx;
+                        }
+
+                        if (role.Alignment == Alignment.CrewmateSupport)
+                        {
+                            PlayerControl.LocalPlayer.Data.Role.IntroSound = GetIntroSound(RoleTypes.Engineer);
+                        }
+
+                        if (role.Alignment == Alignment.CrewmateProtective)
+                        {
+                            PlayerControl.LocalPlayer.Data.Role.IntroSound = GetIntroSound(RoleTypes.Scientist);
+                        }
+
+                        if (role.Alignment == Alignment.CrewmatePower)
+                        {
+                            PlayerControl.LocalPlayer.Data.Role.IntroSound = GetIntroSound(RoleTypes.Crewmate);
+                        }
+
+                        if (role.Alignment == Alignment.CrewmateInvestigative)
+                        {
+                            PlayerControl.LocalPlayer.Data.Role.IntroSound = HudManager.Instance.TaskCompleteSound;
                         }
                         __instance.__4__this.RoleText.text = role.Name;
                         __instance.__4__this.RoleText.color = role.Color;
@@ -544,12 +595,62 @@ namespace TownOfUs.Roles
                     var role = GetRole(PlayerControl.LocalPlayer);
                     if (role != null)
                     {
-                        if (role.Faction == Faction.NeutralKilling || role.Faction == Faction.NeutralEvil || role.Faction == Faction.NeutralBenign)
+                        if (role.Faction == Faction.NeutralBenign)
                         {
                             __instance.__4__this.TeamTitle.text = "Neutral";
                             __instance.__4__this.TeamTitle.color = Color.white;
                             __instance.__4__this.BackgroundBar.material.color = Color.white;
                             PlayerControl.LocalPlayer.Data.Role.IntroSound = GetIntroSound(RoleTypes.Shapeshifter);
+                        }
+
+                        if (role.Faction == Faction.NeutralEvil)
+                        {
+                            __instance.__4__this.TeamTitle.text = "Neutral";
+                            __instance.__4__this.TeamTitle.color = Color.white;
+                            __instance.__4__this.BackgroundBar.material.color = Color.white;
+                            var sound = GameManagerCreator.Instance.HideAndSeekManagerPrefab.FinalHideAlertSFX;
+                            PlayerControl.LocalPlayer.Data.Role.IntroSound = Object.Instantiate(sound, HudManager.Instance.transform.parent);
+                        }
+
+                        if (role.Faction == Faction.NeutralKilling)
+                        {
+                            __instance.__4__this.TeamTitle.text = "Neutral";
+                            __instance.__4__this.TeamTitle.color = Color.white;
+                            __instance.__4__this.BackgroundBar.material.color = Color.white;
+                            PlayerControl.LocalPlayer.Data.Role.IntroSound = DestroyableSingleton<HnSImpostorScreamSfx>.Instance.HnSLocalImpostorTransformSfx;
+                        }
+
+                        if (role.Faction == Faction.NeutralApocalypse)
+                        {
+                            __instance.__4__this.TeamTitle.text = "Neutral";
+                            __instance.__4__this.TeamTitle.color = Color.white;
+                            __instance.__4__this.BackgroundBar.material.color = Color.white;
+                            PlayerControl.LocalPlayer.Data.Role.IntroSound = GetIntroSound(RoleTypes.Phantom);
+                        }
+
+                        if (role.Alignment == Alignment.CrewmateKilling)
+                        {
+                            PlayerControl.LocalPlayer.Data.Role.IntroSound = PlayerControl.LocalPlayer.KillSfx;
+                        }
+
+                        if (role.Alignment == Alignment.CrewmateSupport)
+                        {
+                            PlayerControl.LocalPlayer.Data.Role.IntroSound = GetIntroSound(RoleTypes.Engineer);
+                        }
+
+                        if (role.Alignment == Alignment.CrewmateProtective)
+                        {
+                            PlayerControl.LocalPlayer.Data.Role.IntroSound = GetIntroSound(RoleTypes.Scientist);
+                        }
+
+                        if (role.Alignment == Alignment.CrewmatePower)
+                        {
+                            PlayerControl.LocalPlayer.Data.Role.IntroSound = GetIntroSound(RoleTypes.Crewmate);
+                        }
+
+                        if (role.Alignment == Alignment.CrewmateInvestigative)
+                        {
+                            PlayerControl.LocalPlayer.Data.Role.IntroSound = HudManager.Instance.TaskCompleteSound;
                         }
                         __instance.__4__this.RoleText.text = role.Name;
                         __instance.__4__this.RoleText.color = role.Color;
@@ -621,12 +722,62 @@ namespace TownOfUs.Roles
                     var role = GetRole(PlayerControl.LocalPlayer);
                     if (role != null)
                     {
-                        if (role.Faction == Faction.NeutralKilling || role.Faction == Faction.NeutralEvil || role.Faction == Faction.NeutralBenign)
+                        if (role.Faction == Faction.NeutralBenign)
                         {
                             __instance.__4__this.TeamTitle.text = "Neutral";
                             __instance.__4__this.TeamTitle.color = Color.white;
                             __instance.__4__this.BackgroundBar.material.color = Color.white;
                             PlayerControl.LocalPlayer.Data.Role.IntroSound = GetIntroSound(RoleTypes.Shapeshifter);
+                        }
+
+                        if (role.Faction == Faction.NeutralEvil)
+                        {
+                            __instance.__4__this.TeamTitle.text = "Neutral";
+                            __instance.__4__this.TeamTitle.color = Color.white;
+                            __instance.__4__this.BackgroundBar.material.color = Color.white;
+                            var sound = GameManagerCreator.Instance.HideAndSeekManagerPrefab.FinalHideAlertSFX;
+                            PlayerControl.LocalPlayer.Data.Role.IntroSound = Object.Instantiate(sound, HudManager.Instance.transform.parent);
+                        }
+
+                        if (role.Faction == Faction.NeutralKilling)
+                        {
+                            __instance.__4__this.TeamTitle.text = "Neutral";
+                            __instance.__4__this.TeamTitle.color = Color.white;
+                            __instance.__4__this.BackgroundBar.material.color = Color.white;
+                            PlayerControl.LocalPlayer.Data.Role.IntroSound = DestroyableSingleton<HnSImpostorScreamSfx>.Instance.HnSLocalImpostorTransformSfx;
+                        }
+
+                        if (role.Faction == Faction.NeutralApocalypse)
+                        {
+                            __instance.__4__this.TeamTitle.text = "Neutral";
+                            __instance.__4__this.TeamTitle.color = Color.white;
+                            __instance.__4__this.BackgroundBar.material.color = Color.white;
+                            PlayerControl.LocalPlayer.Data.Role.IntroSound = GetIntroSound(RoleTypes.Phantom);
+                        }
+
+                        if (role.Alignment == Alignment.CrewmateKilling)
+                        {
+                            PlayerControl.LocalPlayer.Data.Role.IntroSound = PlayerControl.LocalPlayer.KillSfx;
+                        }
+
+                        if (role.Alignment == Alignment.CrewmateSupport)
+                        {
+                            PlayerControl.LocalPlayer.Data.Role.IntroSound = GetIntroSound(RoleTypes.Engineer);
+                        }
+
+                        if (role.Alignment == Alignment.CrewmateProtective)
+                        {
+                            PlayerControl.LocalPlayer.Data.Role.IntroSound = GetIntroSound(RoleTypes.Scientist);
+                        }
+
+                        if (role.Alignment == Alignment.CrewmatePower)
+                        {
+                            PlayerControl.LocalPlayer.Data.Role.IntroSound = GetIntroSound(RoleTypes.Crewmate);
+                        }
+
+                        if (role.Alignment == Alignment.CrewmateInvestigative)
+                        {
+                            PlayerControl.LocalPlayer.Data.Role.IntroSound = HudManager.Instance.TaskCompleteSound;
                         }
                         __instance.__4__this.RoleText.text = role.Name;
                         __instance.__4__this.RoleText.color = role.Color;

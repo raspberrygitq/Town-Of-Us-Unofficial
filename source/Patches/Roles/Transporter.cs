@@ -43,6 +43,7 @@ namespace TownOfUs.Roles
             TransportPlayer1 = null;
             TransportPlayer2 = null;
             UsesLeft = CustomGameOptions.TransportMaxUses;
+            Alignment = Alignment.CrewmateSupport;
         }
 
         public float TransportTimer()

@@ -27,6 +27,7 @@ namespace TownOfUs.Roles
             Accuracy = CustomGameOptions.RevealAccuracy;
             RoleType = RoleEnum.Oracle;
             AddToRoleHistory(RoleType);
+            Alignment = Alignment.CrewmateProtective;
         }
         public float ConfessTimer()
         {

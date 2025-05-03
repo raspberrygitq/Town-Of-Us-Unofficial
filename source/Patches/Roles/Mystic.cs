@@ -15,6 +15,7 @@ namespace TownOfUs.Roles
             Color = Patches.Colors.Mystic;
             RoleType = RoleEnum.Mystic;
             AddToRoleHistory(RoleType);
+            Alignment = Alignment.CrewmateInvestigative;
         }
 
         public void DestroyArrow(byte targetPlayerId)

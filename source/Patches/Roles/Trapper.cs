@@ -28,6 +28,7 @@ namespace TownOfUs.Roles
             LastTrapped = DateTime.UtcNow;
             trappedPlayers = new List<RoleEnum>();
             AddToRoleHistory(RoleType);
+            Alignment = Alignment.CrewmateInvestigative;
 
             UsesLeft = CustomGameOptions.MaxTraps;
         }

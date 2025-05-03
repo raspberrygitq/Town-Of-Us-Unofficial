@@ -19,6 +19,7 @@ namespace TownOfUs.Roles
             Color = Patches.Colors.Aurial;
             RoleType = RoleEnum.Aurial;
             AddToRoleHistory(RoleType);
+            Alignment = Alignment.CrewmateInvestigative;
         }
 
         public IEnumerator Sense(PlayerControl player)

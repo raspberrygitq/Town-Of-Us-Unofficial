@@ -18,6 +18,7 @@ namespace TownOfUs.Roles
             Color = Patches.Colors.Altruist;
             RoleType = RoleEnum.Altruist;
             AddToRoleHistory(RoleType);
+            Alignment = Alignment.CrewmateProtective;
             UsesLeft = CustomGameOptions.ReviveUses;
         }
 

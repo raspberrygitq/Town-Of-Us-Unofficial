@@ -17,6 +17,7 @@ namespace TownOfUs.Roles
             RoleType = RoleEnum.Investigator;
             AddToRoleHistory(RoleType);
             Scale = 1.4f;
+            Alignment = Alignment.CrewmateInvestigative;
         }
     }
 }

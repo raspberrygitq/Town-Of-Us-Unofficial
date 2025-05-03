@@ -23,6 +23,7 @@ namespace TownOfUs.Roles
             AddToRoleHistory(RoleType);
             UsesLeft = CustomGameOptions.MaxBarricades;
             LastFlushed = DateTime.UtcNow;
+            Alignment = Alignment.CrewmateSupport;
         }
 
         public int UsesLeft;

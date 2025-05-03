@@ -23,6 +23,7 @@ namespace TownOfUs.Roles
             Color = Patches.Colors.Snitch;
             RoleType = RoleEnum.Snitch;
             AddToRoleHistory(RoleType);
+            Alignment = Alignment.CrewmateInvestigative;
         }
 
         public bool Revealed => TasksLeft <= CustomGameOptions.SnitchTasksRemaining;

@@ -16,6 +16,7 @@ namespace TownOfUs.Roles
             LastBarriered = DateTime.UtcNow;
             RoleType = RoleEnum.Cleric;
             AddToRoleHistory(RoleType);
+            Alignment = Alignment.CrewmateProtective;
         }
 
         private KillButton _cleanseButton;

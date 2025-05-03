@@ -24,6 +24,7 @@ namespace TownOfUs.Roles
             AddToRoleHistory(RoleType);
             Scale = 1.4f;
             MediatedPlayers = new Dictionary<byte, ArrowBehaviour>();
+            Alignment = Alignment.CrewmateSupport;
         }
 
         internal override bool RoleCriteria()

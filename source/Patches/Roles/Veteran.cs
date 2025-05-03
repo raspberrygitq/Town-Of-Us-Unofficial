@@ -26,6 +26,7 @@ namespace TownOfUs.Roles
             LastAlerted = DateTime.UtcNow;
             RoleType = RoleEnum.Veteran;
             AddToRoleHistory(RoleType);
+            Alignment = Alignment.CrewmateKilling;
 
             UsesLeft = CustomGameOptions.MaxAlerts;
         }

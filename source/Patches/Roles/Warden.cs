@@ -17,6 +17,7 @@ namespace TownOfUs.Roles
             StartingCooldown = DateTime.UtcNow;
             RoleType = RoleEnum.Warden;
             AddToRoleHistory(RoleType);
+            Alignment = Alignment.CrewmateProtective;
         }
 
         public float StartTimer()

@@ -6,6 +6,7 @@ namespace TownOfUs
         Impostors,
         NeutralBenign,
         NeutralEvil,
-        NeutralKilling
+        NeutralKilling,
+        NeutralApocalypse
     }
 }

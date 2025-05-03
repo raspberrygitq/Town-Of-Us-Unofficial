@@ -12,6 +12,7 @@ namespace TownOfUs.Roles
             Color = Patches.Colors.Engineer;
             RoleType = RoleEnum.Engineer;
             AddToRoleHistory(RoleType);
+            Alignment = Alignment.CrewmateSupport;
             UsesLeft = CustomGameOptions.MaxFixes;
         }
 

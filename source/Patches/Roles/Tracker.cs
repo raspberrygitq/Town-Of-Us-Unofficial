@@ -26,6 +26,7 @@ namespace TownOfUs.Roles
             LastTracked = DateTime.UtcNow;
             RoleType = RoleEnum.Tracker;
             AddToRoleHistory(RoleType);
+            Alignment = Alignment.CrewmateInvestigative;
 
             UsesLeft = CustomGameOptions.MaxTracks;
         }

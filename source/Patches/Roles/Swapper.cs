@@ -20,6 +20,7 @@ namespace TownOfUs.Roles
             Color = Patches.Colors.Swapper;
             RoleType = RoleEnum.Swapper;
             AddToRoleHistory(RoleType);
+            Alignment = Alignment.CrewmatePower;
         }
 
         internal override bool GameEnd(LogicGameFlowNormal __instance)

@@ -24,6 +24,7 @@ namespace TownOfUs.Roles
             LastExamined = DateTime.UtcNow;
             RoleType = RoleEnum.Detective;
             AddToRoleHistory(RoleType);
+            Alignment = Alignment.CrewmateInvestigative;
         }
 
         public KillButton ExamineButton

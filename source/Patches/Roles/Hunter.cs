@@ -21,6 +21,7 @@ namespace TownOfUs.Roles
             RoleType = RoleEnum.Hunter;
             AddToRoleHistory(RoleType);
             UsesLeft = CustomGameOptions.HunterStalkUses;
+            Alignment = Alignment.CrewmateKilling;
         }
 
         private KillButton _stalkButton;

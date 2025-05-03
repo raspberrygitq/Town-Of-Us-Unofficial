@@ -20,6 +20,7 @@ namespace TownOfUs.Roles
             Color = Patches.Colors.Haunter;
             RoleType = RoleEnum.Haunter;
             AddToRoleHistory(RoleType);
+            Alignment = Alignment.CrewmateGhost;
         }
     }
 }

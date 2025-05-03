@@ -16,6 +16,7 @@ namespace TownOfUs.Roles
             LastInvestigated = DateTime.UtcNow;
             RoleType = RoleEnum.Seer;
             AddToRoleHistory(RoleType);
+            Alignment = Alignment.CrewmateInvestigative;
         }
 
         public PlayerControl ClosestPlayer;

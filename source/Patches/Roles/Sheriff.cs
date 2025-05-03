@@ -15,6 +15,7 @@ namespace TownOfUs.Roles
             LastKilled = DateTime.UtcNow;
             RoleType = RoleEnum.Sheriff;
             AddToRoleHistory(RoleType);
+            Alignment = Alignment.CrewmateKilling;
         }
 
         public PlayerControl ClosestPlayer;

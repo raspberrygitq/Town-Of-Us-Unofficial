@@ -15,6 +15,7 @@ namespace TownOfUs.Roles
             RoleType = RoleEnum.President;
             AddToRoleHistory(RoleType);
             VoteBank = CustomGameOptions.PresidentVoteBank;
+            Alignment = Alignment.CrewmatePower;
         }
 
         public int VoteBank { get; set; }
