@@ -39,6 +39,7 @@ using Il2CppSystem.Linq;
 using TownOfUs.CrewmateRoles.DeputyMod;
 using TownOfUs.CrewmateRoles.ClericMod;
 using TownOfUs.ImpostorRoles.BlackmailerMod;
+using TownOfUs.NeutralRoles.IcenbergMod;
 
 namespace TownOfUs
 {
@@ -638,8 +639,9 @@ namespace TownOfUs
                 Role.GenModifier<Modifier>(type, canHaveImpModifier);
             }
 
-            // Now hand out Crewmate Modifiers to all remaining eligible players.
-            var canHaveCrewModifier = PlayerControl.AllPlayerControls.ToArray().Where(player => player.Is(Faction.Crewmates)).ToList();
+
+                // Now hand out Crewmate Modifiers to all remaining eligible players.
+                var canHaveCrewModifier = PlayerControl.AllPlayerControls.ToArray().Where(player => player.Is(Faction.Crewmates)).ToList();
             canHaveCrewModifier.Shuffle();
             CrewmateModifiers.Shuffle();
 
@@ -702,6 +704,8 @@ namespace TownOfUs
                 }
             }
         }
+
+
 
         [HarmonyPatch(typeof(PlayerControl), nameof(PlayerControl.HandleRpc))]
         public static class HandleRpc
@@ -943,6 +947,10 @@ namespace TownOfUs
                         var theGlitch = Role.AllRoles.FirstOrDefault(x => x.RoleType == RoleEnum.Glitch);
                         ((Glitch) theGlitch)?.Wins();
                         break;
+                    case CustomRPC.IcenbergWin:
+                        var icenberg = Role.AllRoles.FirstOrDefault(x => x.RoleType == RoleEnum.Icenberg);
+                        ((Icenberg)icenberg)?.Wins();
+                        break;
                     case CustomRPC.JuggernautWin:
                         var juggernaut = Role.AllRoles.FirstOrDefault(x => x.RoleType == RoleEnum.Juggernaut);
                         ((Juggernaut)juggernaut)?.Wins();
@@ -1179,6 +1187,18 @@ namespace TownOfUs
                         veteranRole.TimeRemaining = CustomGameOptions.AlertDuration;
                         veteranRole.Alert();
                         break;
+
+
+                    case CustomRPC.Freeze:
+                        var icenbergPlayer = Utils.PlayerById(reader.ReadByte());
+                        var freezePlayer = Utils.PlayerById(reader.ReadByte());
+                        var icenbergRole = Role.GetRole<Icenberg>(icenbergPlayer);
+                        icenbergRole.FreezeTarget = freezePlayer;
+                        icenbergRole.IsUsingFreeze = true;
+                        Utils.Freeze(icenbergPlayer, freezePlayer);
+                        break;
+
+
 
 
 
@@ -1710,7 +1730,7 @@ namespace TownOfUs
                     CrewmatePowerRoles.Add((typeof(Politician), CustomGameOptions.PoliticianOn, true));
                 
                 if (CustomGameOptions.PresidentOn > 0)
-                    CrewmateSupportRoles.Add((typeof(President), CustomGameOptions.PresidentOn, true));
+                    CrewmatePowerRoles.Add((typeof(President), CustomGameOptions.PresidentOn, true));
 
                 if (CustomGameOptions.SheriffOn > 0)
                     CrewmateKillingRoles.Add((typeof(Sheriff), CustomGameOptions.SheriffOn, false || CustomGameOptions.UniqueRoles));
@@ -1820,6 +1840,9 @@ namespace TownOfUs
 
                 if (CustomGameOptions.GlitchOn > 0)
                     NeutralKillingRoles.Add((typeof(Glitch), CustomGameOptions.GlitchOn, true));
+
+                if (CustomGameOptions.IcenbergOn > 0)
+                    NeutralKillingRoles.Add((typeof(Icenberg), CustomGameOptions.IcenbergOn, true));
 
                 if (CustomGameOptions.ArsonistOn > 0)
                     NeutralKillingRoles.Add((typeof(Arsonist), CustomGameOptions.ArsonistOn, true));

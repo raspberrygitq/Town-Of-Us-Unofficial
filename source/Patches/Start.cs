@@ -247,6 +247,15 @@ namespace TownOfUs.Patches
                 glitch.LastMimic = glitch.LastMimic.AddSeconds(CustomGameOptions.InitialCooldowns - CustomGameOptions.MimicCooldown);
             }
 
+            if (PlayerControl.LocalPlayer.Is(RoleEnum.Icenberg))
+            {
+                var icenberg = Role.GetRole<Icenberg>(PlayerControl.LocalPlayer);
+                icenberg.LastKill = DateTime.UtcNow;
+                icenberg.LastFreeze = DateTime.UtcNow;
+                icenberg.LastKill = icenberg.LastKill.AddSeconds(CustomGameOptions.InitialCooldowns - CustomGameOptions.IcenbergKillCooldown);
+                icenberg.LastFreeze = icenberg.LastFreeze.AddSeconds(CustomGameOptions.InitialCooldowns - CustomGameOptions.FreezeCooldown);
+            }
+
             if (PlayerControl.LocalPlayer.Is(RoleEnum.GuardianAngel))
             {
                 var ga = Role.GetRole<GuardianAngel>(PlayerControl.LocalPlayer);

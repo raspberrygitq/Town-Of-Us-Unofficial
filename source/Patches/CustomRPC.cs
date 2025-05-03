@@ -30,6 +30,7 @@ namespace TownOfUs
         SurvivorOnlyWin,
         VampireWin,
         SoulCollectorWin,
+        IcenbergWin,
 
         JanitorClean,
         FixLights,
@@ -90,6 +91,8 @@ namespace TownOfUs
         SetMimic,
         RpcResetAnim,
         SetHacked,
+        SetFreezed,
+        Freeze,
 
         ExecutionerToJester,
         GAToSurv,

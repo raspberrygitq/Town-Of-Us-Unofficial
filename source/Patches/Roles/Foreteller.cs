@@ -99,7 +99,7 @@ namespace TownOfUs.Roles
             //if (CustomGameOptions.VultureOn > 0) ColorMapping.Add("Vulture", Colors.Vulture);
             if (CustomGameOptions.ArsonistOn > 0) ColorMapping.Add("Arsonist", Colors.Arsonist);
             if (CustomGameOptions.GlitchOn > 0) ColorMapping.Add("The Glitch", Colors.Glitch);
-            //if (CustomGameOptions.IcenbergOn > 0) ColorMapping.Add("Icenberg", Colors.Icenberg);
+            if (CustomGameOptions.IcenbergOn > 0) ColorMapping.Add("Icenberg", Colors.Icenberg);
             if (CustomGameOptions.PlaguebearerOn > 0) ColorMapping.Add("Plaguebearer", Colors.Plaguebearer);
             if (CustomGameOptions.VampireOn > 0) ColorMapping.Add("Vampire", Colors.Vampire);
             if (CustomGameOptions.WerewolfOn > 0) ColorMapping.Add("Werewolf", Colors.Werewolf);

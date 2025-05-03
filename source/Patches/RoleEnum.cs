@@ -35,6 +35,7 @@ namespace TownOfUs
         Detective,
         Imitator,
         Foreteller,
+        Icenberg,
         Vampire,
         Prosecutor,
         Oracle,

@@ -30,6 +30,8 @@ using Il2CppSystem.Linq;
 using TownOfUs.ImpostorRoles.TraitorMod;
 using TownOfUs.Modifiers.ShyMod;
 using TownOfUs.CrewmateRoles.ClericMod;
+using static TownOfUs.DisableAbilities;
+using static TownOfUs.Roles.Icenberg;
 
 namespace TownOfUs
 {
@@ -38,6 +40,76 @@ namespace TownOfUs
     {
         internal static bool ShowDeadBodies = false;
         private static NetworkedPlayerInfo voteTarget = null;
+
+
+
+        public static void Unfreeze(PlayerControl player)
+        {
+            Debug.Log($"SPEED to {player.name}");
+            if (player.MyPhysics != null)
+            {
+                player.MyPhysics.enabled = true;
+            }
+            if (PlayerControl.LocalPlayer.MyPhysics != null)
+            {
+                PlayerControl.LocalPlayer.MyPhysics.enabled = true;
+            }
+        }
+
+        public static void Freeze(PlayerControl killer, PlayerControl target)
+        {
+            Coroutines.Start(IFreezePlayer(killer, target));
+        }
+
+        public static IEnumerator IFreezePlayer(PlayerControl killer, PlayerControl target)
+        {
+            var icenberg = Role.GetRole<Icenberg>(killer);
+            var lf = DateTime.UtcNow;
+            if (PlayerControl.LocalPlayer.MyPhysics != null && PlayerControl.LocalPlayer == target)
+            {
+                PlayerControl.LocalPlayer.MyPhysics.enabled = false;
+                Coroutines.Start(Utils.FlashCoroutine(Color.blue, CustomGameOptions.FreezeDuration));
+                Coroutines.Start(DisableAbility.StopAbility(CustomGameOptions.FreezeDuration));
+            }
+            while (true)
+            {
+                var elapsedTime = (float)(DateTime.UtcNow - lf).TotalSeconds;
+                var remainingTime = CustomGameOptions.FreezeDuration - elapsedTime;
+                if (PlayerControl.LocalPlayer == target && remainingTime <= 0)
+                {
+                    PlayerControl.LocalPlayer.MyPhysics.enabled = true;
+                    break;
+                }
+                yield return new WaitForSeconds(0.5f);
+            }
+            var bodies = Object.FindObjectsOfType<DeadBody>();
+            if (AmongUsClient.Instance.AmHost)
+            {
+                foreach (var body in bodies)
+                {
+                    try
+                    {
+                        if (body.ParentId == target.PlayerId) { break; }
+                    }
+                    catch
+                    {
+                    }
+                }
+            }
+            else
+            {
+                foreach (var body in bodies)
+                {
+                    try
+                    {
+                        if (body.ParentId == target.PlayerId) { break; }
+                    }
+                    catch
+                    {
+                    }
+                }
+            }
+        }
 
         public static void Morph(PlayerControl player, PlayerControl MorphedPlayer)
         {
@@ -336,6 +408,24 @@ namespace TownOfUs
             });
         }
 
+        public static bool IsFreezed(this PlayerControl player)
+        {
+            return Role.GetRoles(RoleEnum.Icenberg).Any(role =>
+            {
+                var icenberg = (Icenberg)role;
+                var hackedPlayer = icenberg.Freezed;
+                return hackedPlayer != null && player.PlayerId == hackedPlayer.PlayerId && !hackedPlayer.Data.IsDead && !icenberg.Player.Data.IsDead;
+            });
+        }
+        public static Icenberg GetIcenberg(this PlayerControl player)
+        {
+            return Role.GetRoles(RoleEnum.Icenberg).FirstOrDefault(role =>
+            {
+                var icenberg = (Icenberg)role;
+                return icenberg != null && player == icenberg.Player;
+            }) as Icenberg;
+        }
+
         public static bool IsHypnotised(this PlayerControl player)
         {
             return Role.GetRoles(RoleEnum.Hypnotist).Any(role =>
@@ -590,6 +680,11 @@ namespace TownOfUs
                             var glitch = Role.GetRole<Glitch>(player);
                             glitch.LastKill = DateTime.UtcNow;
                         }
+                        else if (player.Is(RoleEnum.Icenberg))
+                        {
+                            var icenberg = Role.GetRole<Icenberg>(player);
+                            icenberg.LastKill = DateTime.UtcNow;
+                        }
                         else if (player.Is(RoleEnum.Juggernaut))
                         {
                             var jugg = Role.GetRole<Juggernaut>(player);
@@ -654,6 +749,11 @@ namespace TownOfUs
                     var glitch = Role.GetRole<Glitch>(player);
                     glitch.LastKill = DateTime.UtcNow;
                 }
+                else if (player.Is(RoleEnum.Icenberg))
+                {
+                    var icenberg = Role.GetRole<Icenberg>(player);
+                    icenberg.LastKill = DateTime.UtcNow;
+                }
                 else if (player.Is(RoleEnum.Juggernaut))
                 {
                     var jugg = Role.GetRole<Juggernaut>(player);
@@ -704,6 +804,15 @@ namespace TownOfUs
             if (player.IsHacked())
             {
                 Coroutines.Start(AbilityCoroutine.Hack(player));
+                return false;
+            }
+            if (player.IsFreezed())
+            {
+                foreach (var role in Role.GetRoles(RoleEnum.Icenberg))
+                {
+                    var icenberg = (Icenberg)role;
+                    Coroutines.Start(AbilityCoroutineIcenberg.Freeze(icenberg, PlayerControl.LocalPlayer));
+                }
                 return false;
             }
             var targetId = byte.MaxValue;
@@ -1140,6 +1249,14 @@ namespace TownOfUs
                     var glitch = Role.GetRole<Glitch>(killer);
                     glitch.LastKill = DateTime.UtcNow.AddSeconds((CustomGameOptions.DiseasedMultiplier - 1f) * CustomGameOptions.GlitchKillCooldown);
                     glitch.Player.SetKillTimer(CustomGameOptions.GlitchKillCooldown * CustomGameOptions.DiseasedMultiplier);
+                    return;
+                }
+
+                if (target.Is(ModifierEnum.Diseased) && killer.Is(RoleEnum.Icenberg))
+                {
+                    var icenberg = Role.GetRole<Icenberg>(killer);
+                    icenberg.LastKill = DateTime.UtcNow.AddSeconds((CustomGameOptions.DiseasedMultiplier - 1f) * CustomGameOptions.IcenbergKillCooldown);
+                    icenberg.Player.SetKillTimer(CustomGameOptions.IcenbergKillCooldown * CustomGameOptions.DiseasedMultiplier);
                     return;
                 }
 
@@ -1691,6 +1808,12 @@ namespace TownOfUs
                 glitch.LastKill = DateTime.UtcNow;
                 glitch.LastHack = DateTime.UtcNow;
                 glitch.LastMimic = DateTime.UtcNow;
+            }
+            if (PlayerControl.LocalPlayer.Is(RoleEnum.Icenberg))
+            {
+                var icenberg = Role.GetRole<Icenberg>(PlayerControl.LocalPlayer);
+                icenberg.LastKill = DateTime.UtcNow;
+                icenberg.LastFreeze = DateTime.UtcNow;
             }
             if (PlayerControl.LocalPlayer.Is(RoleEnum.Juggernaut))
             {

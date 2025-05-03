@@ -61,6 +61,7 @@ namespace TownOfUs.CustomOption
         public static CustomHeaderOption NeutralKillingRoles;
         public static CustomNumberOption ArsonistOn;
         public static CustomNumberOption GlitchOn;
+        public static CustomNumberOption IcenbergOn;
         public static CustomNumberOption JuggernautOn;
         public static CustomNumberOption PlaguebearerOn;
         public static CustomNumberOption VampireOn;
@@ -243,6 +244,13 @@ namespace TownOfUs.CustomOption
         public static CustomNumberOption HackDurationOption;
         public static CustomNumberOption GlitchKillCooldownOption;
         public static CustomToggleOption GlitchVent;
+
+        public static CustomHeaderOption Icenberg;
+        public static CustomNumberOption IcenbergKillCooldown;
+        public static CustomNumberOption FreezeCooldown;
+        public static CustomNumberOption FreezeDuration;
+        public static CustomToggleOption IcenbergVent;
+        public static CustomToggleOption IcenbergImpVision;
 
         public static CustomHeaderOption Juggernaut;
         public static CustomNumberOption JuggKillCooldown;
@@ -660,6 +668,8 @@ namespace TownOfUs.CustomOption
             ArsonistOn = new CustomNumberOption(num++, MultiMenu.neutral, "<color=#FF4D00FF>Arsonist</color>", 0f, 0f, 100f, 10f,
                 PercentFormat);
             GlitchOn = new CustomNumberOption(num++, MultiMenu.neutral, "<color=#00FF00FF>Glitch</color>", 0f, 0f, 100f, 10f,
+                PercentFormat);
+            IcenbergOn = new CustomNumberOption(num++, MultiMenu.neutral, "<color=#0078FFFF>Icenberg</color>", 0f, 0f, 100f, 10f,
                 PercentFormat);
             JuggernautOn = new CustomNumberOption(num++, MultiMenu.neutral, "<color=#8C004DFF>Juggernaut</color>", 0f, 0f, 100f, 10f,
                 PercentFormat);
@@ -1307,6 +1317,17 @@ namespace TownOfUs.CustomOption
                 new CustomNumberOption(num++, MultiMenu.neutral, "Glitch Kill Cooldown", 25f, 10f, 60f, 2.5f, CooldownFormat);
             GlitchVent =
                 new CustomToggleOption(num++, MultiMenu.neutral, "Glitch Can Vent", false);
+
+            Icenberg =
+                new CustomHeaderOption(num++, MultiMenu.neutral, "<color=#0078FFFF>Icenberg</color>");
+            IcenbergKillCooldown =
+                new CustomNumberOption(num++, MultiMenu.neutral, "Icenberg Kill Cooldown", 25f, 10f, 60f, 2.5f, CooldownFormat);
+            FreezeCooldown = new CustomNumberOption(num++, MultiMenu.neutral, "Freeze Cooldown", 25f, 10f, 60f, 2.5f, CooldownFormat);
+            FreezeDuration = new CustomNumberOption(num++, MultiMenu.neutral, "Freeze Duration", 4f, 1f, 8f, 0.5f, CooldownFormat);
+            IcenbergImpVision =
+                new CustomToggleOption(num++, MultiMenu.neutral, "Icenberg Has Impostor Vision", true);
+            IcenbergVent =
+                new CustomToggleOption(num++, MultiMenu.neutral, "Icenberg Can Vent", true);
 
             Juggernaut =
                 new CustomHeaderOption(num++, MultiMenu.neutral, "<color=#8C004DFF>Juggernaut</color>");

@@ -136,6 +136,7 @@ namespace TownOfUs
             Generate.MimicCooldownOption.Set((float)Generate.MimicCooldownOption.Value + change, false);
             Generate.HackCooldownOption.Set((float)Generate.HackCooldownOption.Value + change, false);
             Generate.GlitchKillCooldownOption.Set((float)Generate.GlitchKillCooldownOption.Value + change, false);
+            Generate.IcenbergKillCooldown.Set((float)Generate.IcenbergKillCooldown.Value + change, false);
             Generate.RampageCooldown.Set((float)Generate.RampageCooldown.Value + change, false);
             Generate.GrenadeCooldown.Set((float)Generate.GrenadeCooldown.Value + change, false);
             Generate.MorphlingCooldown.Set((float)Generate.MorphlingCooldown.Value + change, false);

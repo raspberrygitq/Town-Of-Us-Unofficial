@@ -112,6 +112,8 @@ namespace TownOfUs.Patches {
                     else if (role.Value == RoleEnum.Cleric) { playerRole += "<color=#" + Patches.Colors.Cleric.ToHtmlStringRGBA() + ">Cleric</color> > "; }
                     else if (role.Value == RoleEnum.President) { playerRole += "<color=#" + Patches.Colors.Mayor.ToHtmlStringRGBA() + ">President</color> > "; }
                     else if (role.Value == RoleEnum.Wraith) { playerRole += "<color=#" + Patches.Colors.Impostor.ToHtmlStringRGBA() + ">Wraith</color> > "; }
+                    else if (role.Value == RoleEnum.Icenberg) { playerRole += "<color=#" + Patches.Colors.Icenberg.ToHtmlStringRGBA() + ">Icenberg</color> > "; }
+
                 }
                 playerRole = playerRole.Remove(playerRole.Length - 3);
 
