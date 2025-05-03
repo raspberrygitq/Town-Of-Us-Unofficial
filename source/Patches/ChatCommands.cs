@@ -591,8 +591,6 @@ namespace TownOfUs.Patches
                 }
                 if (PlayerControl.LocalPlayer.IsJailed() && MeetingHud.Instance) return false;
                 return true;
-           
-            
             }
 
             public static void AddRoleListMessage()
@@ -678,7 +676,7 @@ namespace TownOfUs.Patches
                     mess += $"<color=#{rola.Value.ToHtmlStringRGBA()}> {rola.Key} </color>|";
                 }
 
-                DestroyableSingleton<HudManager>.Instance.Chat.AddChat(PlayerControl.LocalPlayer, mess);
+                HudManager.Instance.Chat.AddChat(PlayerControl.LocalPlayer, mess);
             }
             public static void AddModiListMessage()
             {
@@ -721,7 +719,7 @@ namespace TownOfUs.Patches
                     mess += $"<color=#{modi.Value.ToHtmlStringRGBA()}> {modi.Key} </color>|";
                 }
 
-                DestroyableSingleton<HudManager>.Instance.Chat.AddChat(PlayerControl.LocalPlayer, mess);
+                HudManager.Instance.Chat.AddChat(PlayerControl.LocalPlayer, mess);
             }
             public static void AddRoleMessage(RoleEnum role)
             {
