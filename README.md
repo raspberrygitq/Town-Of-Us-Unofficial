@@ -166,6 +166,679 @@ If there any problems with the script please check the [faq](https://github.com/
 If you have issues installing Town of Us, you can join our [Discord](https://discord.gg/ugyc4EVUYZ) to receive help.
   
 
+# Roles
+# Crewmate Roles
+## Aurial
+### **Team: Crewmates**
+The Aurial is a Crewmate that can sense things in their surrounding Aura.\
+If any player near the Aurial uses a button ability, the Aurial will get an arrow pointing towards where that ability was used.
+### Game Options
+| Name | Description | Type | Default |
+|----------|:-------------:|:------:|:------:|
+| Aurial | The percentage probability of the Aurial appearing | Percentage | 0% |
+| Radiate Colour Range | The range of the Aurial's aura where they see the colour of the ability user | Multiplier | 0.5x |
+| Radiate Max Range | The max range of the Aurial's aura where they see ability uses | Multiplier | 1.5x |
+| Sense Duration | The duration of the arrow to show an ability use | Time | 10s |
+
+-----------------------
+## Detective
+### **Team: Crewmates**
+The Detective is a Crewmate that can inspect crime scenes and then examine players.\
+The Detective must first find a crime scene and inspect it.\
+During the same or following rounds the Detective can then examine players to see if they were the killer.\
+If the examined player is the killer or were near the crime scene at any point, they will receive a red flash, else the flash will be green.
+### Game Options
+| Name | Description | Type | Default |
+|----------|:-------------:|:------:|:------:|
+| Detective | The percentage probability of the Detective appearing | Percentage | 0% |
+| Examine Cooldown | The cooldown of the Detective's Examine button | Time | 25s |
+| Show Detective Reports | Whether the Detective should get information when reporting a body | Toggle | True |
+| Time Where Detective Reports Will Have Role | If a body has been dead for shorter than this amount, the Detective's report will contain the killer's role | Time | 15s |
+| Time Where Detective Reports Will Have Faction | If a body has been dead for shorter than this amount, the Detective's report will contain the killer's faction | Time | 30s |
+
+-----------------------
+## Haunter
+### **Team: Crewmates**
+The Haunter is a dead Crewmate that can reveal Impostors if they finish all their tasks.\
+Upon finishing all of their tasks, Impostors are revealed to alive crewmates after a meeting is called.\
+However, if the Haunter is clicked they lose their ability to reveal Impostors and are once again a normal ghost.
+### Game Options
+| Name | Description | Type | Default |
+|----------|:-------------:|:------:|:------:|
+| Haunter | The percentage probability of the Haunter appearing | Percentage | 0% |
+| When Haunter Can Be Clicked | The amount of tasks remaining when the Haunter Can Be Clicked | Number | 5 |
+| Haunter Alert | The amount of tasks remaining when the Impostors are alreted that the Haunter is nearly finished | Number | 1 |
+| Haunter Reveals Neutral Roles | Whether the Haunter also Reveals Neutral Roles | Toggle | False |
+| Who can Click Haunter | Whether even other Crewmates can click the Haunter | All / Non-Crew / Imps Only | All |
+
+-----------------------
+## Investigator
+### **Team: Crewmates**
+The Investigator is a Crewmate that can see the footprints of players.\
+Every footprint disappears after a set amount of time.
+
+### Game Options
+| Name | Description | Type | Default |
+|----------|:-------------:|:------:|:------:|
+| Investigator | The percentage probability of the Investigator appearing | Percentage | 0% |
+| Footprint Size | The size of the footprint on a scale of 1 to 10 | Number | 4 |
+| Footprint Interval | The time interval between two footprints | Time | 0.1s |
+| Footprint Duration | The amount of time that the footprint stays on the ground for | Time | 10s |
+| Anonymous Footprint | When enabled, all footprints are grey instead of the player's colors | Toggle | False |
+| Footprint Vent Visible | Whether footprints near vents are shown | Toggle | False |
+
+-----------------------
+## Lookout
+### **Team: Crewmates**
+
+The Lookout is a Crewmate that can watch other players during rounds.\
+During meetings they will see all roles who interact with each watched player.
+### Game Options
+| Name | Description | Type | Default |
+|----------|:-------------:|:------:|:------:|
+| Lookout | The percentage probability of the Lookout appearing | Percentage | 0% |
+| Watch Cooldown | The cooldown on the Lookout's Watch button | Time | 10s |
+| Lookout Watches Reset After Each Round | Whether Lookout Watches are removed after each meeting | Toggle | True |
+| Maximum Number Of Players That Can Be Watched | The number of people they can watch | Number | 5 |
+
+-----------------------
+## Mystic
+### **Team: Crewmates**
+The Mystic is a Crewmate that gets an alert revealing when someone has died.\
+On top of this, the Mystic briefly gets an arrow pointing in the direction of the body.
+### Game Options
+| Name | Description | Type | Default |
+|----------|:-------------:|:------:|:------:|
+| Mystic | The percentage probability of the Mystic appearing | Percentage | 0% |
+| Arrow Duration | The duration of the arrows pointing to the bodies | Time | 0.1s |
+
+-----------------------
+## Seer
+### **Team: Crewmates**
+The Seer is a Crewmate that can reveal the alliance of other players.\
+Based on settings, the Seer can find out whether a player is a Good or an Evil role.\
+A player's name will change color depending on faction and role.
+### Game Options
+| Name | Description | Type | Default |
+|----------|:-------------:|:------:|:------:|
+| Seer | The percentage probability of the Seer appearing | Percentage | 0% |
+| Seer Cooldown | The Cooldown of the Seer's Reveal button | Time | 25s |
+| Crewmate Killing Roles Are Red | Crewmate Killing roles show up as Red | Toggle | False |
+| Neutral Benign Roles Are Red | Neutral Benign roles show up as Red | Toggle | False |
+| Neutral Evil Roles Are Red | Neutral Evil roles show up as Red | Toggle | False |
+| Neutral Killing Roles Are Red | Neutral Killing roles show up as Red | Toggle | True |
+| Traitor does not swap Colours | The Traitor remains their original colour | Toggle | False |
+
+-----------------------
+## Snitch
+### **Team: Crewmates**
+
+The Snitch is a Crewmate that can get arrows pointing towards the Impostors, once all their tasks are finished.\
+The names of the Impostors will also show up as red on their screen.\
+However, when they only have a single task left, the Impostors get an arrow pointing towards the Snitch.
+### Game Options
+| Name | Description | Type | Default |
+|----------|:-------------:|:------:|:------:|
+| Snitch | The percentage probability of the Snitch appearing | Percentage | 0% |
+| Snitch Sees Neutral Roles | Whether the Snitch also Reveals Neutral Roles | Toggle | False |
+| Tasks Remaining When Revealed | The number of tasks remaining when the Snitch is revealed to Impostors | Number | 1 |
+| Snitch Sees Impostors in Meetings | Whether the Snitch sees the Impostor's names red in Meetings | Toggle | True |
+| Snitch Sees Traitor | Whether the Snitch sees the Traitor | Toggle | True |
+
+-----------------------
+## Spy
+### **Team: Crewmates**
+
+The Spy is a Crewmate that gains more information when on the Admin Table.\
+On Admin Table, the Spy can see the colors of every person on the map.
+### Game Options
+| Name | Description | Type | Default |
+|----------|:-------------:|:------:|:------:|
+| Spy | The percentage probability of the Spy appearing | Percentage | 0% |
+| Who Sees Dead Bodies On Admin | Which players see dead bodies on the admin map | Nobody / Spy / Everyone But Spy / Everyone | Nobody |
+
+-----------------------
+## Tracker
+### **Team: Crewmates**
+
+The Tracker is a Crewmate that can track other players by tracking them during a round.\
+Once they track someone, an arrow is continuously pointing to them, which updates in set intervals.
+### Game Options
+| Name | Description | Type | Default |
+|----------|:-------------:|:------:|:------:|
+| Tracker | The percentage probability of the Tracker appearing | Percentage | 0% |
+| Arrow Update Interval | The time it takes for the arrow to update to the new location of the tracked player | Time | 5s |
+| Track Cooldown | The cooldown on the Tracker's track button | Time | 10s |
+| Tracker Arrows Reset Each Round | Whether Tracker Arrows are removed after each meeting | Toggle | True |
+| Maximum Number of Tracks | The number of people they can track | Number | 5 |
+
+-----------------------
+## Trapper
+### **Team: Crewmates**
+
+The Trapper is a Crewmate that can place traps around the map.\
+When players enter a trap they trigger the trap.\
+In the following meeting, all players who triggered a trap will have their role displayed to the trapper.\
+However, this is done so in a random order, not stating who entered the trap, nor what role a specific player is.
+### Game Options
+| Name | Description | Type | Default |
+|----------|:-------------:|:------:|:------:|
+| Trapper | The percentage probability of the Trapper appearing | Percentage | 0% |
+| Min Amount of Time in Trap to Register | How long a player must stay in the trap for it to trigger | Time | 1s |
+| Trap Cooldown | The cooldown on the Trapper's trap button | Time | 10s |
+| Traps Removed Each Round | Whether the Trapper's traps are removed after each meeting | Toggle | True |
+| Maximum Number of Traps | The number of traps they can place | Number | 5 |
+| Trap Size | The size of each trap | Factor | 0.25x |
+| Minimum Number of Roles required to Trigger Trap | The number of players that must enter the trap for it to be triggered | Number | 3 |
+
+-----------------------
+## Deputy
+### **Team: Crewmates**
+The Deputy is a Crewmate that can camp other players.\
+Camped players will alert the Deputy when they are killed.\
+The following meeting the Deputy then can attempt to shoot their killer.\
+If they successfully shoot the killer, they die, otherwise nothing happens.
+
+### Game Options
+| Name | Description | Type | Default |
+|----------|:-------------:|:------:|:------:|
+| Deputy | The percentage probability of the Deputy appearing | Percentage | 0% |
+
+-----------------------
+## Hunter
+### **Team: Crewmates**
+
+The Hunter is a Crewmate Killing role with the ability to track players and execute them if they do anything suspicious.\ 
+Unlike the Sheriff, the Hunter does not die if they kill an innocent player,\
+however the Hunter may only execute players who have given them probable cause.
+### Game Options
+| Name | Description | Type | Default |
+|----------|:-------------:|:------:|:------:|
+| Hunter | The percentage probability of the Hunter appearing | Percentage | 0% |
+| Hunter Kill Cooldown | The cooldown of the Hunter's Kill button | Number | 25s |
+| Hunter Stalk Cooldown | The cooldown of the Hunter's Stalk button | Number | 10s |
+| Hunter Stalk Duration | The duration of the Hunter's Stalk | Number | 25s |
+| Maximum Stalk Uses | Maximum number of times a Hunter can Stalk | Number | 5 |
+| Hunter Kills Last Voter If Voted Out |  Whether the Hunter kills the last person that votes them if they are voted out  | Toggle | False |
+| Hunter Can Report Who They've Killed |  Whether the Hunter is able to report their own kills | Toggle | True |
+
+-----------------------
+## Sheriff
+### **Team: Crewmates**
+The Sheriff is a Crewmate that has the ability to eliminate the Impostors using their kill button.\
+However, if they kill a Crewmate or a Neutral player they can't kill, they instead die themselves.
+
+### Game Options
+| Name | Description | Type | Default |
+|----------|:-------------:|:------:|:------:|
+| Sheriff | The percentage probability of the Sheriff appearing | Percentage | 0% |
+| Sheriff Miskill Kills Crewmate | Whether the other player is killed if the Sheriff Misfires | Toggle | False |
+| Sheriff Kills Neutral Evil Roles | Whether the Sheriff is able to kill a Neutral Evil Role | Toggle | False |
+| Sheriff Kills Neutral Killing Roles | Whether the Sheriff is able to kill a Neutral Killing Role | Toggle | False |
+| Sheriff Kill Cooldown | The cooldown on the Sheriff's kill button | Time | 25s |
+| Sheriff can report who they've killed | Whether the Sheriff is able to report their own kills | Toggle | True |
+
+-----------------------
+## Veteran
+### **Team: Crewmates**
+
+The Veteran is a Crewmate that can go on alert.\
+When the Veteran is on alert, anyone, whether crew, neutral or impostor, if they interact with the Veteran, they die.
+### Game Options
+| Name | Description | Type | Default |
+|----------|:-------------:|:------:|:------:|
+| Veteran | The percentage probability of the Veteran appearing | Percentage | 0% |
+| Can Be Killed On Alert | Whether the Veteran dies when someone tries to kill them when they're on alert | Toggle | False |
+| Alert Cooldown | The cooldown on the Veteran's alert button. | Time | 5s |
+| Alert Duration | The duration of the alert | Time | 25s |
+| Maximum Number of Alerts | The number of times the Veteran can alert throughout the game | Number | 3 |
+
+-----------------------
+## Vigilante
+### **Team: Crewmates**
+
+The Vigilante is a Crewmate that can kill during meetings.\
+During meetings, the Vigilante can choose to kill someone by guessing their role, however, if they guess incorrectly, they die instead.
+### Game Options
+| Name | Description | Type | Default |
+|----------|:-------------:|:------:|:------:|
+| Vigilante | The percentage probability of the Vigilante appearing | Percentage | 0% |
+| Vigilante Kill | The number of kill the Vigilante can do with his ability | Number | 1 |
+| Vigilante Multiple Kill  | Whether the Vigilante can kill more than once per meeting | Toggle | False |
+| Vigilante Guess Neutral Benign  | Whether the Vigilante can Guess Neutral Benign roles | Toggle | False |
+| Vigilante Guess Neutral Evil  | Whether the Vigilante can Guess Neutral Evil roles | Toggle | False |
+| Vigilante Guess Neutral Killing  | Whether the Vigilante can Guess Neutral Killing roles | Toggle | False |
+| Vigilante Guess Impostor Modifiers  | Whether the Vigilante can Guess Impostor modifiers | Toggle | False |
+| Vigilante Guess Lovers  | Whether the Vigilante can Guess Lovers | Toggle | False |
+
+-----------------------
+## Jailor
+### **Team: Crewmates**
+The Jailor is a Crewmate that can jail Crewmates.\
+During meetings all players can see when a Crewmate is jailed.\
+When someone is jailed they cannot use any meeting ability and no meeting ability can be used on them.\
+The Jailor may privately communicate with the jailee.\
+If the Jailor then thinks the jailee is bad, they may then execute them.\
+If the Jailor executes incorrectly, they lose the ability to jail.
+
+### Game Options
+| Name | Description | Type | Default |
+|----------|:-------------:|:------:|:------:|
+| Jailor | The percentage probability of the Jailor appearing | Percentage | 0% |
+| Jail Cooldown | The cooldown on the Jailor's jail button | Time | 10s |
+| Maximum Executes | Maximum number of times a Jailor can Execute | Number | 3 |
+
+-----------------------
+## Politician
+### **Team: Crewmates**
+The Politician is a Crewmate that can campaign to other players.\
+Once half or more of the crewmates are campaigned to, the Politician can reveal themselves as the new Mayor.\
+If less then half of the crewmates have been campaigned to the reveal will fail and the Politician will be unable to campaign for 1 round.
+
+### Game Options
+| Name | Description | Type | Default |
+|----------|:-------------:|:------:|:------:|
+| Politician | The percentage probability of the Politician appearing | Percentage | 0% |
+| Campaign Cooldown | The cooldown of the Politician's Campaign button | Time | 25s |
+
+-----------------------
+## Prosecutor
+### **Team: Crewmates**
+The Prosecutor is a Crewmate that can once per game prosecute a player which results in them being exiled that meeting.\
+The Prosecutor can also see votes non-anonymously.
+
+### Game Options
+| Name | Description | Type | Default |
+|----------|:-------------:|:------:|:------:|
+| Prosecutor | The percentage probability of the Prosecutor appearing | Percentage | 0% |
+| Prosecutor Dies When They Exile A Crewmate | Whether the Prosecutor also gets exiled when they exile a Crewmate | Toggle | False |
+
+-----------------------
+## Swapper
+### **Team: Crewmates**
+The Swapper is a Crewmate that can swap the votes on 2 players during a meeting.\
+All the votes for the first player will instead be counted towards the second player and vice versa.
+
+### Game Options
+| Name | Description | Type | Default |
+|----------|:-------------:|:------:|:------:|
+| Swapper | The percentage probability of the Swapper appearing | Percentage | 0% |
+| Swapper Can Button | Whether the Swapper Can Press the Button | Toggle | True |
+
+-----------------------
+## Altruist
+### **Team: Crewmates**
+
+The Altruist is a Crewmate that is capable of reviving dead players.\
+The Altruist may attempt to revive all dead players from that round.\
+When reviving the Altruist may not move and all killers will be pointed towards the Altruist.\
+After a set period of time, all dead player's bodies within the Altruist's range will be resurrected, if the revival isn't interrupted.\
+Once a revival is used, the Altruist, along with all revived players will not be able to button for the remainder of the game.
+### Game Options
+| Name | Description | Type | Default |
+|----------|:-------------:|:------:|:------:|
+| Altruist | The percentage probability of the Altruist appearing | Percentage | 0% |
+| Revive Duration | The time it takes for the Altruist to revive all dead bodies | Time | 5s |
+| Revive Uses | The number of times the Revive ability can be used | Number | 3 |
+| Revive Radius | How wide the revive radius is | Multiplier | 1x |
+
+-----------------------
+## Cleric
+### **Team: Crewmates**
+The Cleric is a Crewmate that can barrier or cleanse other players.\
+When a player is barriered they cannot be killed for a set duration.\
+When a player is cleansed all negative effects are removed,\
+however, not all effects are removed instantly, some are instead removed at the beginning of the following meeting.
+
+### Game Options
+| Name | Description | Type | Default |
+|----------|:-------------:|:------:|:------:|
+| Cleric | The percentage probability of the Cleric appearing | Percentage | 0% |
+| Barrier Cooldown | The cooldown of the Cleric's Barrier and Cleanse buttons | Time | 25s |
+| Show Barriered Player | Who should be able to see who is Barriered | Self / Cleric / Self + Cleric | Cleric |
+| Cleric Gets Attack Notification | Whether the Cleric knows when the barriered player is attacked | Toggle | True |
+
+-----------------------
+## Medic
+### **Team: Crewmates**
+The Medic is a Crewmate that can give any player a shield that will make them immortal until the Medic dies.\
+A Shielded player cannot be killed by anyone, unless by suicide.\
+If the Medic reports a dead body, they can get a report containing clues to the Killer's identity.\
+A report can contain the color type (Darker/Lighter) of the killer if the body is not too old.
+### Colors
+- Red - Darker
+- Blue - Darker
+- Green - Darker
+- Pink - Lighter
+- Orange - Lighter
+- Yellow - Lighter
+- Black - Darker
+- White - Lighter
+- Purple - Darker
+- Brown - Darker
+- Cyan - Lighter
+- Lime - Lighter
+- Maroon - Darker
+- Rose - Lighter
+- Banana - Lighter
+- Gray - Darker
+- Tan - Darker
+- Coral - Lighter
+- Watermelon - Darker
+- Chocolate - Darker
+- Sky Blue - Lighter
+- Beige - Lighter
+- Magenta - Darker
+- Turquoise - Lighter
+- Lilac - Lighter
+- Olive - Darker
+- Azure - Lighter
+- Plum - Darker
+- Jungle - Darker
+- Mint - Lighter
+- Chartreuse - Lighter
+- Macau - Darker
+- Tawny - Darker
+- Gold - Lighter
+- Rainbow - Lighter
+
+### Game Options
+| Name | Description | Type | Default |
+|----------|:-------------:|:------:|:------:|
+| Medic | The percentage probability of the Medic appearing | Percentage | 0% |
+| Show Shielded Player | Who should be able to see who is Shielded | Self / Medic / Self + Medic | Medic |
+| Who gets murder attempt indicator | Who will receive an indicator when someone tries to Kill them | Medic / Shielded / Nobody | Medic |
+| Shield breaks on murder attempt | Whether the Shield breaks when someone attempts to Kill them | Toggle | False |
+| Show Medic Reports | Whether the Medic should get information when reporting a body | Toggle | True |
+| Time Where Medic Reports Will Have Color Type | If a body has been dead for shorter than this amount, the Medic's report will have the type of color | Time | 15s |
+
+-----------------------
+## Oracle
+### **Team: Crewmates**
+The Oracle is a Crewmate that can get another player to confess information to them.\
+The Oracle has 2 abilities.\
+The first, confess, makes a player confess saying that one of two players is good and will reveal their alignment when the Oracle dies.\
+The second, bless, makes someone immune to dying during a meeting.
+### Game Options
+| Name | Description | Type | Default |
+|----------|:-------------:|:------:|:------:|
+| Oracle | The percentage probability of the Oracle appearing | Percentage | 0% |
+| Confess Cooldown | The Cooldown of the Oracle's Confess button | Time | 10s |
+| Initial Bless Cooldown | The Initial Cooldown of the Oracle's Bless button | Time | 10s |
+| Reveal Accuracy | The percentage probability of the Oracle's confessed player telling the truth | Percentage | 80% |
+
+-----------------------
+## Warden
+### **Team: Crewmates**
+The Warden is a Crewmate that can fortify other players.\
+Fortified players cannot be interacted with.\
+If someone tries to interact with or assassinate a fortified player,\
+Both the Warden and the interactor receive an alert.
+
+### Game Options
+| Name | Description | Type | Default |
+|----------|:-------------:|:------:|:------:|
+| Warden | The percentage probability of the Warden appearing | Percentage | 0% |
+| Show Fortified Player | Who should be able to see who is Fortified | Self / Warden / Self + Warden | Warden |
+
+-----------------------
+## Engineer
+### **Team: Crewmates**
+The Engineer is a Crewmate that can fix sabotages from anywhere on the map.\
+They can use vents to get across the map easily.
+
+### Game Options
+| Name | Description | Type | Default |
+|----------|:-------------:|:------:|:------:|
+| Engineer | The percentage probability of the Engineer appearing | Percentage | 0% |
+| Maximum Fixes | The number of times the Engineer can fix a sabotage | Number | 5 |
+
+-----------------------
+## Imitator
+### **Team: Crewmates**
+The Imitator is a Crewmate that can mimic dead crewamtes.\
+During meetings the Imitator can select who they are going to imitate the following round from the dead.\
+They can choose to use each dead players as many times as they wish.
+
+### Game Options
+| Name | Description | Type | Default |
+|----------|:-------------:|:------:|:------:|
+| Imitator | The percentage probability of the Imitator appearing | Percentage | 0% |
+| Imitator Can Become Mayor | Whether the Imitator can permanently become the Mayor | Toggle | True |
+
+-----------------------
+## Medium
+### **Team: Crewmates**
+The Medium is a Crewmate that can see ghosts.\
+During each round the Medium has an ability called Mediate.\
+If the Medium uses this ability and no one is dead, nothing will happen.\
+However, if someone is dead, the Medium and the dead player will be able to see each other and communicate from beyond the grave!
+
+### Game Options
+| Name | Description | Type | Default |
+|----------|:-------------:|:------:|:------:|
+| Medium | The percentage probability of the Medium appearing | Percentage | 0% |
+| Mediate Cooldown | The cooldown of the Medium's Mediate button | Time | 10s |
+| Reveal Appearance of Mediate Target | Whether the Ghosts will show as themselves, or camouflaged | Toggle | True |
+| Reveal the Medium to the Mediate Target | Whether the ghosts can see that the Medium is the Medium | Toggle | True |
+| Who is Revealed | Which players are revealed to the Medium | Oldest Dead / Newest Dead / All Dead | Oldest Dead |
+
+-----------------------
+## Plumber
+### **Team: Crewmates**
+The Plumber is a Crewmate that maintains vent systems.\
+The Plumber can either flush vents, ejecting all players currently in vents,\
+or block a vent, placing a barricade on the vent preventing it's use.
+
+### Game Options
+| Name | Description | Type | Default |
+|----------|:-------------:|:------:|:------:|
+| Plumber | The percentage probability of the Plumber appearing | Percentage | 0% |
+| Flush Cooldown | The cooldown of the Plumber's Flush and Block buttons | Time | 25s |
+| Maximum Barricades | The number of times the Plumber can block a vent | Number | 5 |
+
+-----------------------
+## Transporter
+### **Team: Crewmates**
+The Transporter is a Crewmate that can change the locations of two random players at will.\
+Players who have been transported are alerted with a blue flash on their screen.
+
+### Game Options
+| Name | Description | Type | Default |
+|----------|:-------------:|:------:|:------:|
+| Transporter | The percentage probability of the Transporter appearing | Percentage | 0% |
+| Transport Cooldown | The cooldown of the Transporter's transport ability | Time | 25s |
+| Max Uses | The amount of times the Transport ability can be used | Number | 5 |
+| Transporter can use Vitals | Whether the Transporter has the ability to use Vitals | Toggle | False |
+
+-----------------------
+# Neutral Roles
+## Amnesiac
+### **Team: Neutral**
+The Amnesiac is a Neutral role with no win condition.\
+They have zero tasks and are essentially roleless.\
+However, they can remember a role by finding a dead player.\
+Once they remember their role, they go on to try win with their new win condition.
+
+### Game Options
+| Name | Description | Type | Default |
+|----------|:-------------:|:------:|:------:|
+| Amnesiac | The percentage probability of the Amnesiac appearing | Percentage | 0% |
+| Amnesiac Gets Arrows | Whether the Amnesiac has arrows pointing to dead bodies | Toggle | False |
+| Arrow Appear Delay | The delay of the arrows appearing after the person died | Time | 5s |
+
+-----------------------
+## Guardian Angel
+### **Team: Neutral**
+The Guardian Angel is a Neutral role which aligns with the faction of their target.\
+Their job is to protect their target at all costs.\
+If their target loses, they lose.
+
+### Game Options
+| Name | Description | Type | Default |
+|----------|:-------------:|:------:|:------:|
+| Guardian Angel | The percentage probability of the Guardian Angel appearing | Percentage | 0% |
+| Protect Cooldown | The cooldown of the Guardian Angel's Protect button | Time | 25s |
+| Protect Duration | How long The Guardian Angel's Protect lasts | Time | 10s |
+| Max Uses | The amount of times the Protect ability can be used | Number | 5 |
+| Show Protected Player | Who should be able to see who is Protected | Self / GA / Self + GA | Self |
+| Guardian Angel becomes on Target Dead | Which role the Guardian Angel becomes when their target dies | Crewmate / Amnesiac / Mercenary / Survivor / Jester | Survivor |
+| Target Knows GA Exists | Whether the GA's Target knows they have a GA | Toggle | False |
+| GA Knows Targets Role | Whether the GA knows their target's role | Toggle | False |
+| Odds Of Target Being Evil | The chances of the Guardian Angel's target being evil | Percentage | 20% |
+
+-----------------------
+## Mercenary
+### **Team: Neutral**
+The Mercenary is a Neutral role which can guard other players.\
+Guarded players absorb abilities and convert it into currency.\
+This currency can be used to bribe other players.\
+If a bribed player lives and goes onto win the game, the Mercenary does too.\
+The Mercenary does not need to survive themselves.\
+They cannot win with Neutral Evils or Lovers.
+
+### Game Options
+| Name | Description | Type | Default |
+|----------|:-------------:|:------:|:------:|
+| Mercenary | The percentage probability of the Mercenary appearing | Percentage | 0% |
+| Guard Cooldown | The cooldown of the Mercenary's Guard button | Time | 10s |
+| Max Guards | The maximum amount of Guards active at one time | Number | 3 |
+| Gold To Bribe | The amount of gold required to bribe a player | Number | 3 |
+
+-----------------------
+## Survivor
+### **Team: Neutral**
+The Survivor is a Neutral role which can win by simply surviving.\
+However, if Lovers, or a Neutral Evil role wins the game, the survivor loses.
+
+### Game Options
+| Name | Description | Type | Default |
+|----------|:-------------:|:------:|:------:|
+| Survivor | The percentage probability of the Survivor appearing | Percentage | 0% |
+| Vest Cooldown | The cooldown of the Survivor's Vest button | Time | 25s |
+| Vest Duration | How long The Survivor's Vest lasts | Time | 10s |
+| Max Uses | The amount of times the Vest ability can be used | Number | 5 |
+| Survivor Scatter Mechanic  | Whether the Survivor needs to keep moving to avoid dying | Toggle | True |
+| Survivor Movement Timer | How frequently the Survivor needs to move | Time | 25s |
+
+-----------------------
+## Doomsayer
+### **Team: Neutral**
+The Doomsayer is a Neutral role with its own win condition.\
+Their goal is to assassinate 3 players to win.\
+If there are only 2 other people alive, the Doomsayer only needs to assassinate the remainder of the players.\
+They have an additional observe ability that hints towards certain player's roles.
+### Game Options
+| Name | Description | Type | Default |
+|----------|:-------------:|:------:|:------:|
+| Doomsayer | The percentage probability of the Doomsayer appearing | Percentage | 0% |
+| Observe Cooldown | The Cooldown of the Doomsayer's Observe button | Time | 10s |
+| Doomsayer Guesses All At Once  | Whether the Doomsayer has to guess all 3 roles to win at once | Toggle | True |
+| (Experienced) Doomsayer Can't Observe | The Doomsayer doesn't have the observe feature | Toggle | False |
+| Doomsayer Win Ends Game  | Whether Doomsayer winning ends the game | Toggle | True |
+
+-----------------------
+## Executioner
+### **Team: Neutral**
+
+The Executioner is a Neutral role with its own win condition.\
+Their goal is to vote out a player, specified in the beginning of a game.\
+If that player gets voted out, they win the game.
+### Game Options
+| Name | Description | Type | Default |
+|----------|:-------------:|:------:|:------:|
+| Executioner | The percentage probability of the Executioner appearing | Percentage | 0% |
+| Executioner becomes on Target Dead | Which role the Executioner becomes when their target dies | Crewmate / Amnesiac / Mercenary / Survivor / Jester | Jester |
+| Executioner Can Button | Whether the Executioner Can Press the Button | Toggle | True |
+| Executioner Win  | What happens when the Executioner wins | Ends Game / Nothing / Torments | Ends Game |
+
+-----------------------
+## Jester
+### **Team: Neutral**
+The Jester is a Neutral role with its own win condition.\
+If they are voted out after a meeting, the game finishes and they win.\
+However, the Jester does not win if the Crewmates, Impostors or another Neutral role wins.
+
+### Game Options
+| Name | Description | Type | Default |
+|----------|:-------------:|:------:|:------:|
+| Jester | The percentage probability of the Jester appearing | Percentage | 0% |
+| Jester Can Button | Whether the Jester Can Press the Button | Toggle | True |
+| Jester Can Vent | Whether the Jester Can Vent | Toggle | False |
+| Jester Has Impostor Vision | Whether the Jester Has Impostor Vision | Toggle | False |
+| Jester Scatter Mechanic  | Whether the Jester needs to keep moving to avoid dying | Toggle | True |
+| Jester Movement Timer | How frequently the Jester needs to move | Time | 25s |
+| Jester Win  | What happens when the Jester wins | Ends Game / Nothing / Haunts | Ends Game |
+
+-----------------------
+## Phantom
+### **Team: Neutral**
+
+The Phantom is a Neutral role with its own win condition.\
+They become half-invisible when they die and has to complete all their tasks without getting caught.
+### Game Options
+| Name | Description | Type | Default |
+|----------|:-------------:|:------:|:------:|
+| Phantom | The percentage probability of the Phantom appearing | Percentage | 0% |
+| When Phantom Can Be Clicked | The amount of tasks remaining when the Phantom Can Be Clicked | Number | 5 |
+| Phantom Win Ends Game  | Whether Phantom winning ends the game | Toggle | False |
+
+-----------------------
+## Arsonist
+### **Team: Neutral**
+
+The Arsonist is a Neutral role with its own win condition.\
+They have two abilities, one is to douse other players with gasoline.\
+The other is to ignite all doused players near them.\
+The Arsonist needs to be the last killer alive to win the game.
+### Game Options
+| Name | Description | Type | Default |
+|----------|:-------------:|:------:|:------:|
+| Arsonist | The percentage probability of the Arsonist appearing | Percentage | 0% |
+| Douse Cooldown | The cooldown of the Arsonist's Douse button | Time | 25s |
+| Ignite Radius | How wide the ignite radius is | Multiplier | 0.25x |
+| Arsonist can Vent | Whether the Arsonist can Vent | Toggle | False |
+
+-----------------------
+## Glitch
+### **Team: Neutral**
+
+The Glitch is a Neutral role with its own win condition.\
+The Glitch's aim is to kill everyone and be the last person standing.\
+The Glitch can Hack players, resulting in them being unable to report bodies and use abilities.\
+Hacking prevents the hacked player from doing anything but walk around the map.\
+The Glitch can Mimic someone, which results in them looking exactly like the other person.
+
+### Game Options
+| Name | Description | Type | Default |
+|----------|:-------------:|:------:|:------:|
+| The Glitch | The percentage probability of The Glitch appearing | Percentage | 0% |
+| Mimic Cooldown | The cooldown of The Glitch's Mimic button | Time | 25s |
+| Mimic Duration | How long The Glitch can Mimic a player | Time | 10s |
+| Hack Cooldown | The cooldown of The Glitch's Hack button | Time | 25s |
+| Hack Duration | How long The Glitch can Hack a player | Time | 10s |
+| Glitch Kill Cooldown | The cooldown of the Glitch's Kill button | Time | 25s |
+| Glitch can Vent | Whether the Glitch can Vent | Toggle | False |
+
+-----------------------
+## Juggernaut
+### **Team: Neutral**
+
+The Juggernaut is a Neutral role with its own win condition.\
+The Juggernaut's special ability is that their kill cooldown reduces with each kill.\
+This means in theory the Juggernaut can have a 0 second kill cooldown!\
+The Juggernaut needs to be the last killer alive to win the game.
+### Game Options
+| Name | Description | Type | Default |
+|----------|:-------------:|:------:|:------:|
+| Juggernaut | The percentage probability of the Juggernaut appearing | Percentage | 0% |
+| Juggernaut Kill Cooldown | The initial cooldown of the Juggernaut's Kill button | Time | 25s |
+| Reduced Kill Cooldown Per Kill | The amount of time removed from the Juggernaut's Kill Cooldown Per Kill | Time | 5s |
+| Juggernaut can Vent | Whether the Juggernaut can Vent | Toggle | False |
+
+-----------------------
+## Plaguebearer
+### **Team: Neutral**
 
 The Plaguebearer is a Neutral role with its own win condition, as well as an ability to transform into another role.\
 The Plaguebearer has one ability, which allows them to infect other players.\
