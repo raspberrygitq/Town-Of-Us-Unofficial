@@ -54,10 +54,40 @@ Join our [Discord](https://discord.gg/ugyc4EVUYZ) if you have any problems or wa
 <details>
   <summary> Changelog </summary>
   <details>
-  <summary> v5.3.1 </summary>
-  <ul> <li>Reordered the colours again to fix Better Crew Link issues</li> </ul>
-  <ul> <li>Fixed an issue of Radar Arrow sometimes not appearing</li> </ul>
-  <ul> <li>Fixed some chat command issues, courtesy of @chloe-gpt</li> </ul>
+  <summary> v1.0.6 </summary>
+  <ul> <li>Added /roles command</li> </ul>
+  <ul> <li>Added /modifiers command</li> </ul>
+  <ul> <li>Added /help command</li> </ul>
+  <ul> <li>Added Notes system command</li> </ul>
+  </details>
+  <details>
+  <summary> v1.0.5 </summary>
+  <ul> <li>Added updater</li> </ul>
+  </details>
+  <details>
+  <summary> v1.0.4 </summary>
+  <ul> <li>Added new neutral role - Icenberg</li> </ul>
+  <ul> <li>Changed intro sounds</li> </ul>
+  </details>
+  <details>
+  <summary> v1.0.3 </summary>
+  <ul> <li>Added new impostor role - Wraith</li> </ul>
+  </details>
+  <details>
+  <summary> v1.0.2 </summary>
+  <ul> <li>Removed Politician and Mayor</li> </ul>
+  <ul> <li>Added new crewmate role - President</li> </ul>
+  </details>
+  <details>
+  <summary> v1.0.1 </summary>
+  <ul> <li>Jailor no longer has to write /jail</li> </ul>
+  <ul> <li>Foreteller guess Neutrals/Impostors settings removed, can now always guess them.</li> </ul>
+  <ul> <li>Removed Translation.cs</li> </ul>
+  </details>
+  <details>
+  <summary> v1.0.0 </summary>
+  <ul> <li>Removed Doomsayer role</li> </ul>
+  <ul><li>Added new neutral role - Foreteller</li></ul>
   </details>
 </details>
 
@@ -162,8 +192,7 @@ If there any problems with the script please check the [faq](https://github.com/
 
 ![Install](https://github.com/whichtwix/whichtwix/blob/main/steam.png)
 <br/>
-## Issues
-If you have issues installing Town of Us, you can join our [Discord](https://discord.gg/ugyc4EVUYZ) to receive help.
+
   
 
 # Roles
