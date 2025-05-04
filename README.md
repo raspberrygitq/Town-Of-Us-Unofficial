@@ -59,6 +59,111 @@ Join our [Discord](https://discord.gg/ugyc4EVUYZ) if you have any problems or wa
   <ul> <li>Fixed an issue of Radar Arrow sometimes not appearing</li> </ul>
   <ul> <li>Fixed some chat command issues, courtesy of @chloe-gpt</li> </ul>
   </details>
+</details>
+
+# Installation
+## Requirements 
+- Among Us
+- Steam or Epic Games
+
+## Installation Guide (Steam)
+**1. [Download](#releases) the Town of Us version corresponding to the installed Among Us version.**\
+\
+**2. Go to your Steam library.**\
+\
+**3. Right-click Among Us > click `Manage` > click `Browse local files`.**\
+\
+**4. In the File Explorer, delete the entire `Among Us` folder.**\
+\
+**5. Go back to your Steam library.**\
+\
+**6. Right-Click Among Us > click `Properties...` > click `LOCAL FILES`.**\
+\
+**7. Click on `VERIFY INTEGRITY OF GAME FILES...`.**\
+\
+**8. Wait for Steam to download a clean version of Among Us.**\
+\
+**9. Duplicate the new Among Us Folder.**\
+\
+**10. Rename it to `Among Us - ToU`.**\
+\
+**11. Double-click on the zip file you downloaded.**\
+\
+**12. Drag all the files from the zip file in the new ToU folder.**\
+\
+**13. Finally, launch `Among Us.exe` from that folder.**\
+\
+A first launch may take up to 5 minutes, so be patient if it doesn't launch immediately.<br/>
+<br/>
+If the mod does not work and the version of Among Us that you see in the main menu, under the town of us logo or bottom left, does not correspond to the version indicated in the [releases table](#releases) above please do the following to get the correct version:
+
+**1. Go to Among Us in your Steam library**\
+\
+**2. Click the gears icon or right click among us and then go into properties**\
+\
+**3. Go to betas and select "public-previous" in the drop box**\
+\
+**4. Reinstall the game and redo the mod installation, recreate your copy of the game if necessary**
+
+## Installation Guide (Epic Games)
+**1. [Download](#releases) the Town of Us version corresponding to the installed Among Us version.**\
+\
+**2. Go to your Epic Games library.**\
+\
+**3. Find Among Us and click on the 3 dots `...` > click `Uninstall`.**\
+\
+**4. Confirm you want to Uninstall Among Us.**\
+\
+**5. In the Epic library, click on Among Us to install.**\
+\
+**6. Copy the Folder Path.**\
+\
+**7. Uncheck Auto-Update.**\
+\
+**8. Click on Install.**\
+\
+**9. Click Yes on the Windows popup.**\
+\
+**10. Paste the folder path in Windows search bar.**\
+\
+**11. Click on Enter.**\
+\
+**12. Copy all the Among Us files and put them in a new folder on your desktop or anywhere else.**\
+\
+**13. Paste the contents of the town of us zip in the new folder.**\
+\
+**14. Download the exe file [here](https://github.com/whichtwix/EpicGamesStarter/releases/latest) and place it in your among us folder.**\
+\
+**15. Open the ```EpicGamesStarter.exe``` by double clicking it to start the game in the copy.**\
+\
+**16. Add the folder as a exclusion for any antivirus you have and for windows defender.**\
+\
+A first launch may take awhile as it sets up and downloads prerequisites, so be patient if it doesn't launch immediately.<br/>
+<br/>
+
+If the mod does not work and the version of Among Us that you see in the main menu, under the town of us logo or bottom left, does not correspond to the version indicated in the [releases table](#releases) above please do the following to get the correct version:
+
+**1. Download the latest downgrade script(DowngradeEpic.ps1) [here](https://github.com/whichtwix/EpicGamesDowngrader/releases/latest).**\
+\
+**2. Right click the file and click "run with powershell". If it does not open or instantly closes do the following:**\
+    - search powershell in your windows search bar and open it <br>
+    - navigate to the folder the script is in, by doing for example ```cd downloads``` or ```cd desktop``` <br>
+    - write ```Set-ExecutionPolicy Unrestricted -Scope Process``` and click enter <br>
+    - write ```./DowngradeEpic.ps1``` and click enter <br>
+\
+**3. Click the y key the couple times it prompts, and look above the prompt at the 'install path' to see where among us is getting installed.**\
+\
+**4. After its finished reinstall the mod to that path**\
+\
+**5. Open the game using the EpicGamesStarter.exe that gets created. Do not use the epic launcher.**\
+\
+If there any problems with the script please check the [faq](https://github.com/whichtwix/EpicGamesDowngrader/tree/main#common-issues), and make contact with the discord server or in a issue [here](https://github.com/whichtwix/EpicGamesDowngrader/issues/new).<br/>
+<br/>
+
+![Install](https://github.com/whichtwix/whichtwix/blob/main/steam.png)
+<br/>
+## Issues
+If you have issues installing Town of Us, you can join our [Discord](https://discord.gg/ugyc4EVUYZ) to receive help.
   
 
 
