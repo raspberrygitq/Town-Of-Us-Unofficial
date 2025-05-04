@@ -1907,6 +1907,9 @@ namespace TownOfUs
 
                 if (CustomGameOptions.WraithOn > 0)
                     ImpostorConcealingRoles.Add((typeof(Wraith), CustomGameOptions.WraithOn, false || CustomGameOptions.UniqueRoles));
+
+                if (CustomGameOptions.KamikazeOn > 0)
+                    ImpostorSupportRoles.Add((typeof(Kamikaze), CustomGameOptions.KamikazeOn, true));
                 #endregion
                 #region Crewmate Modifiers
                 if (Check(CustomGameOptions.TorchOn) && GameOptionsManager.Instance.currentNormalGameOptions.MapId != 5)

@@ -208,6 +208,13 @@ namespace TownOfUs.Patches
                 undertaker.LastDragged = undertaker.LastDragged.AddSeconds(CustomGameOptions.InitialCooldowns - CustomGameOptions.DragCd);
             }
 
+            if (PlayerControl.LocalPlayer.Is(RoleEnum.Kamikaze))
+            {
+                var kamikaze = Role.GetRole<Kamikaze>(PlayerControl.LocalPlayer);
+                kamikaze.StartingCooldown = DateTime.UtcNow;
+                kamikaze.StartingCooldown = kamikaze.StartingCooldown.AddSeconds(10f);
+            }
+
             if (PlayerControl.LocalPlayer.Is(RoleEnum.Arsonist))
             {
                 var arsonist = Role.GetRole<Arsonist>(PlayerControl.LocalPlayer);

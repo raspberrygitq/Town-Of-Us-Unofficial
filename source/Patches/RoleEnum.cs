@@ -68,6 +68,7 @@ namespace TownOfUs
         Scavenger,
         Eclipsal,
         Wraith,
+        Kamikaze,
 
         Crewmate,
         Impostor,

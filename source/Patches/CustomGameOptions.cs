@@ -115,6 +115,7 @@ namespace TownOfUs
         public static int MercenaryOn => (int)Generate.MercenaryOn.Get();
         public static int ClericOn => (int)Generate.ClericOn.Get();
         public static int WraithOn => (int)Generate.WraithOn.Get();
+        public static int KamikazeOn => (int)Generate.KamikazeOn.Get();
         public static int TorchOn => (int)Generate.TorchOn.Get();
         public static int DiseasedOn => (int)Generate.DiseasedOn.Get();
         public static int FlashOn => (int)Generate.FlashOn.Get();
@@ -430,5 +431,11 @@ namespace TownOfUs
         public static float WraithCd => (float)Generate.WraithCooldown.Get();
         public static float WraithDuration => (float)Generate.WraithDuration.Get();
         public static bool WraithVent => Generate.WraithVent.Get();
+        public static float KamikazeDetonateDelay => 0f;
+        public static int KamikazeMaxKillsInDetonation => 5;
+        public static float KamikazeDetonateRadius => 0.15f;
+        public static bool KamikazeVent => true;
+        public static bool KamikazeAllImpsSeeBomb => false;
+
     }
 }
