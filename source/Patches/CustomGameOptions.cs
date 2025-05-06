@@ -180,7 +180,6 @@ namespace TownOfUs
         public static float FreezeCooldown => Generate.FreezeCooldown.Get();
         public static float FreezeDuration => Generate.FreezeDuration.Get();
         public static bool IcenbergVent => Generate.IcenbergVent.Get();
-        public static bool IcenbergImpVision => Generate.IcenbergImpVision.Get();
         public static float JuggKCd => Generate.JuggKillCooldown.Get();
         public static float ReducedKCdPerKill => Generate.ReducedKCdPerKill.Get();
         public static bool JuggVent => Generate.JuggVent.Get();

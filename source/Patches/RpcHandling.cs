@@ -767,6 +767,7 @@ namespace TownOfUs
                         ShowShield.DiedFirst = "";
                         Murder.KilledPlayers.Clear();
                         Role.NobodyWins = false;
+                        Role.ForceGameEnd = false;
                         Role.SurvOnlyWins = false;
                         Role.VampireWins = false;
                         ExileControllerPatch.lastExiled = null;
@@ -788,6 +789,9 @@ namespace TownOfUs
                             if (body.ParentId == readByte)
                                 Coroutines.Start(Coroutine.CleanCoroutine(body, janitorRole));
 
+                        break;
+                    case CustomRPC.ForceEndGame:
+                        if (Role.ForceGameEnd != true) Role.ForceGameEnd = true;
                         break;
                     case CustomRPC.EngineerFix:
                         if (ShipStatus.Instance.Systems.ContainsKey(SystemTypes.MushroomMixupSabotage))
@@ -1679,6 +1683,7 @@ namespace TownOfUs
                 else ShowShield.FirstRoundShielded = null;
                 ShowShield.DiedFirst = "";
                 Role.NobodyWins = false;
+                Role.ForceGameEnd = false;
                 Role.SurvOnlyWins = false;
                 Role.VampireWins = false;
                 ExileControllerPatch.lastExiled = null;

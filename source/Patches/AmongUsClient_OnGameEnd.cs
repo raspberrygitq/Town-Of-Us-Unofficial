@@ -108,6 +108,12 @@ namespace TownOfUs
                 return;
             }
 
+            if (Role.ForceGameEnd)
+            {
+                EndGameResult.CachedWinners = new List<CachedPlayerData>();
+                return;
+            }
+
             foreach (var role in Role.AllRoles)
             {
                 var type = role.RoleType;

@@ -284,6 +284,7 @@ namespace TownOfUs.Roles
         }
 
         internal bool PauseEndCrit = false;
+        public static bool ForceGameEnd = false;
 
         protected virtual string NameText(bool revealTasks, bool revealRole, bool revealModifier, bool revealLover, PlayerVoteArea player = null)
         {

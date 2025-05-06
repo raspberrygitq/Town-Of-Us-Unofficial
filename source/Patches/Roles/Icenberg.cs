@@ -44,6 +44,7 @@ namespace TownOfUs.Roles
         }
         public PlayerControl ClosestPlayer;
         public PlayerControl Freezed;
+        public bool Enabled;
         public DateTime LastFreeze { get; set; }
         public DateTime LastKill { get; set; }
         public KillButton FreezeButton { get; set; }
@@ -172,6 +173,7 @@ namespace TownOfUs.Roles
 
                 while (true)
                 {
+                    __instance.Enabled = true;
                     float elapsedTime = Time.time - freezeStartTime;
                     float remainingTime = CustomGameOptions.FreezeDuration - elapsedTime;
                     Debug.Log($"Total freeze time elapsed: {elapsedTime}s");
@@ -197,7 +199,7 @@ namespace TownOfUs.Roles
         {
             public static void KillButtonUpdate(Icenberg __gInstance, HudManager __instance)
             {
-                if (!__gInstance.Player.Data.IsImpostor() && Rewired.ReInput.players.GetPlayer(0).GetButtonDown(8))
+                if (!__gInstance.Player.Data.IsImpostor() && (Rewired.ReInput.players.GetPlayer(0).GetButtonDown(8) || ConsoleJoystick.player.GetButtonDown(8)))
                     __instance.KillButton.DoClick();
 
                 __instance.KillButton.gameObject.SetActive((__instance.UseButton.isActiveAndEnabled || __instance.PetButton.isActiveAndEnabled)
@@ -239,13 +241,7 @@ namespace TownOfUs.Roles
                     else if (interact[1])
                     {
                         __gInstance.LastKill = DateTime.UtcNow;
-                        __gInstance.LastKill = __gInstance.LastKill.AddSeconds(CustomGameOptions.IcenbergKillCooldown);
-                        return;
-                    }
-                    else if (interact[2])
-                    {
-                        __gInstance.LastKill = DateTime.UtcNow;
-                        __gInstance.LastKill = __gInstance.LastKill.AddSeconds(CustomGameOptions.IcenbergKillCooldown);
+                        __gInstance.LastKill = __gInstance.LastKill.AddSeconds(CustomGameOptions.TempSaveCdReset - CustomGameOptions.IcenbergKillCooldown);
                         return;
                     }
                     else if (interact[3])
@@ -276,14 +272,16 @@ namespace TownOfUs.Roles
                 if (__instance.UseButton != null)
                 {
                     __gInstance.FreezeButton.transform.position = new Vector3(
-                        Camera.main.ScreenToWorldPoint(new Vector3(0, 0)).x + 0.75f,
-                        __instance.UseButton.transform.position.y, __instance.UseButton.transform.position.z);
+                    __instance.UseButton.transform.position.x - 1f,
+                    __instance.UseButton.transform.position.y + 1f,
+                    __instance.ReportButton.transform.position.z);
                 }
                 else
                 {
                     __gInstance.FreezeButton.transform.position = new Vector3(
-                        Camera.main.ScreenToWorldPoint(new Vector3(0, 0)).x + 0.75f,
-                        __instance.PetButton.transform.position.y, __instance.PetButton.transform.position.z);
+                    __instance.UseButton.transform.position.x - 1f,
+                    __instance.UseButton.transform.position.y + 1f,
+                    __instance.ReportButton.transform.position.z);
                 }
                 __gInstance.IsUsingFreeze = true;
                 if (__gInstance.IsUsingFreeze)
@@ -296,7 +294,10 @@ namespace TownOfUs.Roles
                     __gInstance.FreezeButton.isCoolingDown = false;
                     __gInstance.FreezeButton.graphic.material.SetFloat("_Desat", 0f);
                     __gInstance.FreezeButton.graphic.color = Palette.EnabledColor;
-                    if (Rewired.ReInput.players.GetPlayer(0).GetButtonDown("ToU bb/disperse/mimic/freeze")) __gInstance.FreezeButton.DoClick();
+                    if (Rewired.ReInput.players.GetPlayer(0).GetButtonDown("ToU freeze") || ConsoleJoystick.player.GetButtonDown(21)) // controller RT
+                    {
+                        __gInstance.FreezeButton.DoClick();
+                    }
                 }
                 else
                 {
@@ -343,9 +344,10 @@ namespace TownOfUs.Roles
                 if (shouldBeVisible)
                 {
 
-                    __gInstance.FreezeAllButton.transform.position = new Vector3(__gInstance.FreezeButton.transform.position.x,
-                                 __gInstance.FreezeAllButton.transform.position.y, __instance.ReportButton.transform.position.z);
-
+                    __gInstance.FreezeAllButton.transform.position = new Vector3(
+                    __instance.UseButton.transform.position.x - 2f,
+                    __instance.UseButton.transform.position.y + 1f,
+                    __instance.ReportButton.transform.position.z);
 
                     __gInstance.FreezeAllButton.graphic.material.SetFloat("_Desat", 0f);
                     __gInstance.FreezeAllButton.graphic.color = Palette.EnabledColor;

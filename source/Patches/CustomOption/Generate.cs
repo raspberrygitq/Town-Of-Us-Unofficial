@@ -52,8 +52,8 @@ namespace TownOfUs.CustomOption
         public static CustomNumberOption SurvivorOn;
 
         public static CustomHeaderOption NeutralEvilRoles;
-        public static CustomNumberOption ForetellerOn;
         public static CustomNumberOption ExecutionerOn;
+        public static CustomNumberOption ForetellerOn;
         public static CustomNumberOption JesterOn;
         public static CustomNumberOption PhantomOn;
         public static CustomNumberOption SoulCollectorOn;
@@ -251,7 +251,6 @@ namespace TownOfUs.CustomOption
         public static CustomNumberOption FreezeCooldown;
         public static CustomNumberOption FreezeDuration;
         public static CustomToggleOption IcenbergVent;
-        public static CustomToggleOption IcenbergImpVision;
 
         public static CustomHeaderOption Juggernaut;
         public static CustomNumberOption JuggKillCooldown;
@@ -663,9 +662,9 @@ namespace TownOfUs.CustomOption
                 PercentFormat);
 
             NeutralEvilRoles = new CustomHeaderOption(num++, MultiMenu.neutral, "Neutral Evil Roles");
-            ForetellerOn = new CustomNumberOption(num++, MultiMenu.neutral, "<color=#00FF80FF>Foreteller</color>", 0f, 0f, 100f, 10f,
-                PercentFormat);
             ExecutionerOn = new CustomNumberOption(num++, MultiMenu.neutral, "<color=#8C4005FF>Executioner</color>", 0f, 0f, 100f, 10f,
+                PercentFormat);
+            ForetellerOn = new CustomNumberOption(num++, MultiMenu.neutral, "<color=#00FF80FF>Foreteller</color>", 0f, 0f, 100f, 10f,
                 PercentFormat);
             JesterOn = new CustomNumberOption(num++, MultiMenu.neutral, "<color=#FFBFCCFF>Jester</color>", 0f, 0f, 100f, 10f,
                 PercentFormat);
@@ -1269,6 +1268,15 @@ namespace TownOfUs.CustomOption
             SurvScatterTimer =
                 new CustomNumberOption(num++, MultiMenu.neutral, "Survivor Scatter Timer", 25f, 10f, 60f, 2.5f, CooldownFormat);
 
+            Executioner =
+                new CustomHeaderOption(num++, MultiMenu.neutral, "<color=#8C4005FF>Executioner</color>");
+            OnTargetDead = new CustomStringOption(num++, MultiMenu.neutral, "Executioner Becomes On Target Dead",
+                new[] { "Crewmate", "Amnesiac", "Mercenary", "Survivor", "Jester" }, 4);
+            ExecutionerButton =
+                new CustomToggleOption(num++, MultiMenu.neutral, "Executioner Can Button", true);
+            ExecutionerWin = new CustomStringOption(num++, MultiMenu.neutral, "Executioner Win",
+                new[] { "Ends Game", "Nothing", "Torments" });
+
             Foreteller =
                 new CustomHeaderOption(num++, MultiMenu.neutral, "<color=#00FF80FF>Foreteller</color>");
             ForetellerObserveCooldown =
@@ -1278,15 +1286,6 @@ namespace TownOfUs.CustomOption
             ForetellerCantObserve =
                 new CustomToggleOption(num++, MultiMenu.neutral, "Foreteller Can't Observe", false);
             ForetellerWinEndsGame = new CustomToggleOption(num++, MultiMenu.neutral, "Foreteller Win Ends Game", true);
-
-            Executioner =
-                new CustomHeaderOption(num++, MultiMenu.neutral, "<color=#8C4005FF>Executioner</color>");
-            OnTargetDead = new CustomStringOption(num++, MultiMenu.neutral, "Executioner Becomes On Target Dead",
-                new[] { "Crewmate", "Amnesiac", "Mercenary", "Survivor", "Jester" }, 4);
-            ExecutionerButton =
-                new CustomToggleOption(num++, MultiMenu.neutral, "Executioner Can Button", true);
-            ExecutionerWin = new CustomStringOption(num++, MultiMenu.neutral, "Executioner Win",
-                new[] { "Ends Game", "Nothing", "Torments" });
 
             Jester =
                 new CustomHeaderOption(num++, MultiMenu.neutral, "<color=#FFBFCCFF>Jester</color>");
@@ -1334,10 +1333,8 @@ namespace TownOfUs.CustomOption
                 new CustomNumberOption(num++, MultiMenu.neutral, "Icenberg Kill Cooldown", 25f, 10f, 60f, 2.5f, CooldownFormat);
             FreezeCooldown = new CustomNumberOption(num++, MultiMenu.neutral, "Freeze Cooldown", 25f, 10f, 60f, 2.5f, CooldownFormat);
             FreezeDuration = new CustomNumberOption(num++, MultiMenu.neutral, "Freeze Duration", 4f, 1f, 8f, 0.5f, CooldownFormat);
-            IcenbergImpVision =
-                new CustomToggleOption(num++, MultiMenu.neutral, "Icenberg Has Impostor Vision", true);
             IcenbergVent =
-                new CustomToggleOption(num++, MultiMenu.neutral, "Icenberg Can Vent", true);
+                new CustomToggleOption(num++, MultiMenu.neutral, "Icenberg Can Vent", false);
 
             Juggernaut =
                 new CustomHeaderOption(num++, MultiMenu.neutral, "<color=#8C004DFF>Juggernaut</color>");

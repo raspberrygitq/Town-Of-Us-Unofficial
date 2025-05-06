@@ -6,6 +6,10 @@ using TownOfUs.Roles.Modifiers;
 using Reactor.Utilities.Extensions;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
+using System;
+using TownOfUs.Extensions;
+using System.Diagnostics;
 
 namespace TownOfUs.Patches
 {
@@ -13,6 +17,10 @@ namespace TownOfUs.Patches
     public static class ChatCommands
     {
         public static bool JailorMessage = false;
+
+        public static bool system = false;
+        public static bool error = false;
+        public static bool noaccess = false;
 
         [HarmonyPatch(typeof(ChatController), nameof(ChatController.AddChat))]
         public static class PrivateJaileeChat
@@ -26,14 +34,127 @@ namespace TownOfUs.Patches
                         string note = chatText.Substring(5).Trim();
                         var sourcePlayerRole = Role.GetRole(sourcePlayer);
                         sourcePlayerRole.PlayerNotes += "\n" + note;
-                        DestroyableSingleton<HudManager>.Instance.Chat.AddChat(PlayerControl.LocalPlayer, $"Nowa notatka:\n{note}");
+                        HudManager.Instance.Chat.AddChat(PlayerControl.LocalPlayer, $"New Note:\n{note}");
                         return false;
                     }
                     if (chatText.ToLower().StartsWith("/seenote") || chatText.ToLower().StartsWith("/ seenote"))
                     {
                         var sourcePlayerRole = Role.GetRole(sourcePlayer);
-                        DestroyableSingleton<HudManager>.Instance.Chat.AddChat(PlayerControl.LocalPlayer, $"Notatki:\n {sourcePlayerRole.PlayerNotes}");
+                        HudManager.Instance.Chat.AddChat(PlayerControl.LocalPlayer, $"Notes:\n {sourcePlayerRole.PlayerNotes}");
                         return false;
+                    }
+                    if (chatText.ToLower().StartsWith("/id"))
+                    {
+                        if (GameData.Instance.GetHost() == sourcePlayer.Data && sourcePlayer.PlayerId == PlayerControl.LocalPlayer.PlayerId)
+                        {
+                            string message = "All players ids:\n";
+                            foreach (var player in PlayerControl.AllPlayerControls.ToArray().OrderBy(x => Guid.NewGuid()))
+                            {
+                                message += $"{player.GetDefaultOutfit().PlayerName}: {player.PlayerId}\n";
+                            }
+                            message.Remove(message.Length - 1, 1);
+                            chatText = message;
+                            system = true;
+                        }
+                        else if (sourcePlayer.PlayerId == PlayerControl.LocalPlayer.PlayerId)
+                        {
+                            chatText = "You don't have access to this command!";
+                            noaccess = true;
+                        }
+                        return sourcePlayer.PlayerId == PlayerControl.LocalPlayer.PlayerId;
+                    }
+
+                    if (chatText.ToLower().StartsWith("/kick "))
+                    {
+                        if (GameData.Instance.GetHost() == sourcePlayer.Data && sourcePlayer.PlayerId == PlayerControl.LocalPlayer.PlayerId)
+                        {
+                            if (chatText[6..].IsNullOrWhiteSpace())
+                            {
+                                chatText = "You must specify a player id as parameter, use /id to get the list of all players ids.";
+                                error = true;
+                            }
+                            if (Convert.ToByte(chatText[6..]) == PlayerControl.LocalPlayer.PlayerId)
+                            {
+                                chatText = "You can't kick yourself!";
+                                error = true;
+                            }
+                            else
+                            {
+                                var id = Convert.ToByte(chatText[6..]);
+                                var playerWithId = PlayerControl.AllPlayerControls.ToArray().Where(x => x.PlayerId == id).ToList();
+                                if (!playerWithId.Any())
+                                {
+                                    chatText = "You must give a valid player id, use /id to get the list of all players ids.";
+                                    error = true;
+                                }
+                                else
+                                {
+                                    foreach (var player in playerWithId)
+                                    {
+                                        AmongUsClient.Instance.KickWithReason(player.OwnerId, "You were kicked from the lobby.");
+                                    }
+                                    chatText = "The player was kicked successfully.";
+                                    system = true;
+                                }
+                            }
+                        }
+                        else if (sourcePlayer.PlayerId == PlayerControl.LocalPlayer.PlayerId)
+                        {
+                            chatText = "You don't have access to this command!";
+                            noaccess = true;
+                        }
+                        return sourcePlayer.PlayerId == PlayerControl.LocalPlayer.PlayerId;
+                    }
+
+                    if (chatText.ToLower().StartsWith("/ban "))
+                    {
+                        if (GameData.Instance.GetHost() == sourcePlayer.Data && sourcePlayer.PlayerId == PlayerControl.LocalPlayer.PlayerId)
+                        {
+                            if (chatText[5..].IsNullOrWhiteSpace())
+                            {
+                                chatText = "You must specify a player id as parameter, use /id to get the list of all players ids.";
+                                error = true;
+                            }
+                            if (Convert.ToByte(chatText[5..]) == PlayerControl.LocalPlayer.PlayerId)
+                            {
+                                chatText = "You can't ban yourself!";
+                                error = true;
+                            }
+                            else
+                            {
+                                var id = Convert.ToByte(chatText[5..]);
+                                var playerWithId = PlayerControl.AllPlayerControls.ToArray().Where(x => x.PlayerId == id).ToList();
+                                if (!playerWithId.Any())
+                                {
+                                    chatText = "You must give a valid player id, use /id to get the list of all players ids.";
+                                    error = true;
+                                }
+                                else
+                                {
+                                    foreach (var player in playerWithId)
+                                    {
+                                        AmongUsClient.Instance.Ban(player.OwnerId);
+                                    }
+                                    chatText = "The player was banned successfully.";
+                                    system = true;
+                                }
+                            }
+                        }
+                        else if (sourcePlayer.PlayerId == PlayerControl.LocalPlayer.PlayerId)
+                        {
+                            chatText = "You don't have access to this command!";
+                            noaccess = true;
+                        }
+                        return sourcePlayer.PlayerId == PlayerControl.LocalPlayer.PlayerId;
+                    }
+                    if (chatText.ToLower().StartsWith("/secret") && sourcePlayer.PlayerId == PlayerControl.LocalPlayer.PlayerId) // Real secret fr fr
+                    {
+                        chatText = ":)";
+                        System.Diagnostics.Process.Start(new ProcessStartInfo
+                        {
+                            FileName = "https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley",
+                            UseShellExecute = true
+                        });
                     }
                     if (chatText.ToLower().StartsWith("/crew") || chatText.ToLower().StartsWith("/ crew"))
                     {
@@ -534,8 +655,8 @@ namespace TownOfUs.Patches
                         var modifiers = Modifier.GetModifiers(PlayerControl.LocalPlayer);
                         if (modifiers.Length == 0)
                         {
-                            if (AmongUsClient.Instance.GameState == InnerNet.InnerNetClient.GameStates.Started) DestroyableSingleton<HudManager>.Instance.Chat.AddChat(PlayerControl.LocalPlayer, "You do not have a modifier.");
-                            else DestroyableSingleton<HudManager>.Instance.Chat.AddChat(PlayerControl.LocalPlayer, "Invalid Command.");
+                            if (AmongUsClient.Instance.GameState == InnerNet.InnerNetClient.GameStates.Started) HudManager.Instance.Chat.AddChat(PlayerControl.LocalPlayer, "You do not have a modifier.");
+                            else HudManager.Instance.Chat.AddChat(PlayerControl.LocalPlayer, "Invalid Command.");
                         }
                         else
                         {
@@ -549,13 +670,18 @@ namespace TownOfUs.Patches
                     else if (chatText.ToLower().StartsWith("/help") || chatText.ToLower().StartsWith("/ help"))
                     {
                         string mess =
-                            $"<color=#D91919>Commands:</color>\n" +
-                            $"<color=#D91919>/me</color> - Information about me.\n" +
-                            $"<color=#D91919>/roles</color> - Information about active roles.\n" +
-                            $"<color=#D91919>/modifiers</color> - Information on active modifiers.\n" +
-                            $"<color=#D91919>/note</color> - Write your own note.\n" +
-                            $"<color=#D91919>/seenote</color> - Your saved notes.\n" +
-                            $"<color=#D91919>/(rolename)</color> - Role description.\n";
+                            $"<color=#6DFFFA><b>Everyone:</b></color>\n\n" +
+                            $"<color=#6DFFFA>/me</color> - Information about me.\n" +
+                            $"<color=#6DFFFA>/roles</color> - Information about active roles.\n" +
+                            $"<color=#6DFFFA>/modifiers</color> - Information on active modifiers.\n" +
+                            $"<color=#6DFFFA>/note [note]</color> - Write your own note.\n" +
+                            $"<color=#6DFFFA>/seenote</color> - Your saved notes.\n" +
+                            $"<color=#6DFFFA>/(rolename)</color> - Role description.\n\n" +
+                            $"<color=#D91919><b>Host Only:</b></color>\n\n" +
+                            $"<color=#D91919>Shift + G + Enter</color> - Force the game to end.\n" +
+                            $"<color=#D91919>/id</color> - See players ids.\n" +
+                            $"<color=#D91919>/kick [id]</color> - Kick a player by its id.\n" +
+                            $"<color=#D91919>/ban [id]</color> - Ban a player by its id.\n";
                         HudManager.Instance.Chat.AddChat(PlayerControl.LocalPlayer, mess);
                         return false;
                     }
@@ -597,7 +723,7 @@ namespace TownOfUs.Patches
             {
                 Dictionary<string, Color> ColorMapping = new Dictionary<string, Color>();
 
-                ColorMapping.Add("<b>Crewmate</b>:\n", Color.cyan);
+                ColorMapping.Add("<b>Crewmate:</b>\n", Color.cyan);
                 //if (CustomGameOptions.PoliticianOn > 0) ColorMapping.Add("Politician", Colors.Politician);
                 if (CustomGameOptions.SheriffOn > 0) ColorMapping.Add("Sheriff", Colors.Sheriff);
                 if (CustomGameOptions.EngineerOn > 0) ColorMapping.Add("Engineer", Colors.Engineer);
@@ -629,7 +755,7 @@ namespace TownOfUs.Patches
                 if (CustomGameOptions.ClericOn > 0) ColorMapping.Add("Cleric", Colors.Cleric);
                 if (CustomGameOptions.PlumberOn > 0) ColorMapping.Add("Plumber", Colors.Plumber);
 
-                ColorMapping.Add("\n<b>Neutral</b>:\n", Color.gray);
+                ColorMapping.Add("\n<b>Neutral:</b>\n", Color.gray);
                 if (CustomGameOptions.AmnesiacOn > 0 || (CustomGameOptions.ExecutionerOn > 0 && CustomGameOptions.OnTargetDead == OnTargetDead.Amnesiac) || (CustomGameOptions.GuardianAngelOn > 0 && CustomGameOptions.GaOnTargetDeath == BecomeOptions.Amnesiac)) ColorMapping.Add("Amnesiac", Colors.Amnesiac);
                 if (CustomGameOptions.GuardianAngelOn > 0) ColorMapping.Add("Guardian Angel", Colors.GuardianAngel);
                 if (CustomGameOptions.MercenaryOn > 0 || (CustomGameOptions.ExecutionerOn > 0 && CustomGameOptions.OnTargetDead == OnTargetDead.Mercenary) || (CustomGameOptions.GuardianAngelOn > 0 && CustomGameOptions.GaOnTargetDeath == BecomeOptions.Mercenary)) ColorMapping.Add("Mercenary", Colors.Mercenary);
@@ -649,7 +775,7 @@ namespace TownOfUs.Patches
                 if (CustomGameOptions.JuggernautOn > 0 && !PlayerControl.LocalPlayer.Is(RoleEnum.Juggernaut)) ColorMapping.Add("Juggernaut", Colors.Juggernaut);
                 if (CustomGameOptions.SoulCollectorOn > 0 && !PlayerControl.LocalPlayer.Is(RoleEnum.SoulCollector)) ColorMapping.Add("Soul Collector", Colors.SoulCollector);
 
-                ColorMapping.Add("\n<b>Impostor</b>:\n", Colors.Impostor);
+                ColorMapping.Add("\n<b>Impostor:</b>\n", Colors.Impostor);
                 if (CustomGameOptions.JanitorOn > 0) ColorMapping.Add("Janitor", Colors.Impostor);
                 if (CustomGameOptions.MorphlingOn > 0) ColorMapping.Add("Morphling", Colors.Impostor);
                 if (CustomGameOptions.MinerOn > 0) ColorMapping.Add("Miner", Colors.Impostor);
@@ -680,7 +806,7 @@ namespace TownOfUs.Patches
             {
                 Dictionary<string, Color> ColorMapping = new Dictionary<string, Color>();
 
-                ColorMapping.Add("<b>Crewmate Modifiers</b>:\n", Color.cyan);
+                ColorMapping.Add("<b>Crewmate Modifiers:</b>\n", Color.cyan);
                 if (CustomGameOptions.AftermathOn > 0) ColorMapping.Add("Aftermath", Colors.Aftermath);
                 if (CustomGameOptions.BaitOn > 0) ColorMapping.Add("Bait", Colors.Bait);
                 if (CustomGameOptions.CelebrityOn > 0) ColorMapping.Add("Celebrity", Colors.Celebrity);
@@ -690,7 +816,7 @@ namespace TownOfUs.Patches
                 if (CustomGameOptions.TaskmasterOn > 0) ColorMapping.Add("Taskmaster", Colors.Taskmaster);
                 if (CustomGameOptions.TorchOn > 0) ColorMapping.Add("Torch", Colors.Torch);
 
-                ColorMapping.Add("\n<b>All</b>:\n", Color.gray);
+                ColorMapping.Add("\n<b>Global Modifiers:</b>\n", Color.gray);
                 if (CustomGameOptions.ButtonBarryOn > 0) ColorMapping.Add("Button Barry", Colors.ButtonBarry);
                 //if (CustomGameOptions.DrunkOn > 0) ColorMapping.Add("Drunk", Colors.Drunk);
                 if (CustomGameOptions.FlashOn > 0) ColorMapping.Add("Flash", Colors.Flash);
@@ -705,7 +831,7 @@ namespace TownOfUs.Patches
                 if (CustomGameOptions.SleuthOn > 0) ColorMapping.Add("Sleuth", Colors.Sleuth);
                 if (CustomGameOptions.TiebreakerOn > 0) ColorMapping.Add("Tiebreaker", Colors.Tiebreaker);
 
-                ColorMapping.Add("\n<b>Impostor Modifiers</b>:\n", Colors.Impostor);
+                ColorMapping.Add("\n<b>Impostor Modifiers:</b>\n", Colors.Impostor);
                 if (CustomGameOptions.DoubleShotOn > 0) ColorMapping.Add("Double Shot", Colors.Impostor);
                 if (CustomGameOptions.UnderdogOn > 0) ColorMapping.Add("Underdog", Colors.Impostor);
                 if (CustomGameOptions.DisperserOn > 0) ColorMapping.Add("Disperser", Colors.Impostor);
@@ -937,6 +1063,45 @@ namespace TownOfUs.Patches
                         JailorMessage = false;
                     }
                 }
+            }
+        }
+
+        [HarmonyPatch(typeof(ChatBubble), nameof(ChatBubble.SetName))]
+        public class ChatFixName
+        {
+            public static bool Prefix(ChatBubble __instance)
+            {
+                if (system)
+                {
+                    __instance.NameText.text = "System Message";
+                    __instance.NameText.color = Palette.CrewmateBlue;
+                    __instance.NameText.ForceMeshUpdate(true, true);
+                    __instance.Xmark.enabled = false;
+                    __instance.votedMark.enabled = false;
+                    system = false;
+                    return false;
+                }
+                else if (error)
+                {
+                    __instance.NameText.text = "Error";
+                    __instance.NameText.color = Palette.ImpostorRed;
+                    __instance.NameText.ForceMeshUpdate(true, true);
+                    __instance.Xmark.enabled = true;
+                    __instance.votedMark.enabled = false;
+                    error = false;
+                    return false;
+                }
+                else if (noaccess)
+                {
+                    __instance.NameText.text = "No Access";
+                    __instance.NameText.color = Palette.Blue;
+                    __instance.NameText.ForceMeshUpdate(true, true);
+                    __instance.Xmark.enabled = true;
+                    __instance.votedMark.enabled = false;
+                    noaccess = false;
+                    return false;
+                }
+                else return true;
             }
         }
     }
