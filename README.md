@@ -486,7 +486,7 @@ If the Jailor executes incorrectly, they lose the ability to jail.
 -----------------------
 ## President
 ### **Team: Crewmates**
-The President is a Crewmate who can vote multiple times or abstain.\
+The President is a Crewmate who can vote multiple times or abstain.
 
 ### Game Options
 | Name | Description | Type | Default |
