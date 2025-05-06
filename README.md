@@ -42,12 +42,13 @@ Join our [Discord](https://discord.gg/ugyc4EVUYZ) if you have any problems or wa
 # Releases
 | Among Us - Version| Mod Version | Link |
 |----------|-------------|-----------------|
-| 16.0.2s & 16.0.2e | v1.0.7 | [Download](https://github.com/badzyn/Town-Of-Us-Unofficial/releases/download/v1.0.1/ToU-Unofficial-v1.0.7.zip) |
-| 16.0.2s & 16.0.2e | v1.0.6 | [Download](https://github.com/badzyn/Town-Of-Us-Unofficial/releases/download/v1.0.1/ToU-Unofficial-v1.0.6.zip) |
-| 16.0.2s & 16.0.2e | v1.0.5 | [Download](https://github.com/badzyn/Town-Of-Us-Unofficial/releases/download/v1.0.1/ToU-Unofficial-v1.0.5.zip) |
-| 16.0.2s & 16.0.2e | v1.0.4 | [Download](https://github.com/badzyn/Town-Of-Us-Unofficial/releases/download/v1.0.1/ToU-Unofficial-v1.0.4.zip) |
-| 16.0.2s & 16.0.2e | v1.0.3 | [Download](https://github.com/badzyn/Town-Of-Us-Unofficial/releases/download/v1.0.1/ToU-Unofficial-v1.0.3.zip) |
-| 16.0.2s & 16.0.2e | v1.0.2 | [Download](https://github.com/badzyn/Town-Of-Us-Unofficial/releases/download/v1.0.1/ToU-Unofficial-v1.0.2.zip) |
+| 16.0.2s & 16.0.2e | v1.1.0 | [Download](https://github.com/badzyn/Town-Of-Us-Unofficial/releases/download/v1.1.0/ToU-Unofficial-v1.1.0.zip) |
+| 16.0.2s & 16.0.2e | v1.0.7 | [Download](https://github.com/badzyn/Town-Of-Us-Unofficial/releases/download/v1.0.7/ToU-Unofficial-v1.0.7.zip) |
+| 16.0.2s & 16.0.2e | v1.0.6 | [Download](https://github.com/badzyn/Town-Of-Us-Unofficial/releases/download/v1.0.6/ToU-Unofficial-v1.0.6.zip) |
+| 16.0.2s & 16.0.2e | v1.0.5 | [Download](https://github.com/badzyn/Town-Of-Us-Unofficial/releases/download/v1.0.5/ToU-Unofficial-v1.0.5.zip) |
+| 16.0.2s & 16.0.2e | v1.0.4 | [Download](https://github.com/badzyn/Town-Of-Us-Unofficial/releases/download/v1.0.4/ToU-Unofficial-v1.0.4.zip) |
+| 16.0.2s & 16.0.2e | v1.0.3 | [Download](https://github.com/badzyn/Town-Of-Us-Unofficial/releases/download/v1.0.3/ToU-Unofficial-v1.0.3.zip) |
+| 16.0.2s & 16.0.2e | v1.0.2 | [Download](https://github.com/badzyn/Town-Of-Us-Unofficial/releases/download/v1.0.2/ToU-Unofficial-v1.0.2.zip) |
 | 16.0.2s & 16.0.2e | v1.0.1 | [Download](https://github.com/badzyn/Town-Of-Us-Unofficial/releases/download/v1.0.1/ToU-Unofficial-v1.0.1.zip) |
 | 16.0.2s & 16.0.2e | v1.0.0 | [Download](https://github.com/badzyn/Town-Of-Us-Unofficial/releases/download/v1.0.0/TownOfUs.dll) |
 
