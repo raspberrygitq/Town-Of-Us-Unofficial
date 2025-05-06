@@ -42,18 +42,43 @@ Join our [Discord](https://discord.gg/ugyc4EVUYZ) if you have any problems or wa
 # Releases
 | Among Us - Version| Mod Version | Link |
 |----------|-------------|-----------------|
-| 16.0.2s & 16.0.2e | v1.0.7 | [Download](https://github.com/badzyn/Town-Of-Us-Unofficial/releases/download/v1.0.1/ToU-Unofficial-v1.0.7.zip) |
-| 16.0.2s & 16.0.2e | v1.0.6 | [Download](https://github.com/badzyn/Town-Of-Us-Unofficial/releases/download/v1.0.1/ToU-Unofficial-v1.0.6.zip) |
-| 16.0.2s & 16.0.2e | v1.0.5 | [Download](https://github.com/badzyn/Town-Of-Us-Unofficial/releases/download/v1.0.1/ToU-Unofficial-v1.0.5.zip) |
-| 16.0.2s & 16.0.2e | v1.0.4 | [Download](https://github.com/badzyn/Town-Of-Us-Unofficial/releases/download/v1.0.1/ToU-Unofficial-v1.0.4.zip) |
-| 16.0.2s & 16.0.2e | v1.0.3 | [Download](https://github.com/badzyn/Town-Of-Us-Unofficial/releases/download/v1.0.1/ToU-Unofficial-v1.0.3.zip) |
-| 16.0.2s & 16.0.2e | v1.0.2 | [Download](https://github.com/badzyn/Town-Of-Us-Unofficial/releases/download/v1.0.1/ToU-Unofficial-v1.0.2.zip) |
+| 16.0.2s & 16.0.2e | v1.1.0 | [Download](https://github.com/badzyn/Town-Of-Us-Unofficial/releases/download/v1.1.0/ToU-Unofficial-v1.1.0.zip) |
+| 16.0.2s & 16.0.2e | v1.0.7 | [Download](https://github.com/badzyn/Town-Of-Us-Unofficial/releases/download/v1.0.7/ToU-Unofficial-v1.0.7.zip) |
+| 16.0.2s & 16.0.2e | v1.0.6 | [Download](https://github.com/badzyn/Town-Of-Us-Unofficial/releases/download/v1.0.6/ToU-Unofficial-v1.0.6.zip) |
+| 16.0.2s & 16.0.2e | v1.0.5 | [Download](https://github.com/badzyn/Town-Of-Us-Unofficial/releases/download/v1.0.5/ToU-Unofficial-v1.0.5.zip) |
+| 16.0.2s & 16.0.2e | v1.0.4 | [Download](https://github.com/badzyn/Town-Of-Us-Unofficial/releases/download/v1.0.4/ToU-Unofficial-v1.0.4.zip) |
+| 16.0.2s & 16.0.2e | v1.0.3 | [Download](https://github.com/badzyn/Town-Of-Us-Unofficial/releases/download/v1.0.3/ToU-Unofficial-v1.0.3.zip) |
+| 16.0.2s & 16.0.2e | v1.0.2 | [Download](https://github.com/badzyn/Town-Of-Us-Unofficial/releases/download/v1.0.2/ToU-Unofficial-v1.0.2.zip) |
 | 16.0.2s & 16.0.2e | v1.0.1 | [Download](https://github.com/badzyn/Town-Of-Us-Unofficial/releases/download/v1.0.1/ToU-Unofficial-v1.0.1.zip) |
 | 16.0.2s & 16.0.2e | v1.0.0 | [Download](https://github.com/badzyn/Town-Of-Us-Unofficial/releases/download/v1.0.0/TownOfUs.dll) |
 
 
 <details>
   <summary> Changelog </summary>
+  <details>
+  <summary> v1.1.0 </summary>
+  <ul> <li>Shift + G + Enter - Force the game to end.</li> </ul>
+  <ul> <li>/id - See players ids.</li> </ul>
+  <ul> <li>/kick [id] - Kick a player by its id.</li> </ul>
+  <ul> <li>/ban [id] - Ban a player by its id.</li> </ul>
+  <ul> <li>All “Kill” and “Vent” buttons match the color of the role.</li> </ul>
+  <ul> <li>The map under “TAB” also matches the color of the role.</li> </ul>
+  <ul> <li>Icenberg Freeze and Blizzard buttons moved to where all other buttons are.</li> </ul>
+  <ul> <li>The fonts of the Factions and Modifiers titles under the /roles and /modifiers commands have been made bold and their color changed.</li> </ul>
+  <ul> <li>Cyan - Crewmate Roles and Crewmate Modifiers.</li> </ul>
+  <ul> <li>Gray - Neutral Roles and Global Modifiers.</li> </ul>
+  <ul> <li>Red - Impostor Roles and Impostor Modifiers.</li> </ul>
+  <ul> <li>The option “Icenberg has a Impostor Vision” has been removed. From now on, Icenberg will always have Impostor Vision.</li> </ul>
+  <ul> <li>The Icenberg did not have the ability to vent.</li> </ul>
+  <ul> <li>The Icenberg can now have Button Barry.</li> </ul>
+  </details>
+  <details>
+  <summary> v1.0.7 </summary>
+  <ul> <li>New Role: Kamikaze</li> </ul>
+  <ul> <li>Implemented after lobby creation welcome message.</li> </ul>
+  <ul> <li>Minor color changes.</li> </ul>
+  <ul> <li>In the /roles and /modifier commands, faction fonts have been bolded.</li> </ul>
+  </details>
   <details>
   <summary> v1.0.6 </summary>
   <ul> <li>Added /roles command</li> </ul>
