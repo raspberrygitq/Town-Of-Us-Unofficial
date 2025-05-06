@@ -876,7 +876,7 @@ The Glitch can Mimic someone, which results in them looking exactly like the oth
 
 -----------------------
 ## Icenberg
-### **Drużyna: Neutral**
+### **Team: Neutral**
 
 Icenberg is a neutral role with its own victory condition.\
 Icenberg's goal is to kill everyone and become the last person standing.\
