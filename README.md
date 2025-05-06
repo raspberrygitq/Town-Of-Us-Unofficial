@@ -886,9 +886,9 @@ Icenberg can freeze players, preventing them from moving.
 | Name | Description | Type | Default | 
 |----------|:-------------:|:------:|:------:|
 | Icenberg | The percentage probability of the Icenberg appearing | Percentage | 0% |
-| Freeze Cooldown | The cooldown of the Icenberg Freeze Button | Time | 25 s |
-| Freezing Duration | How long the Icenberg can Freeze a player | Time | 3 s |
-| Icenberg Kill Cooldown | The cooldown of the Icenberg's Kill button | Time | 25 s |
+| Freeze Cooldown | The cooldown of the Icenberg Freeze Button | Time | 25s |
+| Freezing Duration | How long the Icenberg can Freeze a player | Time | 3s |
+| Icenberg Kill Cooldown | The cooldown of the Icenberg's Kill button | Time | 25s |
 | Icenberg can Vent | Whether the Icenberg can Vent | Toggle | False |
 
 -----------------------
