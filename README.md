@@ -10,20 +10,20 @@ Join our [Discord](https://discord.gg/ugyc4EVUYZ) if you have any problems or wa
 |:----------------------------:|:---------------------------------:|:--------------------------------:|:----------------------------:|
 | [Blackmailer](#blackmailer)  | [Altruist](#altruist)             | [Amnesiac](#amnesiac)            | [Aftermath](#aftermath)      |
 | [Bomber](#bomber)            | [Aurial](#aurial)                 | [Arsonist](#arsonist)            | [Bait](#bait)                |
-| [Eclipsal](#eclipsal)        | [Cleric](#cleric)                 | [Foreteller](#foreteller)        | [Button Barry](#button-barry)|
-| [Escapist](#escapist)        | [Deputy](#deputy)                 | [Executioner](#executioner)      | [Celebrity](#celebrity)      |
+| [Eclipsal](#eclipsal)        | [Cleric](#cleric)                 | [Executioner](#executioner)      | [Button Barry](#button-barry)|
+| [Escapist](#escapist)        | [Deputy](#deputy)                 | [Foreteller](#foreteller)        | [Celebrity](#celebrity)      |
 | [Grenadier](#grenadier)      | [Detective](#detective)           | [Glitch](#glitch)                | [Diseased](#diseased)        |
 | [Hypnotist](#hypnotist)      | [Engineer](#engineer)             | [Guardian Angel](#guardian-angel)| [Disperser](#disperser)      |
 | [Janitor](#janitor)          | [Haunter](#haunter)               | [Jester](#jester)                | [Double Shot](#double-shot)  |
 | [Miner](#miner)              | [Hunter](#hunter)                 | [Juggernaut](#juggernaut)        | [Flash](#flash)              |
-| [Morphling](#morphling)      | [Imitator](#imitator)             | [Mercenary](#mercenary)          | [Frosty](#frosty)            |
-| [Scavenger](#scavenger)      | [Investigator](#investigator)     | [Phantom](#phantom)              | [Giant](#giant)              |
-| [Swooper](#swooper)          | [Jailor](#jailor)                 | [Plaguebearer](#plaguebearer)    | [Immovable](#immovable)      |
-| [Traitor](#traitor)          | [Lookout](#lookout)               | [Soul Collector](#soul-collector)| [Lovers](#lovers)            |
-| [Undertaker](#undertaker)    | [Medic](#medic)                   | [Survivor](#survivor)            | [Mini](#mini)                |
-| [Venerer](#venerer)          | [Medium](#medium)                 | [Vampire](#vampire)              | [Multitasker](#multitasker)  |
-| [Warlock](#warlock)          | [Mystic](#mystic)                 | [Werewolf](#werewolf)            | [Radar](#radar)              |
-| [Wraith](#wraith)            | [Oracle](#oracle)                 | [Icenberg](#icenberg)            | [Saboteur](#saboteur)        |
+| [Morphling](#morphling)      | [Imitator](#imitator)             | [Icenberg](#icenberg)            | [Frosty](#frosty)            |
+| [Scavenger](#scavenger)      | [Investigator](#investigator)     | [Mercenary](#mercenary)          | [Giant](#giant)              |
+| [Swooper](#swooper)          | [Jailor](#jailor)                 | [Phantom](#phantom)              | [Immovable](#immovable)      |
+| [Traitor](#traitor)          | [Lookout](#lookout)               | [Plaguebearer](#plaguebearer)    | [Lovers](#lovers)            |
+| [Undertaker](#undertaker)    | [Medic](#medic)                   | [Soul Collector](#soul-collector)| [Mini](#mini)                |
+| [Venerer](#venerer)          | [Medium](#medium)                 | [Survivor](#survivor)            | [Multitasker](#multitasker)  |
+| [Warlock](#warlock)          | [Mystic](#mystic)                 | [Vampire](#vampire)              | [Radar](#radar)              |
+| [Wraith](#wraith)            | [Oracle](#oracle)                 | [Werewolf](#werewolf)            | [Saboteur](#saboteur)        |
 |                              | [Plumber](#plumber)               |                                  | [Satellite](#satellite)      |
 |                              | [President](#president)           |                                  | [Shy](#shy)                  |
 |                              | [Prosecutor](#prosecutor)         |                                  | [Sixth Sense](#sixth-sense)  |
@@ -101,7 +101,7 @@ Join our [Discord](https://discord.gg/ugyc4EVUYZ) if you have any problems or wa
   </details>
   <details>
   <summary> v1.0.2 </summary>
-  <ul> <li>Removed Politician and Mayor</li> </ul>
+  <ul> <li>Removed President and Mayor</li> </ul>
   <ul> <li>Added new crewmate role - President</li> </ul>
   </details>
   <details>
@@ -112,7 +112,7 @@ Join our [Discord](https://discord.gg/ugyc4EVUYZ) if you have any problems or wa
   </details>
   <details>
   <summary> v1.0.0 </summary>
-  <ul> <li>Removed Doomsayer role</li> </ul>
+  <ul> <li>Removed Foreteller role</li> </ul>
   <ul><li>Added new neutral role - Foreteller</li></ul>
   </details>
 </details>
@@ -484,17 +484,17 @@ If the Jailor executes incorrectly, they lose the ability to jail.
 | Maximum Executes | Maximum number of times a Jailor can Execute | Number | 3 |
 
 -----------------------
-## Politician
+## President
 ### **Team: Crewmates**
-The Politician is a Crewmate that can campaign to other players.\
-Once half or more of the crewmates are campaigned to, the Politician can reveal themselves as the new Mayor.\
-If less then half of the crewmates have been campaigned to the reveal will fail and the Politician will be unable to campaign for 1 round.
+The President is a Crewmate who can vote multiple times or abstain.\
 
 ### Game Options
 | Name | Description | Type | Default |
 |----------|:-------------:|:------:|:------:|
-| Politician | The percentage probability of the Politician appearing | Percentage | 0% |
-| Campaign Cooldown | The cooldown of the Politician's Campaign button | Time | 25s |
+| President | The percentage probability of the President appearing | Percentage | 0% |
+| Initial President Vote Bank | The number of votes every meeting | Number | 1 |
+| President Votes Show Anonymous | Whether the President votes anonymously | Toggle | False |
+| The Maximum Amount Of Votes In The Vote Bank | The maximum number of banks | Number | 10 |
 
 -----------------------
 ## Prosecutor
@@ -777,22 +777,6 @@ However, if Lovers, or a Neutral Evil role wins the game, the survivor loses.
 | Survivor Movement Timer | How frequently the Survivor needs to move | Time | 25s |
 
 -----------------------
-## Doomsayer
-### **Team: Neutral**
-The Doomsayer is a Neutral role with its own win condition.\
-Their goal is to assassinate 3 players to win.\
-If there are only 2 other people alive, the Doomsayer only needs to assassinate the remainder of the players.\
-They have an additional observe ability that hints towards certain player's roles.
-### Game Options
-| Name | Description | Type | Default |
-|----------|:-------------:|:------:|:------:|
-| Doomsayer | The percentage probability of the Doomsayer appearing | Percentage | 0% |
-| Observe Cooldown | The Cooldown of the Doomsayer's Observe button | Time | 10s |
-| Doomsayer Guesses All At Once  | Whether the Doomsayer has to guess all 3 roles to win at once | Toggle | True |
-| (Experienced) Doomsayer Can't Observe | The Doomsayer doesn't have the observe feature | Toggle | False |
-| Doomsayer Win Ends Game  | Whether Doomsayer winning ends the game | Toggle | True |
-
------------------------
 ## Executioner
 ### **Team: Neutral**
 
@@ -806,6 +790,21 @@ If that player gets voted out, they win the game.
 | Executioner becomes on Target Dead | Which role the Executioner becomes when their target dies | Crewmate / Amnesiac / Mercenary / Survivor / Jester | Jester |
 | Executioner Can Button | Whether the Executioner Can Press the Button | Toggle | True |
 | Executioner Win  | What happens when the Executioner wins | Ends Game / Nothing / Torments | Ends Game |
+
+-----------------------
+## Foreteller
+### **Team: Neutral**
+The Foreteller is a Neutral role with its own win condition.\
+Their goal is to assassinate 3 players to win.\
+They have an additional observe ability that hints towards certain player's roles.
+### Game Options
+| Name | Description | Type | Default |
+|----------|:-------------:|:------:|:------:|
+| Foreteller | The percentage probability of the Foreteller appearing | Percentage | 0% |
+| Observe Cooldown | The Cooldown of the Foreteller's Observe button | Time | 25s |
+| Number Of Foreteller Kills To Win | Whether the Foreteller has to guess roles to win | Number | 3 |
+| Foreteller Can't Observe | The Foreteller doesn't have the observe feature | Toggle | False |
+| Foreteller Win Ends Game  | Whether Foreteller winning ends the game | Toggle | True |
 
 -----------------------
 ## Jester
@@ -874,6 +873,23 @@ The Glitch can Mimic someone, which results in them looking exactly like the oth
 | Hack Duration | How long The Glitch can Hack a player | Time | 10s |
 | Glitch Kill Cooldown | The cooldown of the Glitch's Kill button | Time | 25s |
 | Glitch can Vent | Whether the Glitch can Vent | Toggle | False |
+
+-----------------------
+## Icenberg
+### **Drużyna: Neutral**
+
+Icenberg is a neutral role with its own victory condition.\
+Icenberg's goal is to kill everyone and become the last person standing.\
+Icenberg can freeze players, preventing them from moving.
+
+### Game Options
+| Name | Description | Type | Default | 
+|----------|:-------------:|:------:|:------:|
+| Icenberg | The percentage probability of the Icenberg appearing | Percentage | 0% |
+| Freeze Cooldown | The cooldown of the Icenberg Freeze Button | Time | 25 s |
+| Freezing Duration | How long the Icenberg can Freeze a player | Time | 3 s |
+| Icenberg Kill Cooldown | The cooldown of the Icenberg's Kill button | Time | 25 s |
+| Icenberg can Vent | Whether the Icenberg can Vent | Toggle | False |
 
 -----------------------
 ## Juggernaut
