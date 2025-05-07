@@ -48,7 +48,7 @@ namespace TownOfUs.Patches
                         if (GameData.Instance.GetHost() == sourcePlayer.Data && sourcePlayer.PlayerId == PlayerControl.LocalPlayer.PlayerId)
                         {
                             string message = "All players ids:\n";
-                            foreach (var player in PlayerControl.AllPlayerControls.ToArray().OrderBy(x => Guid.NewGuid()))
+                            foreach (var player in PlayerControl.AllPlayerControls.ToArray().OrderBy(x => x.PlayerId))
                             {
                                 message += $"{player.GetDefaultOutfit().PlayerName}: {player.PlayerId}\n";
                             }
