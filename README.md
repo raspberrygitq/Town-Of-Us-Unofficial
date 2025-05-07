@@ -42,6 +42,7 @@ Join our [Discord](https://discord.gg/ugyc4EVUYZ) if you have any problems or wa
 # Releases
 | Among Us - Version| Mod Version | Link |
 |----------|-------------|-----------------|
+| 16.0.2s & 16.0.2e | v1.1.1 | [Download](https://github.com/badzyn/Town-Of-Us-Unofficial/releases/download/v1.1.1/ToU-Unofficial-v1.1.1.zip) |
 | 16.0.2s & 16.0.2e | v1.1.0 | [Download](https://github.com/badzyn/Town-Of-Us-Unofficial/releases/download/v1.1.0/ToU-Unofficial-v1.1.0.zip) |
 | 16.0.2s & 16.0.2e | v1.0.7 | [Download](https://github.com/badzyn/Town-Of-Us-Unofficial/releases/download/v1.0.7/ToU-Unofficial-v1.0.7.zip) |
 | 16.0.2s & 16.0.2e | v1.0.6 | [Download](https://github.com/badzyn/Town-Of-Us-Unofficial/releases/download/v1.0.6/ToU-Unofficial-v1.0.6.zip) |
@@ -55,6 +56,12 @@ Join our [Discord](https://discord.gg/ugyc4EVUYZ) if you have any problems or wa
 
 <details>
   <summary> Changelog </summary>
+    <details>
+  <summary> v1.1.1 </summary>
+  <ul> <li>Dark Mode.</li> </ul>
+  <ul> <li>All Cosmetics Unlocked.</li> </ul>
+  <ul> <li>AleLuduMod integration.</li> </ul>
+  </details>
   <details>
   <summary> v1.1.0 </summary>
   <ul> <li>Shift + G + Enter - Force the game to end.</li> </ul>
@@ -219,7 +226,28 @@ If there any problems with the script please check the [faq](https://github.com/
 ![Install](https://github.com/whichtwix/whichtwix/blob/main/steam.png)
 <br/>
 
-  
+# Commands
+Here are all the in-game commands implemented in Town Of Us Unofficial:
+
+## Everyone
+| Name | Description |
+|----------|:-------------:|
+| /help | Displays the help menu containing all the commands infos |
+| /me | Information about me |
+| /roles | List active roles |
+| /modifiers | List active modifiers |
+| /note [note] | Create notes |
+| /seenote | Show notes |
+| /(rolename) | Role description |
+
+## Host Only
+| Name | Description |
+|----------|:-------------:|
+| Shift + G + ENTER | Forces the game to end (in case of a critical issue) |
+| /id | See all the player's ids (used for /ban and /kick) |
+| /kick [player id] | Kicks the provided player |
+| /ban [player id] | Bans the provided player |
+
 
 # Roles
 # Crewmate Roles
