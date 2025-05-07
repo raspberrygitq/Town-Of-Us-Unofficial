@@ -24,6 +24,18 @@ namespace TownOfUs.CustomOption
                 Title = "See Setting Changes In Lobby",
                 OnClick = () => { return TownOfUs.SeeSettingNotifier.Value = !TownOfUs.SeeSettingNotifier.Value; },
                 DefaultValue = TownOfUs.SeeSettingNotifier.Value
+            },
+            new()
+            {
+                Title = "Force 4 Columns",
+                OnClick = () => { return TownOfUs.Force4Columns.Value = !TownOfUs.Force4Columns.Value; },
+                DefaultValue = TownOfUs.Force4Columns.Value
+            },
+            new()
+            {
+                Title = "Dark Mode",
+                OnClick = () => { return TownOfUs.DarkMode.Value = !TownOfUs.DarkMode.Value; },
+                DefaultValue = TownOfUs.DarkMode.Value
             }
         };
 
