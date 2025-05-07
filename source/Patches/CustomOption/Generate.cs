@@ -1122,7 +1122,7 @@ namespace TownOfUs.CustomOption
             //CampaignCooldown =
             //    new CustomNumberOption(num++, MultiMenu.crewmate, "Campaign Cooldown", 25f, 10f, 60f, 2.5f, CooldownFormat);
 
-            President = new CustomHeaderOption(num++, MultiMenu.crewmate, "<color=#704FA8FF><b>President</b></color>");
+            President = new CustomHeaderOption(num++, MultiMenu.crewmate, "<color=#704FA8FF>President</color>");
             PresidentVoteBank = new CustomNumberOption(num++, MultiMenu.crewmate, "Initial President Vote Bank", 1, 0, 15, 1);
             PresidentAnonymous = new CustomToggleOption(num++, MultiMenu.crewmate, "President Votes Show Anonymous", false);
             PresidentMaximumBank = new CustomNumberOption(num++, MultiMenu.crewmate, "The Maximum Amount Of Votes In The Vote Bank", 10, 2, 15, 1);
