@@ -1,8 +1,8 @@
 ﻿using HarmonyLib;
 using TownOfUs.Roles;
 using UnityEngine;
+using System;
 using Object = UnityEngine.Object;
-
 namespace TownOfUs.ImpostorRoles.KamikazeMod
 {
     [HarmonyPatch(typeof(HudManager), nameof(HudManager.Update))]
@@ -17,8 +17,8 @@ namespace TownOfUs.ImpostorRoles.KamikazeMod
             if (PlayerControl.LocalPlayer == null) return;
             if (PlayerControl.LocalPlayer.Data == null) return;
             if (!PlayerControl.LocalPlayer.Is(RoleEnum.Kamikaze)) return;
-
             var role = Role.GetRole<Kamikaze>(PlayerControl.LocalPlayer);
+
 
             if (role.PlantButton == null)
             {
@@ -31,7 +31,7 @@ namespace TownOfUs.ImpostorRoles.KamikazeMod
             role.PlantButton.gameObject.SetActive((__instance.UseButton.isActiveAndEnabled || __instance.PetButton.isActiveAndEnabled)
                     && !MeetingHud.Instance && !PlayerControl.LocalPlayer.Data.IsDead
                     && AmongUsClient.Instance.GameState == InnerNet.InnerNetClient.GameStates.Started);
-
+            //role.PlantButton.SetCoolDown()
             if (role.Detonating)
             {
                 role.PlantButton.graphic.sprite = SuicideSprite;
@@ -44,23 +44,23 @@ namespace TownOfUs.ImpostorRoles.KamikazeMod
             {
                 role.PlantButton.graphic.sprite = SuicideSprite;
                 if (!role.Detonated) role.DetonateKillStart();
-
-                float remainingCooldown = role.StartTimer();
-                float maxCooldown = GameOptionsManager.Instance.currentNormalGameOptions.KillCooldown;
-
-                if (remainingCooldown > 0 || !PlayerControl.LocalPlayer.moveable)
+                if (PlayerControl.LocalPlayer.killTimer > 0 || !PlayerControl.LocalPlayer.moveable)
                 {
                     role.PlantButton.graphic.color = Palette.DisabledClear;
                     role.PlantButton.graphic.material.SetFloat("_Desat", 1f);
-                    role.PlantButton.SetCoolDown(remainingCooldown, maxCooldown);
                 }
                 else
                 {
                     role.PlantButton.graphic.color = Palette.EnabledColor;
                     role.PlantButton.graphic.material.SetFloat("_Desat", 0f);
-                    role.PlantButton.SetCoolDown(0f, maxCooldown);
                 }
+                role.PlantButton.SetCoolDown(PlayerControl.LocalPlayer.killTimer,
+                    GameOptionsManager.Instance.currentNormalGameOptions.KillCooldown);
             }
+
+            if (role.PlantButton.graphic.sprite == SuicideSprite) role.PlantButton.SetCoolDown(PlayerControl.LocalPlayer.killTimer,
+                GameOptionsManager.Instance.currentNormalGameOptions.KillCooldown);
+            else role.PlantButton.SetCoolDown(role.TimeRemaining, CustomGameOptions.KamikazeDetonateDelay);
         }
     }
 }
