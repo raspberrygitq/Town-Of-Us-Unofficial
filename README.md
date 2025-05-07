@@ -60,7 +60,7 @@ Join our [Discord](https://discord.gg/ugyc4EVUYZ) if you have any problems or wa
   <summary> v1.1.1 </summary>
   <ul> <li>Dark Mode.</li> </ul>
   <ul> <li>All Cosmetics Unlocked.</li> </ul>
-  <ul> <li>AleLuduMod integration.</li> </ul>
+  <ul> <li> AleLuduMod integration.</li> </ul>
   </details>
   <details>
   <summary> v1.1.0 </summary>
