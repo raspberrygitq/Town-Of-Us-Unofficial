@@ -674,7 +674,7 @@ namespace TownOfUs.Patches
                             $"<color=#6DFFFA><b>Everyone:</b></color>\n\n" +
                             $"<color=#6DFFFA>/me</color> - Information about me.\n" +
                             $"<color=#6DFFFA>/roles</color> - Information about active roles.\n" +
-                            $"<color=#6DFFFA>/modifiers</color> - Information on active modifiers.\n" +
+                            $"<color=#6DFFFA>/modifiers</color> - Information about active modifiers.\n" +
                             $"<color=#6DFFFA>/note [note]</color> - Write your own note.\n" +
                             $"<color=#6DFFFA>/seenote</color> - Your saved notes.\n" +
                             $"<color=#6DFFFA>/(rolename)</color> - Role description.\n\n" +
@@ -877,7 +877,7 @@ namespace TownOfUs.Patches
                 if (role == RoleEnum.Hunter) HudManager.Instance.Chat.AddChat(PlayerControl.LocalPlayer,
                     "The Hunter is a crewmate who can stalk other players. If the stalked player uses an ability, the Hunter will then be permitted to kill them. The Hunter has no punishment for killing incorrectly.");
                 if (role == RoleEnum.Arsonist) HudManager.Instance.Chat.AddChat(PlayerControl.LocalPlayer,
-                    "The Arsonist is a neutral killer with the goal to kill everyone. To do so they must douse players and in order to kill them, they can ignite everyone in a small radius around them.");
+                    "The Arsonist is a neutral killer with the goal to kill everyone. To do so they must douse players and once enough people are doused they can ignite, killing all doused players immediately.");
                 if (role == RoleEnum.Executioner) HudManager.Instance.Chat.AddChat(
                     PlayerControl.LocalPlayer, "The Executioner is a neutral evil role with the goal to vote out a specific player.");
                 if (role == RoleEnum.Glitch) HudManager.Instance.Chat.AddChat(PlayerControl.LocalPlayer,
