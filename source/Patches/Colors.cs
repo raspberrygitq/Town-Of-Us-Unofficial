@@ -56,7 +56,7 @@ namespace TownOfUs.Patches
         public readonly static Color Vampire = new Color(0.15f, 0.15f, 0.15f, 1f);
         public readonly static Color SoulCollector = new Color(0.6f, 1f, 0.8f, 1f);
         public readonly static Color Mercenary = new Color(0.55f, 0.4f, 0.6f, 1f);
-        public readonly static Color Icenberg = new Color(0f, 0.49f, 1f, 1f);//#0078FFFF
+        public readonly static Color Icenberg = new Color(0f, 0.49f, 1f, 1f);
 
         //Imposter Colors
         public readonly static Color Impostor = Palette.ImpostorRed;

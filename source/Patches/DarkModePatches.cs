@@ -63,12 +63,6 @@ public static class DarkModePatches
             __instance.meetingContents.transform.FindChild("PhoneUI").FindChild("baseColor").GetComponent<SpriteRenderer>().color = new Color(0.01f, 0.01f, 0.01f);
             __instance.Glass.color = new Color(0.7f, 0.7f, 0.7f, 0.3f);
             __instance.SkipVoteButton.GetComponent<SpriteRenderer>().color = new Color(0.4f, 0.4f, 0.4f);
-
-            foreach (SpriteRenderer playerMaterialColors in __instance.PlayerColoredParts)
-            {
-                playerMaterialColors.color = new Color(0.25f, 0.25f, 0.25f);
-                PlayerMaterial.SetColors(7, playerMaterialColors);
-            }
         }
     }
 

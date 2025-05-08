@@ -522,14 +522,6 @@ namespace TownOfUs.Roles
                             PlayerControl.LocalPlayer.Data.Role.IntroSound = DestroyableSingleton<HnSImpostorScreamSfx>.Instance.HnSLocalImpostorTransformSfx;
                         }
 
-                        if (role.Faction == Faction.NeutralApocalypse)
-                        {
-                            __instance.__4__this.TeamTitle.text = "Neutral";
-                            __instance.__4__this.TeamTitle.color = Color.white;
-                            __instance.__4__this.BackgroundBar.material.color = Color.white;
-                            PlayerControl.LocalPlayer.Data.Role.IntroSound = GetIntroSound(RoleTypes.Phantom);
-                        }
-
                         if (role.Alignment == Alignment.CrewmateKilling)
                         {
                             PlayerControl.LocalPlayer.Data.Role.IntroSound = PlayerControl.LocalPlayer.KillSfx;
@@ -619,14 +611,6 @@ namespace TownOfUs.Roles
                             __instance.__4__this.TeamTitle.color = Color.white;
                             __instance.__4__this.BackgroundBar.material.color = Color.white;
                             PlayerControl.LocalPlayer.Data.Role.IntroSound = DestroyableSingleton<HnSImpostorScreamSfx>.Instance.HnSLocalImpostorTransformSfx;
-                        }
-
-                        if (role.Faction == Faction.NeutralApocalypse)
-                        {
-                            __instance.__4__this.TeamTitle.text = "Neutral";
-                            __instance.__4__this.TeamTitle.color = Color.white;
-                            __instance.__4__this.BackgroundBar.material.color = Color.white;
-                            PlayerControl.LocalPlayer.Data.Role.IntroSound = GetIntroSound(RoleTypes.Phantom);
                         }
 
                         if (role.Alignment == Alignment.CrewmateKilling)
@@ -746,14 +730,6 @@ namespace TownOfUs.Roles
                             __instance.__4__this.TeamTitle.color = Color.white;
                             __instance.__4__this.BackgroundBar.material.color = Color.white;
                             PlayerControl.LocalPlayer.Data.Role.IntroSound = DestroyableSingleton<HnSImpostorScreamSfx>.Instance.HnSLocalImpostorTransformSfx;
-                        }
-
-                        if (role.Faction == Faction.NeutralApocalypse)
-                        {
-                            __instance.__4__this.TeamTitle.text = "Neutral";
-                            __instance.__4__this.TeamTitle.color = Color.white;
-                            __instance.__4__this.BackgroundBar.material.color = Color.white;
-                            PlayerControl.LocalPlayer.Data.Role.IntroSound = GetIntroSound(RoleTypes.Phantom);
                         }
 
                         if (role.Alignment == Alignment.CrewmateKilling)

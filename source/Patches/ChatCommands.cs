@@ -34,13 +34,13 @@ namespace TownOfUs.Patches
                         string note = chatText.Substring(5).Trim();
                         var sourcePlayerRole = Role.GetRole(sourcePlayer);
                         sourcePlayerRole.PlayerNotes += "\n" + note;
-                        HudManager.Instance.Chat.AddChat(PlayerControl.LocalPlayer, $"New Note:\n{note}");
+                        HudManager.Instance.Chat.AddChat(PlayerControl.LocalPlayer, $"<b>New Note:</b>\n{note}");
                         return false;
                     }
                     if (chatText.ToLower().StartsWith("/seenote") || chatText.ToLower().StartsWith("/ seenote"))
                     {
                         var sourcePlayerRole = Role.GetRole(sourcePlayer);
-                        HudManager.Instance.Chat.AddChat(PlayerControl.LocalPlayer, $"Notes:\n {sourcePlayerRole.PlayerNotes}");
+                        HudManager.Instance.Chat.AddChat(PlayerControl.LocalPlayer, $"<b>Notes:</b>\n {sourcePlayerRole.PlayerNotes}");
                         return false;
                     }
                     if (chatText.ToLower().StartsWith("/id"))
@@ -642,16 +642,12 @@ namespace TownOfUs.Patches
                             "The Assassin is an ability which is given to killers to guess other player's roles during mettings. If they guess correctly they kill the other player, if not, they die instead.");
                         return false;
                     }
-                    else if (chatText.ToLower().StartsWith("/r") || chatText.ToLower().StartsWith("/ r") || chatText.ToLower().StartsWith("/role") || chatText.ToLower().StartsWith("/ role"))
+                    else if (chatText.ToLower().StartsWith("/me") || chatText.ToLower().StartsWith("/ me"))
                     {
                         var role = Role.GetRole(PlayerControl.LocalPlayer);
                         if (role != null) AddRoleMessage(role.RoleType);
                         else if (AmongUsClient.Instance.GameState == InnerNet.InnerNetClient.GameStates.Started) HudManager.Instance.Chat.AddChat(PlayerControl.LocalPlayer, "You do not have a role.");
                         else HudManager.Instance.Chat.AddChat(PlayerControl.LocalPlayer, "Invalid Command.");
-                        return false;
-                    }
-                    else if (chatText.ToLower().StartsWith("/m") || chatText.ToLower().StartsWith("/ m") || chatText.ToLower().StartsWith("/modifier") || chatText.ToLower().StartsWith("/ modifier"))
-                    {
                         var modifiers = Modifier.GetModifiers(PlayerControl.LocalPlayer);
                         if (modifiers.Length == 0)
                         {

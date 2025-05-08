@@ -25,7 +25,7 @@ namespace TownOfUs.Roles
             Color = Patches.Colors.Plaguebearer;
             RoleType = RoleEnum.Plaguebearer;
             AddToRoleHistory(RoleType);
-            Faction = Faction.NeutralApocalypse;
+            Faction = Faction.NeutralKilling;
             InfectedPlayers.Add(player.PlayerId);
         }
 

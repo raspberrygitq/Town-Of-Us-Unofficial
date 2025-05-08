@@ -7,6 +7,5 @@ namespace TownOfUs
         NeutralBenign,
         NeutralEvil,
         NeutralKilling,
-        NeutralApocalypse
     }
 }

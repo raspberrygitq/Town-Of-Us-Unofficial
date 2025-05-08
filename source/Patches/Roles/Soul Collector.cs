@@ -21,7 +21,7 @@ namespace TownOfUs.Roles
             LastReaped = DateTime.UtcNow;
             RoleType = RoleEnum.SoulCollector;
             AddToRoleHistory(RoleType);
-            Faction = Faction.NeutralApocalypse;
+            Faction = Faction.NeutralKilling;
         }
 
         public float ReapTimer()

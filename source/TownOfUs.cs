@@ -21,7 +21,6 @@ using System.IO;
 using Reactor.Utilities;
 using AmongUs.GameOptions;
 using System.Linq;
-using Epic.OnlineServices;
 
 namespace TownOfUs
 {
@@ -153,7 +152,6 @@ namespace TownOfUs
         public static ConfigEntry<bool> UnlockCosmetics { get; set; }
 
         public static ConfigEntry<bool> DarkMode { get; set; }
-
 
         public static string RuntimeLocation;
 
@@ -304,7 +302,6 @@ namespace TownOfUs
             sprite.DontDestroy();
             return sprite;
         }
-
         public static void LoadImage(Texture2D tex, byte[] data, bool markNonReadable)
         {
             _iCallLoadImage ??= IL2CPP.ResolveICall<DLoadImage>("UnityEngine.ImageConversion::LoadImage");
