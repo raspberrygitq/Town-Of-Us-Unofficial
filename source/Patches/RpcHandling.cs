@@ -1283,10 +1283,7 @@ namespace TownOfUs
                         var theArsonistTheRole = Role.AllRoles.FirstOrDefault(x => x.RoleType == RoleEnum.Arsonist);
                         ((Arsonist) theArsonistTheRole)?.Wins();
                         break;
-                    case CustomRPC.PyromaniacWin:
-                        var thePyromaniacTheRole = Role.AllRoles.FirstOrDefault(x => x.RoleType == RoleEnum.Pyromaniac);
-                        ((Pyromaniac)thePyromaniacTheRole)?.Wins();
-                        break;
+                   
                     case CustomRPC.WerewolfWin:
                         var theWerewolfTheRole = Role.AllRoles.FirstOrDefault(x => x.RoleType == RoleEnum.Werewolf);
                         ((Werewolf)theWerewolfTheRole)?.Wins();
@@ -1871,8 +1868,7 @@ namespace TownOfUs
                 if (CustomGameOptions.MercenaryOn > 0)
                     NeutralBenignRoles.Add((typeof(Mercenary), CustomGameOptions.MercenaryOn, false || CustomGameOptions.UniqueRoles));
 
-                if (CustomGameOptions.PyromaniacOn > 0)
-                    NeutralKillingRoles.Add((typeof(Pyromaniac), CustomGameOptions.PyromaniacOn, true));
+               
                 #endregion
                 #region Impostor Roles
                 if (CustomGameOptions.UndertakerOn > 0)

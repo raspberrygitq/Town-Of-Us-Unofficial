@@ -62,11 +62,6 @@ namespace TownOfUs.Roles
                 var arso = (Arsonist)role;
                 if (arso.DousedPlayers.Contains(id)) effects.Add(EffectType.Douse);
             }
-            foreach (var role in GetRoles(RoleEnum.Pyromaniac))
-            {
-                var pyro = (Pyromaniac)role;
-                if (pyro.DousedPlayers.Contains(id)) effects.Add(EffectType.Douse);
-            }
             foreach (var role in GetRoles(RoleEnum.Glitch))
             {
                 var glitch = (Glitch)role;

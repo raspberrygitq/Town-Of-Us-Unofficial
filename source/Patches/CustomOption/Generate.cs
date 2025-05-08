@@ -64,7 +64,6 @@ namespace TownOfUs.CustomOption
         public static CustomNumberOption IcenbergOn;
         public static CustomNumberOption JuggernautOn;
         public static CustomNumberOption PlaguebearerOn;
-        public static CustomNumberOption PyromaniacOn;
         public static CustomNumberOption VampireOn;
         public static CustomNumberOption WerewolfOn;
 
@@ -293,7 +292,7 @@ namespace TownOfUs.CustomOption
 
         public static CustomHeaderOption Arsonist;
         public static CustomNumberOption DouseCooldown;
-        public static CustomNumberOption IgniteRadius;
+        //public static CustomNumberOption IgniteRadius;
         public static CustomToggleOption ArsoVent;
 
         public static CustomHeaderOption Undertaker;
@@ -536,12 +535,6 @@ namespace TownOfUs.CustomOption
         public static CustomToggleOption KamikazeVent;
         public static CustomToggleOption KamikazeAllImpsSeeBomb;
 
-        public static CustomHeaderOption Pyromaniac;
-        public static CustomNumberOption PyroDouseCooldown;
-        public static CustomNumberOption MaxDoused;
-        public static CustomToggleOption PyroImpVision;
-        public static CustomToggleOption IgniteCdRemoved;
-
         public static CustomHeaderOption Giant;
         public static CustomNumberOption GiantSlow;
 
@@ -688,8 +681,6 @@ namespace TownOfUs.CustomOption
             JuggernautOn = new CustomNumberOption(num++, MultiMenu.neutral, "<color=#8C004DFF>Juggernaut</color>", 0f, 0f, 100f, 10f,
                 PercentFormat);
             PlaguebearerOn = new CustomNumberOption(num++, MultiMenu.neutral, "<color=#E6FFB3FF>Plaguebearer</color>", 0f, 0f, 100f, 10f,
-                PercentFormat);
-            PyromaniacOn = new CustomNumberOption(num++, MultiMenu.neutral, "<color=#FF4D00FF>Pyromaniac</color>", 0f, 0f, 100f, 10f,
                 PercentFormat);
             SoulCollectorOn = new CustomNumberOption(num++, MultiMenu.neutral, "<color=#99FFCCFF>Soul Collector</color>", 0f, 0f, 100f, 10f,
                 PercentFormat);
@@ -1320,8 +1311,8 @@ namespace TownOfUs.CustomOption
             Arsonist = new CustomHeaderOption(num++, MultiMenu.neutral, "<color=#FF4D00FF>Arsonist</color>");
             DouseCooldown =
                 new CustomNumberOption(num++, MultiMenu.neutral, "Douse Cooldown", 25f, 10f, 60f, 2.5f, CooldownFormat);
-            IgniteRadius =
-                new CustomNumberOption(num++, MultiMenu.neutral, "Ignite Radius", 0.25f, 0.05f, 1f, 0.05f, MultiplierFormat);
+            //IgniteRadius =
+            //    new CustomNumberOption(num++, MultiMenu.neutral, "Ignite Radius", 0.25f, 0.05f, 1f, 0.05f, MultiplierFormat);
             ArsoVent =
                 new CustomToggleOption(num++, MultiMenu.neutral, "Arsonist Can Vent", false);
 
@@ -1359,17 +1350,6 @@ namespace TownOfUs.CustomOption
                 new CustomNumberOption(num++, MultiMenu.neutral, "Pestilence Kill Cooldown", 25f, 10f, 60f, 2.5f, CooldownFormat);
             PestVent =
                 new CustomToggleOption(num++, MultiMenu.neutral, "Pestilence Can Vent", false);
-
-            Pyromaniac = new CustomHeaderOption(num++, MultiMenu.neutral, "<color=#FF4D00FF>Pyromaniac</color>");
-            PyroDouseCooldown =
-                new CustomNumberOption(num++, MultiMenu.neutral, "Douse Cooldown", 25f, 10f, 60f, 2.5f, CooldownFormat);
-            MaxDoused =
-                new CustomNumberOption(num++, MultiMenu.neutral, "Maximum Alive Players Doused", 5, 1, 15, 1);
-            PyroImpVision =
-                new CustomToggleOption(num++, MultiMenu.neutral, "Pyromaniac Has Impostor Vision", false);
-            IgniteCdRemoved =
-                new CustomToggleOption(num++, MultiMenu.neutral, "Ignite Cooldown Removed When Pyromaniac Is Last Killer", false);
-
             SoulCollector =
                 new CustomHeaderOption(num++, MultiMenu.neutral, "<color=#99FFCCFF>Soul Collector</color>");
             ReapCooldown =

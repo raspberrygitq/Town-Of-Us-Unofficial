@@ -85,7 +85,6 @@ namespace TownOfUs.Roles.Modifiers
                 if (CustomGameOptions.JuggernautOn > 0 && !PlayerControl.LocalPlayer.Is(RoleEnum.Juggernaut)) ColorMapping.Add("Juggernaut", Colors.Juggernaut);
                 if (CustomGameOptions.SoulCollectorOn > 0 && !PlayerControl.LocalPlayer.Is(RoleEnum.SoulCollector)) ColorMapping.Add("Soul Collector", Colors.SoulCollector);
                 if (CustomGameOptions.IcenbergOn > 0 && !PlayerControl.LocalPlayer.Is(RoleEnum.Icenberg)) ColorMapping.Add("Icenberg", Colors.Icenberg);
-                if (CustomGameOptions.PyromaniacOn > 0 && !PlayerControl.LocalPlayer.Is(RoleEnum.Pyromaniac)) ColorMapping.Add("Pyromaniac", Colors.Arsonist);
             }
             if (CustomGameOptions.AssassinGuessImpostors && !PlayerControl.LocalPlayer.Is(Faction.Impostors))
             {

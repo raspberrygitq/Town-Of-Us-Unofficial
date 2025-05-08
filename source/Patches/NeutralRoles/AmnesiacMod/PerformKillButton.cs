@@ -146,7 +146,6 @@ namespace TownOfUs.NeutralRoles.AmnesiacMod
                 case RoleEnum.Vampire:
                 case RoleEnum.SoulCollector:
                 case RoleEnum.Mercenary:
-                case RoleEnum.Pyromaniac:
 
                     rememberImp = false;
 
@@ -465,13 +464,6 @@ namespace TownOfUs.NeutralRoles.AmnesiacMod
                 var arsoRole = Role.GetRole<Arsonist>(amnesiac);
                 arsoRole.DousedPlayers.RemoveRange(0, arsoRole.DousedPlayers.Count);
                 arsoRole.LastDoused = DateTime.UtcNow;
-            }
-
-            else if (role == RoleEnum.Pyromaniac)
-            {
-                var pyroRole = Role.GetRole<Pyromaniac>(amnesiac);
-                pyroRole.DousedPlayers.RemoveRange(0, pyroRole.DousedPlayers.Count);
-                pyroRole.LastDoused = DateTime.UtcNow;
             }
 
             else if (role == RoleEnum.Survivor)
