@@ -104,13 +104,21 @@ namespace TownOfUs
             }
         }
 
-        private static List<ModUpdater.UpdateData> GetVersioning()
+        /*private static List<ModUpdater.UpdateData> GetVersioning()
         {
             var text = ModUpdater.Httpclient.GetAsync("https://github.com/eDonnes124/Town-Of-Us-R/raw/master/source/Versioning.json")
                                  .GetAwaiter().GetResult().Content.ReadAsStringAsync().Result;
             var data = JsonSerializer.Deserialize<List<ModUpdater.UpdateData>>(text, options: new() { ReadCommentHandling = JsonCommentHandling.Skip });
             return data;
+        }*/
+        private static List<ModUpdater.UpdateData> GetVersioning()
+        {
+            var text = ModUpdater.Httpclient.GetAsync("https://github.com/badzyn/Town-Of-Us-Unofficial/raw/master/source/Versioning.json")
+                                 .GetAwaiter().GetResult().Content.ReadAsStringAsync().Result;
+            var data = JsonSerializer.Deserialize<List<ModUpdater.UpdateData>>(text, options: new() { ReadCommentHandling = JsonCommentHandling.Skip });
+            return data;
         }
+
     }
 
     public class ModUpdater
