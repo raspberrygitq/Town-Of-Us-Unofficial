@@ -73,6 +73,7 @@ namespace TownOfUs.Roles
                 if (CustomGameOptions.JuggernautOn > 0) ColorMapping.Add("Juggernaut", Colors.Juggernaut);
                 if (CustomGameOptions.SoulCollectorOn > 0) ColorMapping.Add("Soul Collector", Colors.SoulCollector);
                 if (CustomGameOptions.IcenbergOn > 0) ColorMapping.Add("Icenberg", Colors.Icenberg);
+                if (CustomGameOptions.PyromaniacOn > 0) ColorMapping.Add("Pyromaniac", Colors.Arsonist);
             }
             if (CustomGameOptions.VigilanteGuessLovers && CustomGameOptions.LoversOn > 0) ColorMapping.Add("Lover", Colors.Lovers);
 

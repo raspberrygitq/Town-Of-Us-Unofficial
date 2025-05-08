@@ -299,7 +299,14 @@ namespace TownOfUs.Patches
                     if (arsoRole.DousedPlayers.Contains(id)) arsoRole.DousedPlayers.Remove(id);
                 }
             }
-            
+            if (effects.Contains(EffectType.Douse))
+            {
+                foreach (var pyro in Role.GetRoles(RoleEnum.Pyromaniac))
+                {
+                    var pyroRole = (Pyromaniac)pyro;
+                    if (pyroRole.DousedPlayers.Contains(id)) pyroRole.DousedPlayers.Remove(id);
+                }
+            }
             if (effects.Contains(EffectType.Infect))
             {
                 foreach (var pb in Role.GetRoles(RoleEnum.Plaguebearer))

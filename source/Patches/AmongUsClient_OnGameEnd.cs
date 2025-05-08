@@ -78,6 +78,11 @@ namespace TownOfUs
                 var pb = (Plaguebearer)role;
                 losers.Add(pb.Player.GetDefaultOutfit().ColorId);
             }
+            foreach (var role in Role.GetRoles(RoleEnum.Pyromaniac))
+            {
+                var pyro = (Pyromaniac)role;
+                losers.Add(pyro.Player.GetDefaultOutfit().ColorId);
+            }
             foreach (var role in Role.GetRoles(RoleEnum.Glitch))
             {
                 var glitch = (Glitch)role;
@@ -271,6 +276,17 @@ namespace TownOfUs
                         var pestilenceData = new CachedPlayerData(pestilence.Player.Data);
                         if (PlayerControl.LocalPlayer != pestilence.Player) pestilenceData.IsYou = false;
                         EndGameResult.CachedWinners.Add(pestilenceData);
+                    }
+                }
+                else if (type == RoleEnum.Pyromaniac)
+                {
+                    var pyromaniac = (Pyromaniac)role;
+                    if (pyromaniac.PyromaniacWins)
+                    {
+                        EndGameResult.CachedWinners = new List<CachedPlayerData>();
+                        var pyromaniacData = new CachedPlayerData(pyromaniac.Player.Data);
+                        if (PlayerControl.LocalPlayer != pyromaniac.Player) pyromaniacData.IsYou = false;
+                        EndGameResult.CachedWinners.Add(pyromaniacData);
                     }
                 }
                 else if (type == RoleEnum.Werewolf)

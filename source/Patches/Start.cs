@@ -222,6 +222,13 @@ namespace TownOfUs.Patches
                 arsonist.LastDoused = arsonist.LastDoused.AddSeconds(CustomGameOptions.InitialCooldowns - CustomGameOptions.DouseCd);
             }
 
+            if (PlayerControl.LocalPlayer.Is(RoleEnum.Pyromaniac))
+            {
+                var pyromaniac = Role.GetRole<Pyromaniac>(PlayerControl.LocalPlayer);
+                pyromaniac.LastDoused = DateTime.UtcNow;
+                pyromaniac.LastDoused = pyromaniac.LastDoused.AddSeconds(CustomGameOptions.InitialCooldowns - CustomGameOptions.PyroDouseCd);
+            }
+
             if (PlayerControl.LocalPlayer.Is(RoleEnum.Foreteller))
             {
                 var foreteller = Role.GetRole<Foreteller>(PlayerControl.LocalPlayer);

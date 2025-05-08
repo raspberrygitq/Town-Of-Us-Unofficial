@@ -221,6 +221,7 @@ namespace TownOfUs
                     if (PlayerControl.LocalPlayer.Is(RoleEnum.Oracle)) Role.GetRole<Oracle>(PlayerControl.LocalPlayer).BlessButton.SetTarget(null);
                     else if (PlayerControl.LocalPlayer.Is(RoleEnum.Mercenary)) Role.GetRole<Mercenary>(PlayerControl.LocalPlayer).GuardButton.SetTarget(null);
                     else if (PlayerControl.LocalPlayer.Is(RoleEnum.Arsonist)) Role.GetRole<Arsonist>(PlayerControl.LocalPlayer).IgniteButton.SetTarget(null);
+                    else if (PlayerControl.LocalPlayer.Is(RoleEnum.Pyromaniac)) Role.GetRole<Pyromaniac>(PlayerControl.LocalPlayer).IgniteButton.SetTarget(null);
                     else if (PlayerControl.LocalPlayer.Is(RoleEnum.Blackmailer)) Role.GetRole<Blackmailer>(PlayerControl.LocalPlayer).BlackmailButton.SetTarget(null);
                     else if (PlayerControl.LocalPlayer.Is(RoleEnum.Hypnotist)) Role.GetRole<Hypnotist>(PlayerControl.LocalPlayer).HypnotiseButton.SetTarget(null);
                     else if (PlayerControl.LocalPlayer.Is(RoleEnum.Morphling)) Role.GetRole<Morphling>(PlayerControl.LocalPlayer).MorphButton.SetTarget(null);

@@ -1799,6 +1799,11 @@ namespace TownOfUs
                 var arsonist = Role.GetRole<Arsonist>(PlayerControl.LocalPlayer);
                 arsonist.LastDoused = DateTime.UtcNow;
             }
+            if (PlayerControl.LocalPlayer.Is(RoleEnum.Pyromaniac))
+            {
+                var pyromaniac = Role.GetRole<Pyromaniac>(PlayerControl.LocalPlayer);
+                pyromaniac.LastDoused = DateTime.UtcNow;
+            }
             foreach (var role in Role.GetRoles(RoleEnum.Glitch))
             {
                 var glitch = (Glitch)role;
