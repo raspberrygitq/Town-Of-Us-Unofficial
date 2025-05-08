@@ -4,11 +4,41 @@
       "50595550": "2025.05.03"
     },
     "ModVersion": "1.0.5"
-  }
+  },
   {
-    "InternamVersions": {
+    "InternalVersions": {
       "50595550": "2025.05.03"
     },
     "ModVersion": "1.0.6"
+  },
+  {
+    "InternalVersions": {
+      "50595550": "2025.05.04"
+    },
+    "ModVersion": "1.0.7"
+  },
+  {
+    "InternalVersions": {
+      "50595550": "2025.05.06"
+    },
+    "ModVersion": "1.1.0"
+  },
+  {
+    "InternalVersions": {
+      "50595550": "2025.05.07"
+    },
+    "ModVersion": "1.1.1"
+  },
+  {
+    "InternalVersions": {
+      "50595550": "2025.05.08"
+    },
+    "ModVersion": "1.1.2"
+  },
+  {
+    "InternalVersions": {
+      "50595550": "2025.05.08"
+    },
+    "ModVersion": "1.1.3"
   }
 ]
