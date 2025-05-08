@@ -72,6 +72,11 @@ namespace TownOfUs
                 __instance.KillButton.graphic.sprite = Douse;
                 flag = true;
             }
+            else if (PlayerControl.LocalPlayer.Is(RoleEnum.Pyromaniac))
+            {
+                __instance.KillButton.graphic.sprite = Douse;
+                flag = true;
+            }
             else if (PlayerControl.LocalPlayer.Is(RoleEnum.Altruist))
             {
                 __instance.KillButton.graphic.sprite = Revive;
