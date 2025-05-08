@@ -42,6 +42,7 @@ Join our [Discord](https://discord.gg/ugyc4EVUYZ) if you have any problems or wa
 # Releases
 | Among Us - Version| Mod Version | Link |
 |----------|-------------|-----------------|
+| 16.0.2s & 16.0.2e | v1.2.0 | [Download](https://github.com/badzyn/Town-Of-Us-Unofficial/releases/download/v1.2.0/ToU-Unofficial-v1.2.0.zip) |
 | 16.0.2s & 16.0.2e | v1.1.3 | [Download](https://github.com/badzyn/Town-Of-Us-Unofficial/releases/download/v1.1.3/ToU-Unofficial-v1.1.3.zip) |
 | 16.0.2s & 16.0.2e | v1.1.2 | [Download](https://github.com/badzyn/Town-Of-Us-Unofficial/releases/download/v1.1.2/ToU-Unofficial-v1.1.2.zip) |
 | 16.0.2s & 16.0.2e | v1.1.1 | [Download](https://github.com/badzyn/Town-Of-Us-Unofficial/releases/download/v1.1.1/ToU-Unofficial-v1.1.1.zip) |
