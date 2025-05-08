@@ -59,7 +59,7 @@ namespace TownOfUs
             if (player.Is(RoleEnum.Engineer) || player.Is(RoleEnum.Plumber) || (player.Is(RoleEnum.SoulCollector) && CustomGameOptions.SCVent) ||
                 (player.Is(RoleEnum.Glitch) && CustomGameOptions.GlitchVent) || (player.Is(RoleEnum.Juggernaut) && CustomGameOptions.JuggVent) ||
                 (player.Is(RoleEnum.Pestilence) && CustomGameOptions.PestVent) || (player.Is(RoleEnum.Jester) && CustomGameOptions.JesterVent) ||
-                (player.Is(RoleEnum.Vampire) && CustomGameOptions.VampVent) || (player.Is(RoleEnum.Arsonist) && CustomGameOptions.ArsoVent) ||
+                (player.Is(RoleEnum.Vampire) && CustomGameOptions.VampVent) ||
                 (player.Is(RoleEnum.Icenberg) && CustomGameOptions.IcenbergVent))
                 return true;
 

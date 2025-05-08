@@ -775,7 +775,6 @@ namespace TownOfUs.Patches
                 if (CustomGameOptions.WerewolfOn > 0 && !PlayerControl.LocalPlayer.Is(RoleEnum.Werewolf)) ColorMapping.Add("Werewolf", Colors.Werewolf);
                 if (CustomGameOptions.JuggernautOn > 0 && !PlayerControl.LocalPlayer.Is(RoleEnum.Juggernaut)) ColorMapping.Add("Juggernaut", Colors.Juggernaut);
                 if (CustomGameOptions.SoulCollectorOn > 0 && !PlayerControl.LocalPlayer.Is(RoleEnum.SoulCollector)) ColorMapping.Add("Soul Collector", Colors.SoulCollector);
-                if (CustomGameOptions.PyromaniacOn > 0 && !PlayerControl.LocalPlayer.Is(RoleEnum.Pyromaniac)) ColorMapping.Add("Pyromaniac", Colors.Arsonist);
 
                 ColorMapping.Add("\n<b>Impostor:</b>\n", Colors.Impostor);
                 if (CustomGameOptions.JanitorOn > 0) ColorMapping.Add("Janitor", Colors.Impostor);

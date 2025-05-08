@@ -467,13 +467,6 @@ namespace TownOfUs.NeutralRoles.AmnesiacMod
                 arsoRole.LastDoused = DateTime.UtcNow;
             }
 
-            else if (role == RoleEnum.Pyromaniac)
-            {
-                var pyroRole = Role.GetRole<Pyromaniac>(amnesiac);
-                pyroRole.DousedPlayers.RemoveRange(0, pyroRole.DousedPlayers.Count);
-                pyroRole.LastDoused = DateTime.UtcNow;
-            }
-
             else if (role == RoleEnum.Survivor)
             {
                 var survRole = Role.GetRole<Survivor>(amnesiac);
