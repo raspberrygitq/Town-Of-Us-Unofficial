@@ -294,6 +294,8 @@ namespace TownOfUs.CustomOption
         public static CustomHeaderOption Arsonist;
         public static CustomNumberOption DouseCooldown;
         public static CustomNumberOption MaxDoused;
+        public static CustomToggleOption DouseSpread;
+        public static CustomToggleOption ArsoImpVision;
 
         public static CustomHeaderOption Undertaker;
         public static CustomNumberOption DragCooldown;
@@ -1314,6 +1316,10 @@ namespace TownOfUs.CustomOption
                 new CustomNumberOption(num++, MultiMenu.neutral, "Douse Cooldown", 25f, 10f, 60f, 2.5f, CooldownFormat);
             MaxDoused =
                 new CustomNumberOption(num++, MultiMenu.neutral, "Maximum Alive Players Doused", 5, 1, 15, 1);
+            DouseSpread =
+                new CustomToggleOption(num++, MultiMenu.neutral, "Arsonist Interaction Spreads Douse", false);
+            ArsoImpVision =
+                new CustomToggleOption(num++, MultiMenu.neutral, "Arsonist Has Impostor Vision", false);
 
             Glitch =
                 new CustomHeaderOption(num++, MultiMenu.neutral, "<color=#00FF00FF>Glitch</color>");

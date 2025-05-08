@@ -206,6 +206,8 @@ namespace TownOfUs
         public static bool SeeTasksWhenDead => Generate.SeeTasksWhenDead.Get();
         public static float DouseCd => Generate.DouseCooldown.Get();
         public static int MaxDoused => (int)Generate.MaxDoused.Get();
+        public static bool DouseSpread => Generate.DouseSpread.Get();
+        public static bool ArsoImpVision => Generate.ArsoImpVision.Get();
         public static bool ParallelMedScans => Generate.ParallelMedScans.Get();
         public static int MaxFixes => (int)Generate.MaxFixes.Get();
         public static float ReviveDuration => Generate.ReviveDuration.Get();

@@ -575,15 +575,29 @@ namespace TownOfUs
             {
                 foreach (var pb in Role.GetRoles(RoleEnum.Plaguebearer)) ((Plaguebearer)pb).RpcSpreadInfection(target, player);
             }
-            if (target.Is(RoleEnum.Arsonist))
+
+            // Arsonist auto spread
+            if (target.Is(RoleEnum.Arsonist) && CustomGameOptions.DouseSpread)
             {
                 var arso = Role.GetRole<Arsonist>(target);
-                if (!arso.DousedPlayers.Contains(player.PlayerId))
+
+                int livingDoused = 0;
+                foreach (var p in PlayerControl.AllPlayerControls)
+                {
+                    if (!p.Data.IsDead && arso.DousedPlayers.Contains(p.PlayerId))
+                    {
+                        livingDoused++;
+                    }
+                }
+
+                if (livingDoused < CustomGameOptions.MaxDoused && !arso.DousedPlayers.Contains(player.PlayerId))
                 {
                     arso.DousedPlayers.Add(player.PlayerId);
                     Rpc(CustomRPC.Douse, target.PlayerId, player.PlayerId);
                 }
             }
+
+
             if (target == ShowShield.FirstRoundShielded && toKill)
             {
                 zeroSecReset = true;
