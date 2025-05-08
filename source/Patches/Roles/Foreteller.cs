@@ -103,7 +103,6 @@ namespace TownOfUs.Roles
             if (CustomGameOptions.WerewolfOn > 0) ColorMapping.Add("Werewolf", Colors.Werewolf);
             if (CustomGameOptions.JuggernautOn > 0) ColorMapping.Add("Juggernaut", Colors.Juggernaut);
             if (CustomGameOptions.SoulCollectorOn > 0) ColorMapping.Add("Soul Collector", Colors.SoulCollector);
-            if (CustomGameOptions.PyromaniacOn > 0) ColorMapping.Add("Pyromaniac", Colors.Arsonist);
 
             SortedColorMapping = ColorMapping.OrderBy(x => x.Key).ToDictionary(x => x.Key, x => x.Value);
         }
