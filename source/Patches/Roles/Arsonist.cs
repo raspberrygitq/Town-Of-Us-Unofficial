@@ -13,7 +13,6 @@ namespace TownOfUs.Roles
     public class Arsonist : Role
     {
         public static Material igniteMaterial = TownOfUs.bundledAssets.Get<Material>("ArsonistTrap");
-        public IgniteMaterial igniteRadius = null;
 
         private KillButton _igniteButton;
         public bool ArsonistWins;
@@ -88,12 +87,10 @@ namespace TownOfUs.Roles
 
         public void Ignite()
         {
-            var ignitedPlayers = Utils.GetClosestPlayers(Player.GetTruePosition(), CustomGameOptions.IgniteRadius, false);
             foreach (var playerId in DousedPlayers)
             {
                 var player = Utils.PlayerById(playerId);
-                if (!ignitedPlayers.Contains(player)) continue;
-                if (!player.Is(RoleEnum.Pestilence) && !player.IsShielded() && !player.IsProtected() && !player.IsBarriered() && player != ShowShield.FirstRoundShielded)
+                if (!player.Is(RoleEnum.Pestilence) && !player.IsShielded() && !player.IsProtected() && player != ShowShield.FirstRoundShielded)
                 {
                     Utils.RpcMultiMurderPlayer(Player, player);
                 }
@@ -113,6 +110,7 @@ namespace TownOfUs.Roles
                     }
                 }
             }
+            DousedPlayers.Clear();
         }
     }
 }
