@@ -42,6 +42,7 @@ Join our [Discord](https://discord.gg/ugyc4EVUYZ) if you have any problems or wa
 # Releases
 | Among Us - Version| Mod Version | Link |
 |----------|-------------|-----------------|
+| 16.0.2s & 16.0.2e | v1.2.1 | [Download](https://github.com/badzyn/Town-Of-Us-Unofficial/releases/download/v1.2.1/ToU-Unofficial-v1.2.1.zip) |
 | 16.0.2s & 16.0.2e | v1.2.0 | [Download](https://github.com/badzyn/Town-Of-Us-Unofficial/releases/download/v1.2.0/ToU-Unofficial-v1.2.0.zip) |
 | 16.0.2s & 16.0.2e | v1.1.3 | [Download](https://github.com/badzyn/Town-Of-Us-Unofficial/releases/download/v1.1.3/ToU-Unofficial-v1.1.3.zip) |
 | 16.0.2s & 16.0.2e | v1.1.2 | [Download](https://github.com/badzyn/Town-Of-Us-Unofficial/releases/download/v1.1.2/ToU-Unofficial-v1.1.2.zip) |
@@ -57,12 +58,19 @@ Join our [Discord](https://discord.gg/ugyc4EVUYZ) if you have any problems or wa
 | 16.0.2s & 16.0.2e | v1.0.0 | [Download](https://github.com/badzyn/Town-Of-Us-Unofficial/releases/download/v1.0.0/TownOfUs.dll) |
 
 
+
 <details>
   <summary> Changelog </summary>
   <details>
-  <summary> v1.1.3 </summary>
-  <ul> <li>Replace Pyromaniac with Arsonist</li> </ul>
-  <ul> <li>Removed new Arsonist Role</li> </ul>
+  <summary> v1.2.1 </summary>
+  <ul> <li>Added optional Arsonist Impostor Vision</li> </ul>
+  <ul> <li>Added optional Arsonist Interaction Douse spread</li> </ul>
+  </details>
+  <details>
+  <summary> v1.2.0 </summary>
+  <ul> <li>Replaced Pyromaniac with Arsonist</li> </ul>
+  <ul> <li>Removed new Arsonist role</li> </ul>
+  <ul> <li>QoL Changes</li> </ul>
   </details>
   <details>
   <summary> v1.1.2 </summary>
