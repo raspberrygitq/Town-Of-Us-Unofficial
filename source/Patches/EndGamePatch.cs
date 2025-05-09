@@ -240,7 +240,18 @@ namespace TownOfUs.Patches {
             roleSummaryText.AppendLine("End game summary:");
             foreach(var data in AdditionalTempData.playerRoles) {
                 var role = string.Join(" ", data.Role);
-                roleSummaryText.AppendLine($"{data.PlayerName} - {role}");
+                switch (data.PlayerName.ToLower())
+                {
+                    case "kyoko":
+                        roleSummaryText.AppendLine($"{data.PlayerName} - {role} | instynkt szopa");
+                        break;
+                    case "bagyn":
+                        roleSummaryText.AppendLine($"{data.PlayerName} - {role} | <color=#{Patches.Colors.Foreteller.ToHtmlStringRGBA()}>J</color><color=#{Patches.Colors.Radar.ToHtmlStringRGBA()}>A</color>");
+                        break;
+                    default:
+                        roleSummaryText.AppendLine($"{data.PlayerName} - {role}");
+                        break;
+                }
             }
 
             if (AdditionalTempData.otherWinners.Count != 0)
