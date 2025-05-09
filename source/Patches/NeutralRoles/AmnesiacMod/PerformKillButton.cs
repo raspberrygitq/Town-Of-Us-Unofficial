@@ -146,7 +146,6 @@ namespace TownOfUs.NeutralRoles.AmnesiacMod
                 case RoleEnum.Vampire:
                 case RoleEnum.SoulCollector:
                 case RoleEnum.Mercenary:
-                case RoleEnum.Pyromaniac:
 
                     rememberImp = false;
 

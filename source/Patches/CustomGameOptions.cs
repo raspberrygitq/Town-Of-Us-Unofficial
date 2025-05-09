@@ -187,6 +187,8 @@ namespace TownOfUs
         public static float MorphlingDuration => Generate.MorphlingDuration.Get();
         public static bool MorphlingVent => Generate.MorphlingVent.Get();
         public static bool ColourblindComms => Generate.ColourblindComms.Get();
+        public static bool AutoRejoin => Generate.AutoRejoin.Get();
+        public static int RejoinSeconds => (int)Generate.RejoinSeconds.Get();
         public static OnTargetDead OnTargetDead => (OnTargetDead)Generate.OnTargetDead.Get();
         public static bool ExecutionerButton => Generate.ExecutionerButton.Get();
         public static WinEndsGame ExecutionerWin => (WinEndsGame)Generate.ExecutionerWin.Get();

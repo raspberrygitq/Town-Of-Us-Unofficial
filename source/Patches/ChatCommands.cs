@@ -514,11 +514,6 @@ namespace TownOfUs.Patches
                         AddRoleMessage(RoleEnum.Kamikaze);
                         return false;
                     }
-                    else if (chatText.ToLower().StartsWith("/pyro") || chatText.ToLower().StartsWith("/ pyro"))
-                    {
-                        AddRoleMessage(RoleEnum.Pyromaniac);
-                        return false;
-                    }
                     else if (chatText.ToLower().StartsWith("/lover") || chatText.ToLower().StartsWith("/ lover"))
                     {
                         AddModifierMessage(ModifierEnum.Lover);
@@ -980,8 +975,6 @@ namespace TownOfUs.Patches
                     PlayerControl.LocalPlayer, "The Cleric is a crewmate who can barrier other players temporarily or cleanse players. Barriered players cannot be killed. Cleansing a player removes all negative effects (e.g. blackmail, douse).");
                 if (role == RoleEnum.Wraith) HudManager.Instance.Chat.AddChat(
                     PlayerControl.LocalPlayer, "The Wraith is an impostor who can walk trought walls.");
-                if (role == RoleEnum.Pyromaniac) HudManager.Instance.Chat.AddChat(PlayerControl.LocalPlayer,
-                    "The Pyromaniac is a neutral killer with the goal to kill everyone. To do so they must douse players and once enough people are doused they can ignite, killing all doused players immediately.");
             }
 
             public static void AddModifierMessage(ModifierEnum modifier)

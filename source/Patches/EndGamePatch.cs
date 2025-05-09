@@ -7,6 +7,7 @@ using Reactor.Utilities.Extensions;
 using TownOfUs.Roles;
 using AmongUs.GameOptions;
 using TownOfUs.NeutralRoles.ExecutionerMod;
+using Reactor.Utilities;
 
 namespace TownOfUs.Patches {
 
@@ -38,6 +39,7 @@ namespace TownOfUs.Patches {
 
         public static void Postfix(AmongUsClient __instance, [HarmonyArgument(0)] EndGameResult endGameResult)
         {
+            if (AmongUsClient.Instance.AmHost && CustomGameOptions.AutoRejoin) Coroutines.Start(HostManager.AutoRejoin());
             AdditionalTempData.clear();
             var playerRole = "";
             // Theres a better way of doing this e.g. switch statement or dictionary. But this works for now.
@@ -114,7 +116,6 @@ namespace TownOfUs.Patches {
                     else if (role.Value == RoleEnum.Wraith) { playerRole += "<color=#" + Patches.Colors.Impostor.ToHtmlStringRGBA() + ">Wraith</color> > "; }
                     else if (role.Value == RoleEnum.Icenberg) { playerRole += "<color=#" + Patches.Colors.Icenberg.ToHtmlStringRGBA() + ">Icenberg</color> > "; }
                     else if (role.Value == RoleEnum.Kamikaze) { playerRole += "<color=#" + Patches.Colors.Impostor.ToHtmlStringRGBA() + ">Kamikaze</color> > "; }
-                    else if (role.Value == RoleEnum.Pyromaniac) { playerRole += "<color=#" + Patches.Colors.Arsonist.ToHtmlStringRGBA() + ">Pyromaniac</color> > "; }
                 }
                 playerRole = playerRole.Remove(playerRole.Length - 3);
 

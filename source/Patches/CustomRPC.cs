@@ -26,7 +26,6 @@ namespace TownOfUs
         NobodyWins,
         PlaguebearerWin,
         PestilenceWin,
-        PyromaniacWin,
         WerewolfWin,
         SurvivorOnlyWin,
         VampireWin,
