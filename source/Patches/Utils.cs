@@ -1780,6 +1780,11 @@ namespace TownOfUs
                 }
                 plumber.FutureBlocks.Clear();
             }
+            if (PlayerControl.LocalPlayer.Is(RoleEnum.Captain))
+            {
+                var cap = Role.GetRole<Captain>(PlayerControl.LocalPlayer);
+                cap.Cooldown = CustomGameOptions.ZoomCooldown;
+            }
             #endregion
             #region NeutralRoles
             if (PlayerControl.LocalPlayer.Is(RoleEnum.Survivor))

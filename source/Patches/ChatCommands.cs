@@ -514,6 +514,11 @@ namespace TownOfUs.Patches
                         AddRoleMessage(RoleEnum.Kamikaze);
                         return false;
                     }
+                    else if (chatText.ToLower().StartsWith("/capt") || chatText.ToLower().StartsWith("/ capt"))
+                    {
+                        AddRoleMessage(RoleEnum.Captain);
+                        return false;
+                    }
                     else if (chatText.ToLower().StartsWith("/lover") || chatText.ToLower().StartsWith("/ lover"))
                     {
                         AddModifierMessage(ModifierEnum.Lover);
@@ -750,6 +755,7 @@ namespace TownOfUs.Patches
                 if (CustomGameOptions.PresidentOn > 0) ColorMapping.Add("President", Colors.Mayor);
                 if (CustomGameOptions.ClericOn > 0) ColorMapping.Add("Cleric", Colors.Cleric);
                 if (CustomGameOptions.PlumberOn > 0) ColorMapping.Add("Plumber", Colors.Plumber);
+                if (CustomGameOptions.CaptainOn > 0) ColorMapping.Add("Falcon", Colors.Captain);
 
                 ColorMapping.Add("\n<b>Neutral:</b>\n", Color.gray);
                 if (CustomGameOptions.AmnesiacOn > 0 || (CustomGameOptions.ExecutionerOn > 0 && CustomGameOptions.OnTargetDead == OnTargetDead.Amnesiac) || (CustomGameOptions.GuardianAngelOn > 0 && CustomGameOptions.GaOnTargetDeath == BecomeOptions.Amnesiac)) ColorMapping.Add("Amnesiac", Colors.Amnesiac);
@@ -975,6 +981,8 @@ namespace TownOfUs.Patches
                     PlayerControl.LocalPlayer, "The Cleric is a crewmate who can barrier other players temporarily or cleanse players. Barriered players cannot be killed. Cleansing a player removes all negative effects (e.g. blackmail, douse).");
                 if (role == RoleEnum.Wraith) HudManager.Instance.Chat.AddChat(
                     PlayerControl.LocalPlayer, "The Wraith is an impostor who can walk trought walls.");
+                if (role == RoleEnum.Captain) HudManager.Instance.Chat.AddChat(
+                    PlayerControl.LocalPlayer, "The Captain is a crewmate who can zoom out map to see what's happening.");
             }
 
             public static void AddModifierMessage(ModifierEnum modifier)

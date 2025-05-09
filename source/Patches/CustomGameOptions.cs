@@ -116,6 +116,7 @@ namespace TownOfUs
         public static int ClericOn => (int)Generate.ClericOn.Get();
         public static int WraithOn => (int)Generate.WraithOn.Get();
         public static int KamikazeOn => (int)Generate.KamikazeOn.Get();
+        public static int CaptainOn => (int)Generate.CaptainOn.Get();
         public static int TorchOn => (int)Generate.TorchOn.Get();
         public static int DiseasedOn => (int)Generate.DiseasedOn.Get();
         public static int FlashOn => (int)Generate.FlashOn.Get();
@@ -438,5 +439,9 @@ namespace TownOfUs
         public static float KamikazeDetonateRadius => 0.15f;
         public static bool KamikazeVent => true;
         public static bool KamikazeAllImpsSeeBomb => false;
+        public static float ZoomCooldown => Generate.ZoomCooldown.Get();
+        public static float ZoomDuration => Generate.ZoomDuration.Get();
+        public static float ZoomRange => Generate.ZoomRange.Get();
+        public static int ZoomMaxUses => (int)Generate.ZoomMaxUses.Get();
     }
 }

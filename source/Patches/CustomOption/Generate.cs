@@ -6,6 +6,7 @@ namespace TownOfUs.CustomOption
     {
         public static CustomHeaderOption CrewInvestigativeRoles;
         public static CustomNumberOption AurialOn;
+        public static CustomNumberOption CaptainOn;
         public static CustomNumberOption DetectiveOn;
         public static CustomNumberOption HaunterOn;
         public static CustomNumberOption InvestigatorOn;
@@ -538,6 +539,12 @@ namespace TownOfUs.CustomOption
         public static CustomToggleOption KamikazeVent;
         public static CustomToggleOption KamikazeAllImpsSeeBomb;
 
+        public static CustomHeaderOption Captain;
+        public static CustomNumberOption ZoomCooldown;
+        public static CustomNumberOption ZoomDuration;
+        public static CustomNumberOption ZoomRange;
+        public static CustomNumberOption ZoomMaxUses;
+
         public static CustomHeaderOption Giant;
         public static CustomNumberOption GiantSlow;
 
@@ -583,6 +590,8 @@ namespace TownOfUs.CustomOption
 
             CrewInvestigativeRoles = new CustomHeaderOption(num++, MultiMenu.crewmate, "Crewmate Investigative Roles");
             AurialOn = new CustomNumberOption(num++, MultiMenu.crewmate, "<color=#B34D99FF>Aurial</color>", 0f, 0f, 100f, 10f,
+                PercentFormat);
+            CaptainOn = new CustomNumberOption(num++, MultiMenu.crewmate, "<color=#6B8DE1>Captain</color>", 0f, 0f, 100f, 10f,
                 PercentFormat);
             DetectiveOn = new CustomNumberOption(num++, MultiMenu.crewmate, "<color=#4D4DFFFF>Detective</color>", 0f, 0f, 100f, 10f,
                 PercentFormat);
@@ -975,6 +984,17 @@ namespace TownOfUs.CustomOption
                 new CustomNumberOption(num++, MultiMenu.crewmate, "Radiate Max Range", 1.5f, 1f, 5f, 0.25f, MultiplierFormat);
             SenseDuration =
                 new CustomNumberOption(num++, MultiMenu.crewmate, "Sense Duration", 10f, 1f, 15f, 1f, CooldownFormat);
+
+            Captain =
+                new CustomHeaderOption(num++, MultiMenu.crewmate, "<color=#6B8DE1>Captain</color>");
+            ZoomCooldown =
+                new CustomNumberOption(num++, MultiMenu.crewmate, "Zoom Ability Cooldown", 25f, 10f, 60f, 2.5f, CooldownFormat);
+            ZoomDuration =
+                new CustomNumberOption(num++, MultiMenu.crewmate, "Zoom Ability Duration", 7f, 2f, 10f, 1f, CooldownFormat);
+            ZoomRange =
+                new CustomNumberOption(num++, MultiMenu.crewmate, "Zoom Ability Range", 5f, 3.5f, 10f, 0.5f, MultiplierFormat);
+            ZoomMaxUses =
+                new CustomNumberOption(num++, MultiMenu.crewmate, "Maximum Ability Uses", 5, 1, 15, 1);
 
             Detective =
                 new CustomHeaderOption(num++, MultiMenu.crewmate, "<color=#4D4DFFFF>Detective</color>");

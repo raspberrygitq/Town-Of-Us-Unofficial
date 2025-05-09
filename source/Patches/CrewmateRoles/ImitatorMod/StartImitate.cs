@@ -63,6 +63,7 @@ namespace TownOfUs.CrewmateRoles.ImitatorMod
             Role.RoleDictionary.Remove(imi.PlayerId);
             if (imitatorRole == RoleEnum.Crewmate) new Crewmate(imi);
             else if (imitatorRole == RoleEnum.Aurial) new Aurial(imi);
+            else if (imitatorRole == RoleEnum.Captain) new Captain(imi);
             else if (imitatorRole == RoleEnum.Detective) new Detective(imi);
             else if (imitatorRole == RoleEnum.Investigator) new Investigator(imi);
             else if (imitatorRole == RoleEnum.Lookout) new Lookout(imi);

@@ -46,6 +46,7 @@ namespace TownOfUs
         private static Sprite Block => TownOfUs.BlockSprite;
         private static Sprite Bribe => TownOfUs.BribeSprite;
         private static Sprite Barrier => TownOfUs.BarrierSprite;
+        private static Sprite Zoom => TownOfUs.ZoomSprite;
 
         private static Sprite Kill;
 
@@ -190,6 +191,11 @@ namespace TownOfUs
             else if (PlayerControl.LocalPlayer.Is(RoleEnum.Cleric))
             {
                 __instance.KillButton.graphic.sprite = Barrier;
+                flag = true;
+            }
+            else if (PlayerControl.LocalPlayer.Is(RoleEnum.Captain))
+            {
+                __instance.KillButton.graphic.sprite = Zoom;
                 flag = true;
             }
             else

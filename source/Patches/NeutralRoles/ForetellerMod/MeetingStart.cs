@@ -30,7 +30,7 @@ namespace TownOfUs.NeutralRoles.ForetellerMod
             else if (player.Is(RoleEnum.Aurial) || player.Is(RoleEnum.Eclipsal) || player.Is(RoleEnum.Glitch) || player.Is(RoleEnum.Icenberg) || player.Is(RoleEnum.Imitator)
                  || StartImitate.ImitatingPlayers.Contains(player.PlayerId) || player.Is(RoleEnum.Morphling) || player.Is(RoleEnum.Mystic) || player.Is(RoleEnum.Spy))
                 return $"You observe that {player.GetDefaultOutfit().PlayerName} has an altered perception of reality";
-            else if (player.Is(RoleEnum.Blackmailer) || player.Is(RoleEnum.Detective) || player.Is(RoleEnum.Foreteller) || player.Is(RoleEnum.Mercenary)
+            else if (player.Is(RoleEnum.Blackmailer) || player.Is(RoleEnum.Captain) || player.Is(RoleEnum.Detective) || player.Is(RoleEnum.Foreteller) || player.Is(RoleEnum.Mercenary)
                  || player.Is(RoleEnum.Oracle) || player.Is(RoleEnum.Snitch) || player.Is(RoleEnum.Trapper))
                 return $"You observe that {player.GetDefaultOutfit().PlayerName} has an insight for private information";
             else if (player.Is(RoleEnum.Altruist) || player.Is(RoleEnum.Amnesiac) || player.Is(RoleEnum.Janitor)
@@ -64,9 +64,9 @@ namespace TownOfUs.NeutralRoles.ForetellerMod
             else if (player.Is(RoleEnum.Aurial) || player.Is(RoleEnum.Eclipsal) || player.Is(RoleEnum.Glitch) || player.Is(RoleEnum.Icenberg) || player.Is(RoleEnum.Imitator)
                  || StartImitate.ImitatingPlayers.Contains(player.PlayerId) || player.Is(RoleEnum.Morphling) || player.Is(RoleEnum.Mystic) || player.Is(RoleEnum.Spy))
                 return "(Aurial, Eclipsal, Glitch, Imitator, Icenberg, Morphling, Mystic or Spy)";
-            else if (player.Is(RoleEnum.Blackmailer) || player.Is(RoleEnum.Detective) || player.Is(RoleEnum.Foreteller) || player.Is(RoleEnum.Mercenary)
+            else if (player.Is(RoleEnum.Blackmailer) || player.Is(RoleEnum.Captain) || player.Is(RoleEnum.Detective) || player.Is(RoleEnum.Foreteller) || player.Is(RoleEnum.Mercenary)
                  || player.Is(RoleEnum.Oracle) || player.Is(RoleEnum.Snitch) || player.Is(RoleEnum.Trapper))
-                return "(Blackmailer, Detective, Foreteller, Mercenary, Oracle, Snitch or Trapper)";
+                return "(Blackmailer, Captain, Detective, Foreteller, Mercenary, Oracle, Snitch or Trapper)";
             else if (player.Is(RoleEnum.Altruist) || player.Is(RoleEnum.Amnesiac) || player.Is(RoleEnum.Janitor)
                  || player.Is(RoleEnum.Medium) || player.Is(RoleEnum.SoulCollector) || player.Is(RoleEnum.Undertaker) || player.Is(RoleEnum.Vampire))
                 return "(Altruist, Amnesiac, Janitor, Medium, Soul Collector, Undertaker or Vampire)";
