@@ -3,6 +3,7 @@ using Object = UnityEngine.Object;
 using Reactor.Utilities.Extensions;
 using UnityEngine;
 using TownOfUs.Patches;
+using TownOfUs.Roles;
 
 namespace TownOfUs
 {
@@ -16,6 +17,15 @@ namespace TownOfUs
             foreach (var player in PlayerControl.AllPlayerControls)
             {
                 player.MyPhysics.ResetAnimState();
+            }
+
+            if (PlayerControl.LocalPlayer.Is(RoleEnum.Captain))
+            {
+                var captain = Role.GetRole<Captain>(PlayerControl.LocalPlayer);
+                if (captain.Zooming)
+                {
+                    captain.TimeRemainingZoom = 0.01f;
+                }
             }
 
             HudUpdate.Zooming = false;

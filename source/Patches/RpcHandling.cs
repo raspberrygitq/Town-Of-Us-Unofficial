@@ -1820,6 +1820,9 @@ namespace TownOfUs
 
                 if (CustomGameOptions.ClericOn > 0)
                     CrewmateProtectiveRoles.Add((typeof(Cleric), CustomGameOptions.ClericOn, false || CustomGameOptions.UniqueRoles));
+
+                if (CustomGameOptions.CaptainOn > 0)
+                    CrewmateInvestigativeRoles.Add((typeof(Captain), CustomGameOptions.CaptainOn, false || CustomGameOptions.UniqueRoles));
                 #endregion
                 #region Neutral Roles
                 if (CustomGameOptions.JesterOn > 0)

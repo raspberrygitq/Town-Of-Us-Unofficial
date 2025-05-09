@@ -51,6 +51,7 @@ namespace TownOfUs
         Mercenary,
         Cleric,
         President,
+        Captain,
 
         Miner,
         Swooper,

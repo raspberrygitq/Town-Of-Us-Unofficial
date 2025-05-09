@@ -124,6 +124,7 @@ namespace TownOfUs.NeutralRoles.AmnesiacMod
                 case RoleEnum.Deputy:
                 case RoleEnum.Plumber:
                 case RoleEnum.Cleric:
+                case RoleEnum.Captain:
 
                     rememberImp = false;
                     rememberNeut = false;
@@ -354,6 +355,13 @@ namespace TownOfUs.NeutralRoles.AmnesiacMod
                 trackerRole.TrackerArrows.Clear();
                 trackerRole.UsesLeft = CustomGameOptions.MaxTracks;
                 trackerRole.LastTracked = DateTime.UtcNow;
+            }
+
+            else if (role == RoleEnum.Captain)
+            {
+                var capRole = Role.GetRole<Captain>(amnesiac);
+                capRole.UsesLeft = CustomGameOptions.ZoomMaxUses;
+                capRole.Cooldown = CustomGameOptions.ZoomCooldown;
             }
 
             else if (role == RoleEnum.Lookout)

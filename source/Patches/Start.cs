@@ -343,6 +343,11 @@ namespace TownOfUs.Patches
                 wraith.LastNoclip = DateTime.UtcNow;
                 wraith.LastNoclip = wraith.LastNoclip.AddSeconds(CustomGameOptions.InitialCooldowns - CustomGameOptions.WraithCd);
             }
+            if (PlayerControl.LocalPlayer.Is(RoleEnum.Captain))
+            {
+                var cap = Role.GetRole<Captain>(PlayerControl.LocalPlayer);
+                cap.Cooldown = CustomGameOptions.InitialCooldowns;
+            }
         }
     }
 }

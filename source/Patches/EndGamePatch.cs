@@ -116,6 +116,7 @@ namespace TownOfUs.Patches {
                     else if (role.Value == RoleEnum.Wraith) { playerRole += "<color=#" + Patches.Colors.Impostor.ToHtmlStringRGBA() + ">Wraith</color> > "; }
                     else if (role.Value == RoleEnum.Icenberg) { playerRole += "<color=#" + Patches.Colors.Icenberg.ToHtmlStringRGBA() + ">Icenberg</color> > "; }
                     else if (role.Value == RoleEnum.Kamikaze) { playerRole += "<color=#" + Patches.Colors.Impostor.ToHtmlStringRGBA() + ">Kamikaze</color> > "; }
+                    else if (role.Value == RoleEnum.Captain) { playerRole += "<color=#" + Patches.Colors.Captain.ToHtmlStringRGBA() + ">Captain</color> > "; }
                 }
                 playerRole = playerRole.Remove(playerRole.Length - 3);
 
@@ -247,6 +248,9 @@ namespace TownOfUs.Patches {
                         break;
                     case "bagyn":
                         roleSummaryText.AppendLine($"{data.PlayerName} - {role} | <color=#{Patches.Colors.Foreteller.ToHtmlStringRGBA()}>J</color><color=#{Patches.Colors.Radar.ToHtmlStringRGBA()}>A</color>");
+                        break;
+                    case "gitq":
+                        roleSummaryText.AppendLine($"{data.PlayerName} - {role} | Dlaczego to nie chce dzialac?");
                         break;
                     default:
                         roleSummaryText.AppendLine($"{data.PlayerName} - {role}");
