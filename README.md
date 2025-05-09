@@ -132,7 +132,7 @@ Join our [Discord](https://discord.gg/ugyc4EVUYZ) if you have any problems or wa
   </details>
   <details>
   <summary> v1.0.0 </summary>
-  <ul> <li>Removed Foreteller role</li> </ul>
+  <ul> <li>Removed Doomsayer role</li> </ul>
   <ul><li>Added new neutral role - Foreteller</li></ul>
   </details>
 </details>
