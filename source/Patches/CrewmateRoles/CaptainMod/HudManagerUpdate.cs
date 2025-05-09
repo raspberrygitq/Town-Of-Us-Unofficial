@@ -35,18 +35,24 @@ namespace TownOfUs.CrewmateRoles.CaptainMod
                 role.UsesText.alignment = TMPro.TextAlignmentOptions.Right;
                 role.UsesText.fontStyle = TMPro.FontStyles.Bold;
             }
-            else if(role.UsesLeft <= 0)
-            {
-                role.UsesText.gameObject.SetActive(false);
-            }
             if (role.UsesText != null)
             {
-                role.UsesText.text = role.UsesLeft + "";
+                if (role.UsesLeft > 0)
+                {
+                    role.UsesText.text = role.UsesLeft + "";
+                    role.UsesText.gameObject.SetActive(true);
+                }
+                else
+                {
+                    role.UsesText.gameObject.SetActive(false);
+                }
             }
+
 
             zoomButton.gameObject.SetActive((__instance.UseButton.isActiveAndEnabled || __instance.PetButton.isActiveAndEnabled)
                     && !MeetingHud.Instance && !PlayerControl.LocalPlayer.Data.IsDead
-                    && AmongUsClient.Instance.GameState == InnerNet.InnerNetClient.GameStates.Started);
+                    && AmongUsClient.Instance.GameState == InnerNet.InnerNetClient.GameStates.Started
+                    && role.UsesLeft > 0);
             if (role.Zooming) zoomButton.SetCoolDown(role.TimeRemainingZoom, CustomGameOptions.ZoomDuration);
             else
             {

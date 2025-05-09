@@ -982,7 +982,7 @@ namespace TownOfUs.Patches
                 if (role == RoleEnum.Wraith) HudManager.Instance.Chat.AddChat(
                     PlayerControl.LocalPlayer, "The Wraith is an impostor who can walk trought walls.");
                 if (role == RoleEnum.Captain) HudManager.Instance.Chat.AddChat(
-                    PlayerControl.LocalPlayer, "The Captain is a crewmate who can zoom out map to see whats happening.");
+                    PlayerControl.LocalPlayer, "The Captain is a crewmate who can zoom out map to see what's happening.");
             }
 
             public static void AddModifierMessage(ModifierEnum modifier)
