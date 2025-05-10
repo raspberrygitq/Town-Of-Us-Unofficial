@@ -755,7 +755,7 @@ namespace TownOfUs.Patches
                 if (CustomGameOptions.PresidentOn > 0) ColorMapping.Add("President", Colors.Mayor);
                 if (CustomGameOptions.ClericOn > 0) ColorMapping.Add("Cleric", Colors.Cleric);
                 if (CustomGameOptions.PlumberOn > 0) ColorMapping.Add("Plumber", Colors.Plumber);
-                if (CustomGameOptions.CaptainOn > 0) ColorMapping.Add("Falcon", Colors.Captain);
+                if (CustomGameOptions.CaptainOn > 0) ColorMapping.Add("Captain", Colors.Captain);
 
                 ColorMapping.Add("\n<b>Neutral:</b>\n", Color.gray);
                 if (CustomGameOptions.AmnesiacOn > 0 || (CustomGameOptions.ExecutionerOn > 0 && CustomGameOptions.OnTargetDead == OnTargetDead.Amnesiac) || (CustomGameOptions.GuardianAngelOn > 0 && CustomGameOptions.GaOnTargetDeath == BecomeOptions.Amnesiac)) ColorMapping.Add("Amnesiac", Colors.Amnesiac);
