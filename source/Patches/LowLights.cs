@@ -63,6 +63,26 @@ namespace TownOfUs
                     return false;
                 }
             }
+            else if (player._object.Is(RoleEnum.Captain))
+            {
+                var role = Role.GetRole<Captain>(player._object);
+                if (role.Zooming)
+                {
+                    if (!role.sabotageLightsZoom())
+                    {
+                        __result = __instance.MaxLightRadius * 5.0f;
+                    }
+                    else
+                    {
+                        if (player._object.Is(ModifierEnum.Torch))
+                            __result = Mathf.Lerp(__instance.MinLightRadius, __instance.MaxLightRadius, 1) * GameOptionsManager.Instance.currentNormalGameOptions.CrewLightMod;
+                        else
+                            __result = 0.1f;
+                        role.UnZoomAbility();
+                    }
+                    return false;
+                }
+            }
 
             if (Patches.SubmergedCompatibility.isSubmerged())
             {

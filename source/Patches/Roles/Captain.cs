@@ -27,7 +27,7 @@ namespace TownOfUs.Roles
         public bool IsZooming;
         public int UsesLeft;
         public TextMeshPro UsesText;
-        public bool ButtonUsable => UsesLeft != 0;
+        public bool ButtonUsable => UsesLeft != 0 && !sabotageLightsZoom();
 
         public void ZoomAbility()
         {
@@ -75,6 +75,27 @@ namespace TownOfUs.Roles
                 return Cooldown;
             }
             else return Cooldown;
+        }
+        public bool sabotageLightsZoom()
+        {
+            var lights = ShipStatus.Instance.Systems[SystemTypes.Electrical].Cast<SwitchSystem>();
+            switch (GameOptionsManager.Instance.currentNormalGameOptions.MapId)
+            {
+                case 0:
+                case 3:
+                case 1:
+                case 2:
+                case 4:
+                case 6:
+                case 7:
+                    if (lights.IsActive)
+                    {
+                        return true;
+                    }
+                    return false;
+                default:
+                    return false;
+            }
         }
     }
 }

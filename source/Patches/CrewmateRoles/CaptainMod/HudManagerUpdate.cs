@@ -65,7 +65,7 @@ namespace TownOfUs.CrewmateRoles.CaptainMod
             }
 
             var renderer = zoomButton.graphic;
-            if (role.Zooming || !zoomButton.isCoolingDown && role.ButtonUsable && PlayerControl.LocalPlayer.moveable)
+            if (role.Zooming || !zoomButton.isCoolingDown && role.ButtonUsable && PlayerControl.LocalPlayer.moveable && !role.sabotageLightsZoom())
             {
                 renderer.color = Palette.EnabledColor;
                 renderer.material.SetFloat("_Desat", 0f);
