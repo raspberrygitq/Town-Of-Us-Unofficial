@@ -40,6 +40,7 @@ using TownOfUs.CrewmateRoles.DeputyMod;
 using TownOfUs.CrewmateRoles.ClericMod;
 using TownOfUs.ImpostorRoles.BlackmailerMod;
 using TownOfUs.NeutralRoles.IcenbergMod;
+using TownOfUs.CrewmateRoles.TimeLordMod;
 
 namespace TownOfUs
 {
@@ -774,6 +775,7 @@ namespace TownOfUs
                         PatchKillTimer.GameStarted = false;
                         StartImitate.ImitatingPlayers.Clear();
                         ChatCommands.JailorMessage = false;
+                        RecordRewind.points.Clear();
                         AddHauntPatch.AssassinatedPlayers.Clear();
                         HudUpdate.Zooming = false;
                         HudUpdate.ZoomStart();
@@ -888,6 +890,20 @@ namespace TownOfUs
                                 break;
                         }
                         break;
+
+
+                    case CustomRPC.Rewind:
+                        readByte = reader.ReadByte();
+                        var TimeLordPlayer = Utils.PlayerById(readByte);
+                        var TimeLordRole = Role.GetRole<TimeLord>(TimeLordPlayer);
+                        StartStop.StartRewind(TimeLordRole);
+                        break;
+                    case CustomRPC.RewindRevive:
+                        readByte = reader.ReadByte();
+                        RecordRewind.ReviveBody(Utils.PlayerById(readByte));
+                        break;
+
+
                     case CustomRPC.Protect:
                         readByte1 = reader.ReadByte();
                         readByte2 = reader.ReadByte();
@@ -1708,6 +1724,7 @@ namespace TownOfUs
                 AssassinModifiers.Clear();
                 AssassinAbility.Clear();
 
+                RecordRewind.points.Clear();
                 Murder.KilledPlayers.Clear();
                 HudUpdate.Zooming = false;
                 HudUpdate.ZoomStart();
@@ -1823,6 +1840,10 @@ namespace TownOfUs
 
                 if (CustomGameOptions.CaptainOn > 0)
                     CrewmateInvestigativeRoles.Add((typeof(Captain), CustomGameOptions.CaptainOn, false || CustomGameOptions.UniqueRoles));
+
+                if (CustomGameOptions.TimeLordOn > 0)
+                    CrewmateInvestigativeRoles.Add((typeof(TimeLord), CustomGameOptions.TimeLordOn, false || CustomGameOptions.UniqueRoles));
+
                 #endregion
                 #region Neutral Roles
                 if (CustomGameOptions.JesterOn > 0)

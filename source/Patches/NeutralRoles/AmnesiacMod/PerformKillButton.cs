@@ -125,6 +125,7 @@ namespace TownOfUs.NeutralRoles.AmnesiacMod
                 case RoleEnum.Plumber:
                 case RoleEnum.Cleric:
                 case RoleEnum.Captain:
+                case RoleEnum.TimeLord:
 
                     rememberImp = false;
                     rememberNeut = false;
@@ -362,6 +363,12 @@ namespace TownOfUs.NeutralRoles.AmnesiacMod
                 var capRole = Role.GetRole<Captain>(amnesiac);
                 capRole.UsesLeft = CustomGameOptions.ZoomMaxUses;
                 capRole.Cooldown = CustomGameOptions.ZoomCooldown;
+            }
+
+            else if (role == RoleEnum.TimeLord)
+            {
+                var timeLord = Role.GetRole<TimeLord>(amnesiac);
+                timeLord.UsesLeft = CustomGameOptions.RewindMaxUses;
             }
 
             else if (role == RoleEnum.Lookout)

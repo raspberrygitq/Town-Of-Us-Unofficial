@@ -32,7 +32,7 @@ namespace TownOfUs
     {
         
         public const string Id = "com.slushiegoose.townofus";
-        public const string VersionString = "1.2.2";
+        public const string VersionString = "1.3.0";
         public static System.Version Version = System.Version.Parse(VersionString);
         public const string VersionTag = "<color=#ff33fc></color>";
 
@@ -128,6 +128,7 @@ namespace TownOfUs
         public static Sprite BlizzardSprite;
         public static Sprite SuicideSprite;
         public static Sprite ZoomSprite;
+        public static Sprite RewindSprite;
 
         public static Sprite ToUBanner;
         public static Sprite UpdateTOUButton;
@@ -255,6 +256,7 @@ namespace TownOfUs
             NoclipSprite = CreateSprite("TownOfUs.Resources.Noclip.png");
             SuicideSprite = CreateSprite("TownOfUs.Resources.Suicide.png");
             ZoomSprite = CreateSprite("TownOfUs.Resources.Zoom.png");
+            RewindSprite = CreateSprite("TownOfUs.Resources.Rewind.png");
 
             ToUBanner = CreateSprite("TownOfUs.Resources.TownOfUsBanner.png");
             UpdateTOUButton = CreateSprite("TownOfUs.Resources.UpdateToUButton.png");

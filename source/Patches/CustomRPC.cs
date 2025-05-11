@@ -86,6 +86,9 @@ namespace TownOfUs
         Bribe,
         Barrier,
         CelebDied,
+        FixAnimation,
+        Rewind,
+        RewindRevive,
 
         BypassKill,
         BypassMultiKill,

@@ -1613,6 +1613,12 @@ namespace TownOfUs
                 medium.MediatedPlayers.Values.DestroyAll();
                 medium.MediatedPlayers.Clear();
             }
+            if (PlayerControl.LocalPlayer.Is(RoleEnum.TimeLord))
+            {
+                var timelord = Role.GetRole<TimeLord>(PlayerControl.LocalPlayer);
+                timelord.StartRewind = DateTime.UtcNow.AddSeconds(-10.0f);
+                timelord.FinishRewind = DateTime.UtcNow;
+            }
             if (PlayerControl.LocalPlayer.Is(RoleEnum.Seer))
             {
                 var seer = Role.GetRole<Seer>(PlayerControl.LocalPlayer);

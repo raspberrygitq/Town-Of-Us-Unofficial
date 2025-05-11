@@ -494,6 +494,12 @@ namespace TownOfUs.Patches
                         AddRoleMessage(RoleEnum.Eclipsal);
                         return false;
                     }
+                    else if (chatText.ToLower().StartsWith("/time") || chatText.ToLower().StartsWith("/ time")
+                    || chatText.ToLower().StartsWith("/tl") || chatText.ToLower().StartsWith("/ tl"))
+                    {
+                        AddRoleMessage(RoleEnum.TimeLord);
+                        return false;
+                    }
                     else if (chatText.ToLower().StartsWith("/merc") || chatText.ToLower().StartsWith("/ merc"))
                     {
                         AddRoleMessage(RoleEnum.Mercenary);
@@ -751,7 +757,7 @@ namespace TownOfUs.Patches
                 if (CustomGameOptions.JailorOn > 0) ColorMapping.Add("Jailor", Colors.Jailor);
                 if (CustomGameOptions.LookoutOn > 0) ColorMapping.Add("Lookout", Colors.Lookout);
                 if (CustomGameOptions.DeputyOn > 0) ColorMapping.Add("Deputy", Colors.Deputy);
-                //if (CustomGameOptions.TimeLordOn > 0) ColorMapping.Add("Time Lord", Colors.TimeLord);
+                if (CustomGameOptions.TimeLordOn > 0) ColorMapping.Add("Time Lord", Colors.TimeLord);
                 if (CustomGameOptions.PresidentOn > 0) ColorMapping.Add("President", Colors.Mayor);
                 if (CustomGameOptions.ClericOn > 0) ColorMapping.Add("Cleric", Colors.Cleric);
                 if (CustomGameOptions.PlumberOn > 0) ColorMapping.Add("Plumber", Colors.Plumber);
@@ -983,6 +989,8 @@ namespace TownOfUs.Patches
                     PlayerControl.LocalPlayer, "The Wraith is an impostor who can walk trought walls.");
                 if (role == RoleEnum.Captain) HudManager.Instance.Chat.AddChat(
                     PlayerControl.LocalPlayer, "The Captain is a crewmate who can zoom out map to see what's happening.");
+                if (role == RoleEnum.TimeLord) DestroyableSingleton<HudManager>.Instance.Chat.AddChat(
+                    PlayerControl.LocalPlayer, "The Time Lord is a crewmate who can rewind time.");
             }
 
             public static void AddModifierMessage(ModifierEnum modifier)

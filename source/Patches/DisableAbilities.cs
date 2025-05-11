@@ -5,6 +5,7 @@ using TownOfUs.Roles;
 using System.Collections;
 using InnerNet;
 using System.Collections.Generic;
+using TownOfUs.CrewmateRoles.TimeLordMod;
 
 namespace TownOfUs
 {
@@ -50,6 +51,11 @@ namespace TownOfUs
                     {
                         var cleric = Role.GetRole<Cleric>(PlayerControl.LocalPlayer);
                         if (cleric.Barriered != null) disableKill = false;
+                    }
+                    else if (PlayerControl.LocalPlayer.Is(RoleEnum.TimeLord))
+                    {
+                        var timeLord = Role.GetRole<TimeLord>(PlayerControl.LocalPlayer);
+                        if (RecordRewind.rewinding) disableExtra = false;
                     }
                     else if (PlayerControl.LocalPlayer.Is(RoleEnum.GuardianAngel))
                     {

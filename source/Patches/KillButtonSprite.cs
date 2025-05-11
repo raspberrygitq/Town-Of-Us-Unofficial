@@ -1,6 +1,7 @@
 ﻿using AmongUs.GameOptions;
 using HarmonyLib;
 using TownOfUs.Extensions;
+using TownOfUs.Patches;
 using TownOfUs.Roles;
 using TownOfUs.Roles.Modifiers;
 using UnityEngine;
@@ -47,6 +48,7 @@ namespace TownOfUs
         private static Sprite Bribe => TownOfUs.BribeSprite;
         private static Sprite Barrier => TownOfUs.BarrierSprite;
         private static Sprite Zoom => TownOfUs.ZoomSprite;
+        private static Sprite Rewind => TownOfUs.RewindSprite;
 
         private static Sprite Kill;
 
@@ -81,6 +83,11 @@ namespace TownOfUs
             else if (PlayerControl.LocalPlayer.Is(RoleEnum.Veteran))
             {
                 __instance.KillButton.graphic.sprite = Alert;
+                flag = true;
+            }
+            else if (PlayerControl.LocalPlayer.Is(RoleEnum.TimeLord))
+            {
+                __instance.KillButton.graphic.sprite = Rewind;
                 flag = true;
             }
             else if (PlayerControl.LocalPlayer.Is(RoleEnum.Amnesiac))

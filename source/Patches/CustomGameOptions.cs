@@ -84,6 +84,7 @@ namespace TownOfUs
         public static int TrapperOn => (int)Generate.TrapperOn.Get();
         public static int TraitorOn => (int)Generate.TraitorOn.Get();
         public static int TransporterOn => (int)Generate.TransporterOn.Get();
+        public static int TimeLordOn => (int)Generate.TimeLordOn.Get();
         public static int MediumOn => (int)Generate.MediumOn.Get();
         public static int SurvivorOn => (int)Generate.SurvivorOn.Get();
         public static int GuardianAngelOn => (int)Generate.GuardianAngelOn.Get();
@@ -269,6 +270,11 @@ namespace TownOfUs
         public static float TransportCooldown => Generate.TransportCooldown.Get();
         public static int TransportMaxUses => (int)Generate.TransportMaxUses.Get();
         public static bool TransporterVitals => Generate.TransporterVitals.Get();
+        public static bool RewindRevive => Generate.RewindRevive.Get();
+        public static float RewindDuration => Generate.RewindDuration.Get();
+        public static float RewindCooldown => Generate.RewindCooldown.Get();
+        public static int RewindMaxUses => (int)Generate.RewindMaxUses.Get();
+        public static bool TimeLordVitals => Generate.TimeLordVitals.Get();
         public static bool RememberArrows => Generate.RememberArrows.Get();
         public static float RememberArrowDelay => Generate.RememberArrowDelay.Get();
         public static float MediateCooldown => Generate.MediateCooldown.Get();
