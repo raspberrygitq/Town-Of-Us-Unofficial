@@ -21,6 +21,7 @@ namespace TownOfUs.Roles
             FinishRewind = DateTime.UtcNow;
             RoleType = RoleEnum.TimeLord;
             AddToRoleHistory(RoleType);
+            Alignment = Alignment.CrewmateSupport;
             Scale = 1.4f;
             UsesLeft = CustomGameOptions.RewindMaxUses;
         }
