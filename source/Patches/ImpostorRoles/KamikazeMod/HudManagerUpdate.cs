@@ -31,7 +31,6 @@ namespace TownOfUs.ImpostorRoles.KamikazeMod
             role.PlantButton.gameObject.SetActive((__instance.UseButton.isActiveAndEnabled || __instance.PetButton.isActiveAndEnabled)
                     && !MeetingHud.Instance && !PlayerControl.LocalPlayer.Data.IsDead
                     && AmongUsClient.Instance.GameState == InnerNet.InnerNetClient.GameStates.Started);
-            //role.PlantButton.SetCoolDown()
             if (role.Detonating)
             {
                 role.PlantButton.graphic.sprite = SuicideSprite;

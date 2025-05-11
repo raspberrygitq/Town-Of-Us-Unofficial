@@ -55,7 +55,6 @@ namespace TownOfUs.Roles
             if (Player.Data.IsDead)
             {
                 TimeRemaining = 0f;
-                Debug.Log($"[UnWallWalk] Wraith deactivated for player: {Player.name}");
             }
         }
         public void UnWallWalk()
@@ -63,7 +62,6 @@ namespace TownOfUs.Roles
             Enabled = false;
             LastNoclip = DateTime.UtcNow;
             Player.Collider.enabled = true;
-            Debug.Log($"[UnWallWalk] Player {Player.name} unmorphed.");
         }
     }
 }
