@@ -70,6 +70,8 @@ namespace TownOfUs.CrewmateRoles.ImitatorMod
             else if (imitatorRole == RoleEnum.Mystic) new Mystic(imi);
             else if (imitatorRole == RoleEnum.Oracle) new Oracle(imi);
             else if (imitatorRole == RoleEnum.Seer) new Seer(imi);
+            else if (imitatorRole == RoleEnum.TimeLord) new TimeLord(imi);
+
             else if (imitatorRole == RoleEnum.Snitch)
             {
                 var snitch = new Snitch(imi);

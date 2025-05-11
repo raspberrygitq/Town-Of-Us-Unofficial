@@ -52,6 +52,7 @@ namespace TownOfUs
         Cleric,
         President,
         Captain,
+        TimeLord,
 
         Miner,
         Swooper,
