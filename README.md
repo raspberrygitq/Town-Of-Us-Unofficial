@@ -42,6 +42,8 @@ Join our [Discord](https://discord.gg/ugyc4EVUYZ) if you have any problems or wa
 # Releases
 | Among Us - Version| Mod Version | Link |
 |----------|-------------|-----------------|
+| 16.0.2s & 16.0.2e | v1.3.0 | [Download](https://github.com/badzyn/Town-Of-Us-Unofficial/releases/download/v1.3.0/ToU-Unofficial-v1.3.0.zip) |
+| 16.0.2s & 16.0.2e | v1.2.2 | [Download](https://github.com/badzyn/Town-Of-Us-Unofficial/releases/download/v1.2.2/ToU-Unofficial-v1.2.2.zip) |
 | 16.0.2s & 16.0.2e | v1.2.1 | [Download](https://github.com/badzyn/Town-Of-Us-Unofficial/releases/download/v1.2.1/ToU-Unofficial-v1.2.1.zip) |
 | 16.0.2s & 16.0.2e | v1.2.0 | [Download](https://github.com/badzyn/Town-Of-Us-Unofficial/releases/download/v1.2.0/ToU-Unofficial-v1.2.0.zip) |
 | 16.0.2s & 16.0.2e | v1.1.3 | [Download](https://github.com/badzyn/Town-Of-Us-Unofficial/releases/download/v1.1.3/ToU-Unofficial-v1.1.3.zip) |
@@ -54,6 +56,15 @@ Join our [Discord](https://discord.gg/ugyc4EVUYZ) if you have any problems or wa
 
 <details>
   <summary> Changelog </summary>
+<details>
+  <summary> v1.3.0 </summary>
+  <ul> <li>Added new role - <b>Time Lord</b></li> </ul>
+  <ul> <li>Captain cannot longer use zoom during lights sabotage</li> </ul>
+  </details>
+<details>
+  <summary> v1.2.2 </summary>
+  <ul> <li>Added new role - <b>Captain</b></li> </ul>
+  </details>
   <details>
   <summary> v1.2.1 </summary>
   <ul> <li>Added optional Arsonist Impostor Vision</li> </ul>
