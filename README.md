@@ -288,6 +288,19 @@ If any player near the Aurial uses a button ability, the Aurial will get an arro
 | Sense Duration | The duration of the arrow to show an ability use | Time | 10s |
 
 -----------------------
+## Captain
+### **Team: Crewmates**
+The Captain has a unique ability allowing them to zoom on the entire map.
+### Game Options
+| Name | Description | Type | Default |
+|----------|:-------------:|:------:|:------:|
+| Captain | The percentage probability of the Captain appearing | Percentage | 0% |
+| Zoom Ability Cooldown | The cooldown to use the zoom ability | Time | 25s |
+| Zoom Ability Duration | The duration of the zoom ability | Time | 7s |
+| Zoom Range | The range of the zoom | Multiplier | 5,0x |
+| Maximum Ability Uses | The maximum number of uses of Zoom | Number | 5 |
+
+-----------------------
 ## Detective
 ### **Team: Crewmates**
 The Detective is a Crewmate that can inspect crime scenes and then examine players.\
@@ -743,6 +756,24 @@ or block a vent, placing a barricade on the vent preventing it's use.
 | Plumber | The percentage probability of the Plumber appearing | Percentage | 0% |
 | Flush Cooldown | The cooldown of the Plumber's Flush and Block buttons | Time | 25s |
 | Maximum Barricades | The number of times the Plumber can block a vent | Number | 5 |
+
+-----------------------
+## Time Lord
+### **Team: Crewmates**
+The Time Lord is a Crewmate that can rewind time and reverse the positions of all players.\
+If enabled, any players killed during this time will be revived.\
+Nothing but movements and kills are affected.\
+If enabled, the Time Lord can't use Vitals to make things more balanced.
+
+### Game Options
+| Name | Description | Type | Default |
+|----------|:-------------:|:------:|:------:|
+| Time Lord | The percentage probability of the Time Lord appearing | Percentage | 0% |
+| Revive During Rewind | Whether the Time Lord revives dead players when rewinding | Toggle | False |
+| Rewind Duration | How far the rewind goes back in time | Time | 2s |
+| Rewind Cooldown | The cooldown of the Time Lord's Rewind button | Time | 25s |
+| Max Uses | The amount of times the Rewind ability can be used | Number | 5 |
+| Time Lord can use Vitals | Whether the Time Lord has the ability to use Vitals | Toggle | False |
 
 -----------------------
 ## Transporter
