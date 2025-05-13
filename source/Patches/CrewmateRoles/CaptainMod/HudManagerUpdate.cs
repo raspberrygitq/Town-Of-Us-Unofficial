@@ -23,6 +23,17 @@ namespace TownOfUs.CrewmateRoles.CaptainMod
 
             var role = Role.GetRole<Captain>(PlayerControl.LocalPlayer);
 
+            bool isBlinded = false;
+            foreach (var eclipsalRole in Role.GetRoles(RoleEnum.Eclipsal))
+            {
+                var eclipsal = (Eclipsal)eclipsalRole;
+                if (eclipsal.BlindPlayers.Contains(PlayerControl.LocalPlayer))
+                {
+                    isBlinded = true;
+                    break;
+                }
+            }
+
             if (role.UsesText == null && role.UsesLeft > 0)
             {
                 role.UsesText = Object.Instantiate(zoomButton.cooldownTimerText, zoomButton.transform);
@@ -48,7 +59,6 @@ namespace TownOfUs.CrewmateRoles.CaptainMod
                 }
             }
 
-
             zoomButton.gameObject.SetActive((__instance.UseButton.isActiveAndEnabled || __instance.PetButton.isActiveAndEnabled)
                     && !MeetingHud.Instance && !PlayerControl.LocalPlayer.Data.IsDead
                     && AmongUsClient.Instance.GameState == InnerNet.InnerNetClient.GameStates.Started
@@ -65,7 +75,7 @@ namespace TownOfUs.CrewmateRoles.CaptainMod
             }
 
             var renderer = zoomButton.graphic;
-            if (role.Zooming || !zoomButton.isCoolingDown && role.ButtonUsable && PlayerControl.LocalPlayer.moveable && !role.sabotageLightsZoom())
+            if (role.Zooming || (!zoomButton.isCoolingDown && role.ButtonUsable && PlayerControl.LocalPlayer.moveable && !role.sabotageLightsZoom() && !isBlinded))
             {
                 renderer.color = Palette.EnabledColor;
                 renderer.material.SetFloat("_Desat", 0f);
