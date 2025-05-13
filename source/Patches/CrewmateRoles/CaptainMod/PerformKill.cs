@@ -13,6 +13,16 @@ namespace TownOfUs.Patches.CrewmateRoles.CaptainMod
             if (!PlayerControl.LocalPlayer.CanMove) return false;
             if (PlayerControl.LocalPlayer.Data.IsDead) return false;
             var role = Role.GetRole<Captain>(PlayerControl.LocalPlayer);
+
+            foreach (var eclipsalRole in Role.GetRoles(RoleEnum.Eclipsal))
+            {
+                var eclipsal = (Eclipsal)eclipsalRole;
+                if (eclipsal.BlindPlayers.Contains(PlayerControl.LocalPlayer))
+                {
+                    return false;
+                }
+            }
+
             if (!role.ButtonUsable) return false;
             if (role.sabotageLightsZoom()) return false;
             var zoomButton = HudManager.Instance.KillButton;
