@@ -1735,7 +1735,7 @@ If you have any bugs or any need to contact me, join the [Discord Server](https:
 [BryBry16](https://github.com/Brybry16/BetterPolus) - For the code used for Better Polus.\
 [Alexejhero](https://github.com/SubmergedAmongUs/Submerged) - For the Submerged map.\
 [Tajemniczy Typiarz](https://github.com/TTypiarz) - Inspiration of the Foreteller role.\
-[TownOfUsWYGON](https://github.com/wygon/Town-Of-Us-WYGON) - For the Wraith & Icenberg role ; For notes.\
+[TownOfUsWYGON](https://github.com/wygon/Town-Of-Us-WYGON) - For the Wraith, Kamikaze & Icenberg role ; For notes.\
 [TownOfUsEdited](https://github.com/lekillerdesgames/Town-Of-Us-Edited) - For Captain role.\
 [TownOfUsR](https://github.com/eDonnes124/Town-Of-Us-R) - Base Mod.\
 [Essentials](https://github.com/DorCoMaNdO/Reactor-Essentials) - For created custom game options.\
