@@ -27,7 +27,7 @@ namespace TownOfUs.CrewmateRoles.CaptainMod
 
                 if (cap.Zooming)
                 {
-                    if (isBlinded)
+                    if (isBlinded || cap.sabotageLightsZoom())
                     {
                         cap.UnZoomAbility();
                         cap.TimeRemainingZoom = 0f;
